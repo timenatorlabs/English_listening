@@ -35,7 +35,7 @@ APP = ROOT / "app"
 SEED = 20261012          # fixed so the speaker selection is reproducible
 N_TRAIN_SPEAKERS = 20
 N_TEST_SPEAKERS = 6
-N_DICTATION_SPEAKERS = 3
+SINGLE_VOICE = 227   # voice of the single-voice items (unchanged since v1)
 # Minimal-pair audio v2: word length must not give the answer away (v1 audits
 # found /s/ words longer than /θ/ words in 95% of same-speaker pairs). For each
 # pair and speaker, both words are re-synthesized to the pair's mean length,
@@ -196,7 +196,13 @@ def main() -> None:
 
     # dictation sentences
     sentences = json.loads((DATA / "dictation_sentences.json").read_text(encoding="utf-8"))["sentences"]
-    dict_speakers = sorted(random.Random(SEED + 1).sample(train_speakers, N_DICTATION_SPEAKERS))
+    # Sentence materials: 2 female + 2 male voices (data/voices.json, chosen by tools/pick_voices.py).
+    # Single-voice items (sound-change examples, slow rhythm, chants) keep the original male voice.
+    vj = J(DATA / "voices.json")
+    dict_speakers = vj["female"] + vj["male"]
+    voice_labels = {str(s): f"女性{i + 1}" for i, s in enumerate(vj["female"])}
+    voice_labels.update({str(s): f"男性{i + 1}" for i, s in enumerate(vj["male"])})
+    single_voice = SINGLE_VOICE
     audio_dir = APP / "audio" / "dict"
     audio_dir.mkdir(parents=True, exist_ok=True)
     made = skipped = 0
@@ -212,6 +218,7 @@ def main() -> None:
     write_json(APP / "data" / "dictation.json", {
         "audio": "audio/dict/{id}_{speaker}.mp3",
         "speakers": dict_speakers,
+        "voiceLabels": voice_labels,
         "sentences": sentences,
     })
     size = sum(f.stat().st_size for f in audio_dir.glob("*.mp3"))
@@ -233,8 +240,8 @@ def main() -> None:
         for i, ex in enumerate(les["examples"]):
             words = ex["text"].split()
             slow = ex["text"] if len(words) == 1 else ". ".join(w[0].upper() + w[1:] for w in words) + "."
-            made += make(cs_dir / f"{les['id']}-ex{i}-words.mp3", slow, dict_speakers[0], 1.4 if len(words) == 1 else 1.1)
-            made += make(cs_dir / f"{les['id']}-ex{i}-natural.mp3", ex["text"], dict_speakers[0])
+            made += make(cs_dir / f"{les['id']}-ex{i}-words.mp3", slow, single_voice, 1.4 if len(words) == 1 else 1.1)
+            made += make(cs_dir / f"{les['id']}-ex{i}-natural.mp3", ex["text"], single_voice)
         for i, q in enumerate(les["quiz"]):
             for spk in dict_speakers:
                 made += make(cs_dir / f"{les['id']}-q{i}_{spk}.mp3", q["text"], spk)
@@ -242,6 +249,7 @@ def main() -> None:
         "examples": "audio/cs/{lesson}-ex{i}-{kind}.mp3",
         "quiz": "audio/cs/{lesson}-q{i}_{speaker}.mp3",
         "speakers": dict_speakers,
+        "voiceLabels": voice_labels,
         "lessons": lessons,
     })
     size = sum(f.stat().st_size for f in cs_dir.glob("*.mp3"))
@@ -259,6 +267,7 @@ def main() -> None:
     write_json(APP / "data" / "shadowing.json", {
         "audio": "audio/sh/{passage}-{i}_{speaker}.mp3",
         "speakers": dict_speakers,
+        "voiceLabels": voice_labels,
         "passages": passages,
     })
     size = sum(f.stat().st_size for f in sh_dir.glob("*.mp3"))
@@ -297,11 +306,12 @@ def main() -> None:
         text = s["marked"].replace("*", "")
         for spk in dict_speakers:
             made += make(rh_dir / f"{s['id']}_{spk}.mp3", text, spk)
-        made += make(rh_dir / f"{s['id']}_slow.mp3", text, dict_speakers[0], 1.4)
+        made += make(rh_dir / f"{s['id']}_slow.mp3", text, single_voice, 1.4)
     write_json(APP / "data" / "rhythm.json", {
         "audio": "audio/rhythm/{id}_{speaker}.mp3",
         "slow": "audio/rhythm/{id}_slow.mp3",
         "speakers": dict_speakers,
+        "voiceLabels": voice_labels,
         "sentences": rhythm,
     })
     print(f"rhythm: sentences={len(rhythm)} made={made}")
@@ -318,6 +328,7 @@ def main() -> None:
     write_json(APP / "data" / "stories.json", {
         "audio": "audio/story/{story}-{i}_{speaker}.mp3",
         "speakers": dict_speakers,
+        "voiceLabels": voice_labels,
         "stories": stories,
     })
     size = sum(f.stat().st_size for f in sto_dir.glob("*.mp3"))
@@ -336,7 +347,7 @@ def main() -> None:
                 path = ch_dir / f"{ch['id']}_{tempo}{'' if voiced else '_beat'}.mp3"
                 if path.exists():
                     continue
-                audio, rate = render_chant(voice, lines, bpm, dict_speakers[0] if voiced else None)
+                audio, rate = render_chant(voice, lines, bpm, single_voice if voiced else None)
                 sf.write(path, audio, rate, format="MP3")
                 made += 1
     write_json(APP / "data" / "chants.json", {

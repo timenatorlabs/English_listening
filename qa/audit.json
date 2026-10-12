@@ -1,7 +1,7 @@
 {
  "date": "2026-10-12",
  "files": {
-  "referenced": 7395,
+  "referenced": 7598,
   "missing": [],
   "orphans": 0,
   "orphanDirs": []
@@ -121,38 +121,22 @@
    "piano",
    "sandwich"
   ],
-  "sentences": 671,
+  "sentences": 874,
   "sentencesMismatch": [
    {
-    "path": "audio/dict/2-03_575.mp3",
+    "path": "audio/dict/2-10_539.mp3",
     "group": "dictation",
     "match": false,
     "contentWords": [
-     "she"
+     "rain",
+     "ring"
     ],
     "diffWords": [
-     "she",
-     "he"
+     "rain",
+     "ring"
     ],
-    "expected": "She has a lot of friends.",
-    "heard": "He has a lot of friends."
-   },
-   {
-    "path": "audio/dict/2-04_575.mp3",
-    "group": "dictation",
-    "match": false,
-    "contentWords": [
-     "eight",
-     "hate"
-    ],
-    "diffWords": [
-     "at",
-     "eight",
-     "it",
-     "hate"
-    ],
-    "expected": "We need to leave at eight.",
-    "heard": "We need to leave it hate."
+    "expected": "I think it's going to rain.",
+    "heard": "I think it's going to ring."
    },
    {
     "path": "audio/dict/3-02_227.mp3",
@@ -171,36 +155,36 @@
     "heard": "What do you want E for dinner?"
    },
    {
-    "path": "audio/dict/3-06_575.mp3",
+    "path": "audio/dict/3-12_93.mp3",
     "group": "dictation",
     "match": false,
     "contentWords": [
-     "she"
+     "check",
+     "pick"
     ],
     "diffWords": [
-     "she",
-     "he"
+     "check",
+     "pick"
     ],
-    "expected": "She told me that she was tired.",
-    "heard": "He told me that she was tired."
+    "expected": "Check it out when you have time.",
+    "heard": "Pick it out when you have time."
    },
    {
-    "path": "audio/dict/4-01_575.mp3",
+    "path": "audio/dict/4-02_539.mp3",
     "group": "dictation",
     "match": false,
     "contentWords": [
-     "known",
-     "not"
+     "where"
     ],
     "diffWords": [
-     "known",
-     "not"
+     "or",
+     "where"
     ],
-    "expected": "If I had known about it, I would have told you.",
-    "heard": "If I had not about it, I would have told you."
+    "expected": "You'd better leave now, or you'll miss the train.",
+    "heard": "You'd better leave now where you'll miss the train."
    },
    {
-    "path": "audio/dict/4-02_227.mp3",
+    "path": "audio/dict/4-02_93.mp3",
     "group": "dictation",
     "match": false,
     "contentWords": [
@@ -211,23 +195,7 @@
      "you"
     ],
     "expected": "You'd better leave now, or you'll miss the train.",
-    "heard": "You better leave now, or you'll miss the train."
-   },
-   {
-    "path": "audio/dict/4-02_575.mp3",
-    "group": "dictation",
-    "match": false,
-    "contentWords": [
-     "you'd"
-    ],
-    "diffWords": [
-     "you'd",
-     "you",
-     "the",
-     "a"
-    ],
-    "expected": "You'd better leave now, or you'll miss the train.",
-    "heard": "You better leave now, or you'll miss a train."
+    "heard": "You better leave now or you'll miss the train."
    },
    {
     "path": "audio/dict/4-02_902.mp3",
@@ -246,7 +214,37 @@
     "heard": "You better leave now or you'll miss a train."
    },
    {
-    "path": "audio/dict/5-01_575.mp3",
+    "path": "audio/dict/4-02_227.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "you'd"
+    ],
+    "diffWords": [
+     "you'd",
+     "you"
+    ],
+    "expected": "You'd better leave now, or you'll miss the train.",
+    "heard": "You better leave now, or you'll miss the train."
+   },
+   {
+    "path": "audio/dict/4-09_93.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "store",
+     "stores"
+    ],
+    "diffWords": [
+     "store",
+     "is",
+     "stores"
+    ],
+    "expected": "As far as I know, the store is closed on Mondays.",
+    "heard": "As far as I know, the stores closed on Mondays."
+   },
+   {
+    "path": "audio/dict/5-01_93.mp3",
     "group": "dictation",
     "match": false,
     "contentWords": [
@@ -261,7 +259,53 @@
     "heard": "I'd have gone with you if you'd ask me."
    },
    {
-    "path": "audio/dict/5-07_227.mp3",
+    "path": "audio/dict/5-02_539.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "they",
+     "this"
+    ],
+    "diffWords": [
+     "they",
+     "are",
+     "this",
+     "is"
+    ],
+    "expected": "They're supposed to be here by now, aren't they?",
+    "heard": "This is supposed to be here by now, aren't they?"
+   },
+   {
+    "path": "audio/dict/5-03_539.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "what"
+    ],
+    "diffWords": [
+     "what",
+     "are",
+     "were"
+    ],
+    "expected": "What are you going to do about it?",
+    "heard": "Were you going to do about it?"
+   },
+   {
+    "path": "audio/dict/5-05_539.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "ought"
+    ],
+    "diffWords": [
+     "ought",
+     "are"
+    ],
+    "expected": "We ought to get going before it gets dark.",
+    "heard": "We are to get going before it gets dark."
+   },
+   {
+    "path": "audio/dict/5-07_539.mp3",
     "group": "dictation",
     "match": false,
     "contentWords": [
@@ -276,7 +320,7 @@
     "heard": "Would you mind if I open the window a little?"
    },
    {
-    "path": "audio/dict/5-07_575.mp3",
+    "path": "audio/dict/5-07_93.mp3",
     "group": "dictation",
     "match": false,
     "contentWords": [
@@ -292,6 +336,21 @@
    },
    {
     "path": "audio/dict/5-07_902.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "opened",
+     "open"
+    ],
+    "diffWords": [
+     "opened",
+     "open"
+    ],
+    "expected": "Would you mind if I opened the window a little?",
+    "heard": "Would you mind if I open the window a little?"
+   },
+   {
+    "path": "audio/dict/5-07_227.mp3",
     "group": "dictation",
     "match": false,
     "contentWords": [
@@ -350,6 +409,21 @@
     ],
     "expected": "for an hour",
     "heard": "4 and hour"
+   },
+   {
+    "path": "audio/cs/linking-q2_93.mp3",
+    "group": "connected-quiz",
+    "match": false,
+    "contentWords": [
+     "take",
+     "pick"
+    ],
+    "diffWords": [
+     "take",
+     "pick"
+    ],
+    "expected": "Take it easy.",
+    "heard": "Pick it easy."
    },
    {
     "path": "audio/cs/linking-q3_227.mp3",
@@ -429,20 +503,6 @@
     "heard": "Let's stop."
    },
    {
-    "path": "audio/cs/elision-q1_575.mp3",
-    "group": "connected-quiz",
-    "match": false,
-    "contentWords": [
-     "she"
-    ],
-    "diffWords": [
-     "she",
-     "he"
-    ],
-    "expected": "She left the room.",
-    "heard": "He left the room."
-   },
-   {
     "path": "audio/cs/assimilation-ex1-words.mp3",
     "group": "connected-example-words",
     "match": false,
@@ -472,7 +532,7 @@
     "heard": "It's a little hawk."
    },
    {
-    "path": "audio/sh/1-a-3_575.mp3",
+    "path": "audio/sh/1-a-3_539.mp3",
     "group": "shadowing",
     "match": false,
     "contentWords": [
@@ -502,6 +562,22 @@
     "heard": "Then I walked to the station."
    },
    {
+    "path": "audio/sh/1-b-4_93.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "walk",
+     "welcome"
+    ],
+    "diffWords": [
+     "walk",
+     "him",
+     "welcome"
+    ],
+    "expected": "We walk him every evening.",
+    "heard": "We welcome every evening."
+   },
+   {
     "path": "audio/sh/1-b-4_227.mp3",
     "group": "shadowing",
     "match": false,
@@ -518,34 +594,81 @@
     "heard": "We welcome every evening."
    },
    {
-    "path": "audio/sh/1-b-4_575.mp3",
+    "path": "audio/sh/2-a-0_93.mp3",
     "group": "shadowing",
     "match": false,
     "contentWords": [
-     "walk",
-     "welcome"
+     "what",
+     "where"
     ],
     "diffWords": [
-     "walk",
-     "him",
-     "welcome"
+     "what",
+     "where"
     ],
-    "expected": "We walk him every evening.",
-    "heard": "We welcome every evening."
+    "expected": "What are you doing this weekend?",
+    "heard": "Where are you doing this weekend?"
    },
    {
-    "path": "audio/sh/2-a-3_575.mp3",
+    "path": "audio/sh/2-a-3_539.mp3",
     "group": "shadowing",
     "match": false,
     "contentWords": [
-     "me"
+     "want",
+     "will"
     ],
     "diffWords": [
      "do",
+     "want",
+     "to",
+     "will",
+     "have"
+    ],
+    "expected": "Do you want to come with us?",
+    "heard": "You will have come with us"
+   },
+   {
+    "path": "audio/sh/2-a-3_93.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "me"
+    ],
+    "diffWords": [
      "me"
     ],
     "expected": "Do you want to come with us?",
-    "heard": "You want me to come with us?"
+    "heard": "Do you want me to come with us?"
+   },
+   {
+    "path": "audio/sh/2-b-3_93.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "we"
+    ],
+    "diffWords": [
+     "for",
+     "we",
+     "are",
+     "or"
+    ],
+    "expected": "For here or to go?",
+    "heard": "We're here to go."
+   },
+   {
+    "path": "audio/sh/2-b-3_902.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "we"
+    ],
+    "diffWords": [
+     "for",
+     "we",
+     "are"
+    ],
+    "expected": "For here or to go?",
+    "heard": "We're here or to go."
    },
    {
     "path": "audio/sh/2-b-3_227.mp3",
@@ -564,52 +687,6 @@
     "heard": "We're here to go."
    },
    {
-    "path": "audio/sh/2-b-3_575.mp3",
-    "group": "shadowing",
-    "match": false,
-    "contentWords": [
-     "we"
-    ],
-    "diffWords": [
-     "for",
-     "we",
-     "are"
-    ],
-    "expected": "For here or to go?",
-    "heard": "We're here or to go."
-   },
-   {
-    "path": "audio/sh/2-b-3_902.mp3",
-    "group": "shadowing",
-    "match": false,
-    "contentWords": [
-     "we"
-    ],
-    "diffWords": [
-     "for",
-     "we",
-     "are"
-    ],
-    "expected": "For here or to go?",
-    "heard": "We're here or to go."
-   },
-   {
-    "path": "audio/sh/2-b-4_575.mp3",
-    "group": "shadowing",
-    "match": false,
-    "contentWords": [
-     "go",
-     "pickle"
-    ],
-    "diffWords": [
-     "to",
-     "go",
-     "pickle"
-    ],
-    "expected": "To go, please.",
-    "heard": "Pickle, please."
-   },
-   {
     "path": "audio/sh/3-a-0_227.mp3",
     "group": "shadowing",
     "match": false,
@@ -623,22 +700,6 @@
     ],
     "expected": "It started raining when I left the office.",
     "heard": "It started raining while I left the office."
-   },
-   {
-    "path": "audio/sh/3-b-0_575.mp3",
-    "group": "shadowing",
-    "match": false,
-    "contentWords": [
-     "studying",
-     "steady"
-    ],
-    "diffWords": [
-     "studying",
-     "steady",
-     "in"
-    ],
-    "expected": "I've been studying English for about a year.",
-    "heard": "I've been steady in English for about a year."
    },
    {
     "path": "audio/sh/3-b-0_902.mp3",
@@ -656,19 +717,37 @@
     "heard": "I've been study, English for about a year."
    },
    {
-    "path": "audio/sh/3-b-1_575.mp3",
+    "path": "audio/sh/4-a-0_539.mp3",
     "group": "shadowing",
     "match": false,
     "contentWords": [
-     "native",
-     "these"
+     "these",
+     "he's"
     ],
     "diffWords": [
-     "native",
-     "these"
+     "these",
+     "he's"
     ],
-    "expected": "At first, it was hard to understand native speakers.",
-    "heard": "At first, it was hard to understand these speakers."
+    "expected": "These days, a lot of people work from home.",
+    "heard": "He's days a lot of people work from home."
+   },
+   {
+    "path": "audio/sh/4-a-1_539.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "saves",
+     "it's",
+     "this"
+    ],
+    "diffWords": [
+     "it",
+     "saves",
+     "it's",
+     "this"
+    ],
+    "expected": "It saves time because you don't have to commute.",
+    "heard": "It's this time because you don't have to commute."
    },
    {
     "path": "audio/sh/4-a-1_227.mp3",
@@ -721,6 +800,21 @@
     "heard": "Let's say yes to everything can leave you exhausted."
    },
    {
+    "path": "audio/sh/5-b-3_93.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "set",
+     "sit"
+    ],
+    "diffWords": [
+     "set",
+     "sit"
+    ],
+    "expected": "It's okay to set limits and take care of yourself.",
+    "heard": "It's okay to sit limits and take care of yourself."
+   },
+   {
     "path": "audio/story/s1-0_227.mp3",
     "group": "story",
     "match": false,
@@ -734,6 +828,21 @@
     ],
     "expected": "It was a rainy morning.",
     "heard": "It was a ringy morning."
+   },
+   {
+    "path": "audio/story/s1-1_93.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "kent"
+    ],
+    "diffWords": [
+     "ken",
+     "kent"
+    ],
+    "expected": "Ken took his blue umbrella and went to school.",
+    "heard": "Kent took his blue umbrella and went to school."
    },
    {
     "path": "audio/story/s1-1_902.mp3",
@@ -751,6 +860,21 @@
     "heard": "Han took his blue umbrella and went to school."
    },
    {
+    "path": "audio/story/s1-3_902.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "soccer",
+     "sucker"
+    ],
+    "diffWords": [
+     "soccer",
+     "sucker"
+    ],
+    "expected": "Ken played soccer with his friends.",
+    "heard": "Ken played sucker with his friends. //"
+   },
+   {
     "path": "audio/story/s1-3_227.mp3",
     "group": "story",
     "match": false,
@@ -766,37 +890,36 @@
     "heard": "Hand played soccer with his friends."
    },
    {
-    "path": "audio/story/s1-3_575.mp3",
+    "path": "audio/story/s1-5_539.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
-     "ken",
-     "played",
-     "play"
+     "where",
+     "where's"
     ],
     "diffWords": [
-     "ken",
-     "played",
-     "can",
-     "play"
+     "where",
+     "is",
+     "where's"
     ],
-    "expected": "Ken played soccer with his friends.",
-    "heard": "Can play soccer with his friends."
+    "expected": "At home, his mother asked, \"Where is your umbrella?\"",
+    "heard": "At home his mother asked, where's your umbrella?"
    },
    {
-    "path": "audio/story/s1-3_902.mp3",
+    "path": "audio/story/s1-5_93.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
-     "soccer",
-     "sucker"
+     "where",
+     "where's"
     ],
     "diffWords": [
-     "soccer",
-     "sucker"
+     "where",
+     "is",
+     "where's"
     ],
-    "expected": "Ken played soccer with his friends.",
-    "heard": "Ken played sucker with his friends. //"
+    "expected": "At home, his mother asked, \"Where is your umbrella?\"",
+    "heard": "At home his mother asked, where's your umbrella?"
    },
    {
     "path": "audio/story/s1-5_227.mp3",
@@ -815,38 +938,27 @@
     "heard": "At home his mother asked, where's your umbrella?"
    },
    {
-    "path": "audio/story/s1-5_575.mp3",
-    "group": "story",
-    "match": false,
-    "contentWords": [
-     "where",
-     "where's"
-    ],
-    "diffWords": [
-     "where",
-     "is",
-     "where's"
-    ],
-    "expected": "At home, his mother asked, \"Where is your umbrella?\"",
-    "heard": "At home, his mother asked, where's your umbrella?"
-   },
-   {
-    "path": "audio/story/s1-6_227.mp3",
+    "path": "audio/story/s1-6_539.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
      "ken",
-     "kim"
+     "looked",
+     "look"
     ],
     "diffWords": [
      "ken",
-     "kim"
+     "looked",
+     "at",
+     "can",
+     "look",
+     "to"
     ],
     "expected": "Ken looked at his hands.",
-    "heard": "Kim looked at his hands."
+    "heard": "can look to his hands."
    },
    {
-    "path": "audio/story/s1-6_575.mp3",
+    "path": "audio/story/s1-6_93.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
@@ -886,21 +998,22 @@
     "heard": "can look to his hands."
    },
    {
-    "path": "audio/story/s1-9_227.mp3",
+    "path": "audio/story/s1-6_227.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
-     "ken"
+     "ken",
+     "kim"
     ],
     "diffWords": [
      "ken",
-     "and"
+     "kim"
     ],
-    "expected": "Ken ran to school without an umbrella.",
-    "heard": "and ran to school without an umbrella."
+    "expected": "Ken looked at his hands.",
+    "heard": "Kim looked at his hands."
    },
    {
-    "path": "audio/story/s1-9_575.mp3",
+    "path": "audio/story/s1-9_539.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
@@ -935,18 +1048,51 @@
     "heard": "Han ran to school without an umbrella."
    },
    {
-    "path": "audio/story/s1-11_575.mp3",
+    "path": "audio/story/s1-9_227.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
-     "she"
+     "ken"
     ],
     "diffWords": [
-     "she",
-     "he"
+     "ken",
+     "and"
     ],
-    "expected": "She smiled and gave him his blue umbrella.",
-    "heard": "He smiled and gave him his blue umbrella."
+    "expected": "Ken ran to school without an umbrella.",
+    "heard": "and ran to school without an umbrella."
+   },
+   {
+    "path": "audio/story/s1-13_93.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "laughed",
+     "last"
+    ],
+    "diffWords": [
+     "ken",
+     "laughed",
+     "can",
+     "last"
+    ],
+    "expected": "Ken laughed. \"Thank you! You are a good friend.\"",
+    "heard": "Can last, thank you, you are a good friend."
+   },
+   {
+    "path": "audio/story/s1-13_902.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "kim"
+    ],
+    "diffWords": [
+     "ken",
+     "kim"
+    ],
+    "expected": "Ken laughed. \"Thank you! You are a good friend.\"",
+    "heard": "Kim laughed, thank you, you are a good friend."
    },
    {
     "path": "audio/story/s1-13_227.mp3",
@@ -967,51 +1113,84 @@
     "heard": "Can last, thank you, you are a good friend."
    },
    {
-    "path": "audio/story/s1-13_575.mp3",
+    "path": "audio/story/s2-0_539.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
-     "ken",
-     "laughed",
-     "laugh"
+     "mia",
+     "me"
     ],
     "diffWords": [
-     "ken",
-     "laughed",
-     "can",
-     "laugh"
+     "mia",
+     "me"
     ],
-    "expected": "Ken laughed. \"Thank you! You are a good friend.\"",
-    "heard": "Can laugh, thank you, you are a good friend."
+    "expected": "Every month, Mia gets a letter from her grandmother.",
+    "heard": "Every month, me gets a letter from her grandmother."
    },
    {
-    "path": "audio/story/s1-13_902.mp3",
+    "path": "audio/story/s2-0_93.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
-     "ken",
-     "kim"
+     "mia",
+     "me"
     ],
     "diffWords": [
-     "ken",
-     "kim"
+     "mia",
+     "me"
     ],
-    "expected": "Ken laughed. \"Thank you! You are a good friend.\"",
-    "heard": "Kim laughed, thank you, you are a good friend."
+    "expected": "Every month, Mia gets a letter from her grandmother.",
+    "heard": "Every month, me gets a letter from her grandmother."
    },
    {
-    "path": "audio/story/s2-2_575.mp3",
+    "path": "audio/story/s2-1_93.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
-     "she"
+     "lives",
+     "lies"
     ],
     "diffWords": [
-     "she",
-     "he"
+     "lives",
+     "lies"
     ],
-    "expected": "She doesn't use a phone very much, so she writes letters by hand.",
-    "heard": "He doesn't use a phone very much, so she writes letters by hand."
+    "expected": "Her grandmother lives in a small town by the sea.",
+    "heard": "Her grandmother lies in a small town by the sea."
+   },
+   {
+    "path": "audio/story/s2-4_539.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "mia",
+     "may",
+     "reads",
+     "read"
+    ],
+    "diffWords": [
+     "mia",
+     "may",
+     "i",
+     "reads",
+     "read"
+    ],
+    "expected": "Mia always reads them twice.",
+    "heard": "May I always read them twice?"
+   },
+   {
+    "path": "audio/story/s2-4_93.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "mia",
+     "mea"
+    ],
+    "diffWords": [
+     "mia",
+     "mea"
+    ],
+    "expected": "Mia always reads them twice.",
+    "heard": "Mea always reads them twice."
    },
    {
     "path": "audio/story/s2-4_227.mp3",
@@ -1033,27 +1212,7 @@
     "heard": "Me always read them twice."
    },
    {
-    "path": "audio/story/s2-4_575.mp3",
-    "group": "story",
-    "match": false,
-    "contentWords": [
-     "mia",
-     "may",
-     "reads",
-     "read"
-    ],
-    "diffWords": [
-     "mia",
-     "may",
-     "i",
-     "reads",
-     "read"
-    ],
-    "expected": "Mia always reads them twice.",
-    "heard": "May I always read them twice?"
-   },
-   {
-    "path": "audio/story/s2-5_227.mp3",
+    "path": "audio/story/s2-5_539.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
@@ -1083,6 +1242,21 @@
     "heard": "One day, May decided to write back."
    },
    {
+    "path": "audio/story/s2-5_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "mia",
+     "me"
+    ],
+    "diffWords": [
+     "mia",
+     "me"
+    ],
+    "expected": "One day, Mia decided to write back.",
+    "heard": "One day, me decided to write back."
+   },
+   {
     "path": "audio/story/s2-6_902.mp3",
     "group": "story",
     "match": false,
@@ -1097,21 +1271,7 @@
     "heard": "He wasn't sure what to say at first."
    },
    {
-    "path": "audio/story/s2-8_575.mp3",
-    "group": "story",
-    "match": false,
-    "contentWords": [
-     "she"
-    ],
-    "diffWords": [
-     "she",
-     "he"
-    ],
-    "expected": "She also drew a picture of her family.",
-    "heard": "He also drew a picture of her family."
-   },
-   {
-    "path": "audio/story/s3-2_575.mp3",
+    "path": "audio/story/s3-2_539.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
@@ -1119,13 +1279,11 @@
      "shop"
     ],
     "diffWords": [
-     "were",
-     "are",
      "shops",
      "shop"
     ],
     "expected": "There were hundreds of small shops selling food, clothes, and toys.",
-    "heard": "There are hundreds of small shop selling food, clothes and toys."
+    "heard": "There were hundreds of small shop selling food, clothes and toys."
    },
    {
     "path": "audio/story/s3-2_902.mp3",
@@ -1143,6 +1301,25 @@
     "heard": "There were hundreds of small shop selling food, clothes and toys."
    },
    {
+    "path": "audio/story/s3-3_539.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "tom",
+     "wanted",
+     "come"
+    ],
+    "diffWords": [
+     "tom",
+     "wanted",
+     "come",
+     "on",
+     "it"
+    ],
+    "expected": "Tom wanted to try everything, but he didn't know where to start.",
+    "heard": "Come on it to try everything, but he didn't know where to start."
+   },
+   {
     "path": "audio/story/s3-5_227.mp3",
     "group": "story",
     "match": false,
@@ -1157,6 +1334,26 @@
     ],
     "expected": "\"First time here?\" he asked with a smile.",
     "heard": "First time here, he asked for the smile."
+   },
+   {
+    "path": "audio/story/s3-6_93.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "tom",
+     "nodded",
+     "not"
+    ],
+    "diffWords": [
+     "tom",
+     "nodded",
+     "i",
+     "am",
+     "not",
+     "it"
+    ],
+    "expected": "Tom nodded.",
+    "heard": "I'm not it."
    },
    {
     "path": "audio/story/s3-6_227.mp3",
@@ -1191,35 +1388,114 @@
     "heard": "Then you should start with my new vels, they're the best in the market."
    },
    {
-    "path": "audio/story/s4-1_227.mp3",
+    "path": "audio/story/s3-8_539.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
-     "its"
+     "laughed",
+     "left"
+    ],
+    "diffWords": [
+     "laughed",
+     "left"
+    ],
+    "expected": "Tom laughed and sat down.",
+    "heard": "Tom left and sat down."
+   },
+   {
+    "path": "audio/story/s3-8_93.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "laughed",
+     "laffton"
+    ],
+    "diffWords": [
+     "laughed",
+     "and",
+     "laffton"
+    ],
+    "expected": "Tom laughed and sat down.",
+    "heard": "Tom Laffton sat down."
+   },
+   {
+    "path": "audio/story/s3-10_539.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "eating",
+     "eking"
+    ],
+    "diffWords": [
+     "eating",
+     "eking"
+    ],
+    "expected": "While he was eating, the old man told him stories about the market.",
+    "heard": "While he was eking, the old man told him stories about the market."
+   },
+   {
+    "path": "audio/story/s3-10_93.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "man",
+     "men"
+    ],
+    "diffWords": [
+     "man",
+     "men"
+    ],
+    "expected": "While he was eating, the old man told him stories about the market.",
+    "heard": "While he was eating, the old men told him stories about the market."
+   },
+   {
+    "path": "audio/story/s3-13_93.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "man",
+     "men"
+    ],
+    "diffWords": [
+     "man",
+     "men"
+    ],
+    "expected": "\"Walk slowly,\" the man said. \"Don't just look at the food. Talk to the people.\"",
+    "heard": "Walk slowly, the men said. Don't just look at the food. Talk to the people."
+   },
+   {
+    "path": "audio/story/s3-15_93.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "tom",
+     "palm"
+    ],
+    "diffWords": [
+     "tom",
+     "palm"
+    ],
+    "expected": "Tom followed his advice, and it became one of the best nights of his trip.",
+    "heard": "Palm followed his advice, and it became one of the best nights of his trip."
+   },
+   {
+    "path": "audio/story/s4-1_539.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "its",
+     "it's",
+     "gray",
+     "grey"
     ],
     "diffWords": [
      "its",
-     "his",
-     "it",
-     "he"
-    ],
-    "expected": "Its job was simple: it painted cars the same shade of gray, all day long.",
-    "heard": "His job was simple. He painted cars the same shade of gray all day long."
-   },
-   {
-    "path": "audio/story/s4-1_575.mp3",
-    "group": "story",
-    "match": false,
-    "contentWords": [
-     "gray",
-     "grey"
-    ],
-    "diffWords": [
+     "it's",
      "gray",
      "grey"
     ],
     "expected": "Its job was simple: it painted cars the same shade of gray, all day long.",
-    "heard": "Its job was simple. It painted cars the same shade of grey all day long."
+    "heard": "It's job was simple. It painted cars the same shade of grey all day long."
    },
    {
     "path": "audio/story/s4-1_902.mp3",
@@ -1237,6 +1513,53 @@
     "heard": "Its job was simple, it painted cars the same shade of grey all day long."
    },
    {
+    "path": "audio/story/s4-1_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "its"
+    ],
+    "diffWords": [
+     "its",
+     "his",
+     "it",
+     "he"
+    ],
+    "expected": "Its job was simple: it painted cars the same shade of gray, all day long.",
+    "heard": "His job was simple. He painted cars the same shade of gray all day long."
+   },
+   {
+    "path": "audio/story/s4-2_539.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "through",
+     "into"
+    ],
+    "diffWords": [
+     "in",
+     "through",
+     "into"
+    ],
+    "expected": "One evening, after the workers had gone home, a small bird flew in through a broken window.",
+    "heard": "One evening after the workers had gone home, a small bird flew into a broken window."
+   },
+   {
+    "path": "audio/story/s4-5_93.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "color",
+     "colored"
+    ],
+    "diffWords": [
+     "color",
+     "colored"
+    ],
+    "expected": "The bird's feathers were bright orange, a color the robot had never used before.",
+    "heard": "The bird's feathers were bright orange, a colored the robot had never used before."
+   },
+   {
     "path": "audio/story/s4-5_227.mp3",
     "group": "story",
     "match": false,
@@ -1252,22 +1575,7 @@
     "heard": "The bird's feathers were bright orange, a color the robo had never used before."
    },
    {
-    "path": "audio/story/s4-5_575.mp3",
-    "group": "story",
-    "match": false,
-    "contentWords": [
-     "bird's",
-     "bird"
-    ],
-    "diffWords": [
-     "bird's",
-     "bird"
-    ],
-    "expected": "The bird's feathers were bright orange, a color the robot had never used before.",
-    "heard": "The bird feathers were bright orange, a color the robot had never used before."
-   },
-   {
-    "path": "audio/story/s4-6_575.mp3",
+    "path": "audio/story/s4-6_539.mp3",
     "group": "story",
     "match": false,
     "contentWords": [
@@ -1280,21 +1588,6 @@
     ],
     "expected": "For the first time, Unit Seven wondered what it would be like to paint something other than gray.",
     "heard": "For the first time, Unit 7 wondered what it would be like to paint something other than grey."
-   },
-   {
-    "path": "audio/story/s4-7_575.mp3",
-    "group": "story",
-    "match": false,
-    "contentWords": [
-     "mixed",
-     "makes"
-    ],
-    "diffWords": [
-     "mixed",
-     "makes"
-    ],
-    "expected": "That night, it mixed a little red and yellow paint and carefully drew a bird on the side of a car.",
-    "heard": "That night, it makes a little red and yellow paint and carefully drew a bird on the side of a car. //"
    },
    {
     "path": "audio/story/s4-9_227.mp3",
@@ -1328,36 +1621,6 @@
     "heard": "Before long, Unit 7 was painting birds, flowers, and even cinsets."
    },
    {
-    "path": "audio/rhythm/r01_227.mp3",
-    "group": "rhythm",
-    "match": false,
-    "contentWords": [
-     "cats",
-     "catch"
-    ],
-    "diffWords": [
-     "cats",
-     "catch"
-    ],
-    "expected": "Cats chase mice.",
-    "heard": "Catch Chase Mice"
-   },
-   {
-    "path": "audio/rhythm/r01_575.mp3",
-    "group": "rhythm",
-    "match": false,
-    "contentWords": [
-     "cats",
-     "that's"
-    ],
-    "diffWords": [
-     "cats",
-     "that's"
-    ],
-    "expected": "Cats chase mice.",
-    "heard": "That's Chase Mice."
-   },
-   {
     "path": "audio/rhythm/r01_902.mp3",
     "group": "rhythm",
     "match": false,
@@ -1373,35 +1636,34 @@
     "heard": "That's Chase Mice. //"
    },
    {
-    "path": "audio/rhythm/r03_575.mp3",
+    "path": "audio/rhythm/r01_227.mp3",
     "group": "rhythm",
     "match": false,
     "contentWords": [
-     "bit"
+     "cats",
+     "catch"
     ],
     "diffWords": [
-     "have",
-     "been",
-     "are",
-     "bit"
+     "cats",
+     "catch"
     ],
-    "expected": "The cats have been chasing the mice.",
-    "heard": "The cats are bit chasing the mice."
+    "expected": "Cats chase mice.",
+    "heard": "Catch Chase Mice"
    },
    {
-    "path": "audio/rhythm/r06_575.mp3",
+    "path": "audio/rhythm/r03_93.mp3",
     "group": "rhythm",
     "match": false,
     "contentWords": [
-     "she's",
-     "he's"
+     "cats",
+     "cat"
     ],
     "diffWords": [
-     "she's",
-     "he's"
+     "cats",
+     "cat"
     ],
-    "expected": "She's going to call you later.",
-    "heard": "He's going to call you later."
+    "expected": "The cats have been chasing the mice.",
+    "heard": "The cat have been chasing the mice."
    },
    {
     "path": "audio/rhythm/r06_slow.mp3",
@@ -1417,6 +1679,21 @@
     ],
     "expected": "She's going to call you later.",
     "heard": "He's going to call you later."
+   },
+   {
+    "path": "audio/rhythm/r10_93.mp3",
+    "group": "rhythm",
+    "match": false,
+    "contentWords": [
+     "rain",
+     "ring"
+    ],
+    "diffWords": [
+     "rain",
+     "ring"
+    ],
+    "expected": "I think it's going to rain tomorrow.",
+    "heard": "I think it's going to ring tomorrow."
    },
    {
     "path": "audio/rhythm/r10_227.mp3",
@@ -1454,9 +1731,23 @@
     ],
     "expected": "I think it's going to rain tomorrow.",
     "heard": "I think it's going to ring tomorrow."
+   },
+   {
+    "path": "audio/rhythm/r12_539.mp3",
+    "group": "rhythm",
+    "match": false,
+    "contentWords": [
+     "this"
+    ],
+    "diffWords": [
+     "the",
+     "this"
+    ],
+    "expected": "Could you pass me the salt, please?",
+    "heard": "Could you pass me this salt, please?"
    }
   ],
-  "sentencesMinor": 18
+  "sentencesMinor": 23
  },
  "labelStatus": {
   "rl:right": {
@@ -3009,9 +3300,9 @@
   },
   "rhythm:r01": {
    "kind": "文の強い語",
-   "auto": "要確認",
+   "auto": "合格",
    "human": "1件確認・問題なし",
-   "note": "語の対応付けに失敗"
+   "note": ""
   },
   "rhythm:r02": {
    "kind": "文の強い語",
@@ -3022,25 +3313,25 @@
   "rhythm:r03": {
    "kind": "文の強い語",
    "auto": "要確認",
-   "human": "1件確認・問題なし",
+   "human": "未確認",
    "note": "強い語なのに弱く聞こえる可能性: mice."
   },
   "rhythm:r04": {
    "kind": "文の強い語",
-   "auto": "合格",
+   "auto": "要確認",
    "human": "未確認",
-   "note": ""
+   "note": "強い語なのに弱く聞こえる可能性: go, want"
   },
   "rhythm:r05": {
    "kind": "文の強い語",
    "auto": "要確認",
    "human": "未確認",
-   "note": "強い語なのに弱く聞こえる可能性: put"
+   "note": "強い語なのに弱く聞こえる可能性: Where, put"
   },
   "rhythm:r06": {
    "kind": "文の強い語",
    "auto": "要確認",
-   "human": "1件確認・問題なし",
+   "human": "未確認",
    "note": "強い語なのに弱く聞こえる可能性: call, going, later."
   },
   "rhythm:r07": {
@@ -3057,9 +3348,9 @@
   },
   "rhythm:r09": {
    "kind": "文の強い語",
-   "auto": "合格",
+   "auto": "要確認",
    "human": "未確認",
-   "note": ""
+   "note": "強い語なのに弱く聞こえる可能性: dinner?"
   },
   "rhythm:r10": {
    "kind": "文の強い語",
@@ -3077,7 +3368,7 @@
    "kind": "文の強い語",
    "auto": "要確認",
    "human": "未確認",
-   "note": "強い語なのに弱く聞こえる可能性: please?"
+   "note": "強い語なのに弱く聞こえる可能性: please?, salt,"
   },
   "connected:linking": {
    "kind": "音の変化の例",

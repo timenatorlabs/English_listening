@@ -11,6 +11,7 @@ import * as stress from "./stress.js";
 import * as reading from "./reading.js";
 import * as vocab from "./vocab.js";
 import { normalizeTest, testKind, lastTrainingDate } from "./metrics.js";
+import { BENEFITS, benefitCard } from "./benefits.js";
 
 const TRAIN_TRIALS = 50;
 const TEST_TRIALS_PER_GROUP = 20;   // new words + trained words, both with unseen talkers
@@ -79,6 +80,7 @@ async function renderHome() {
 
   const rec = new Set(RECOMMENDED[level] || []);
   const badge = (key) => (rec.has(key) ? `<span class="badge">あなたのレベルにおすすめ</span>` : "");
+  const gain = (key) => `<p class="gain">できるようになること：${esc(BENEFITS[key].short)}</p>`;
 
   app.innerHTML = `
     <h1>英語の耳トレ</h1>
@@ -95,6 +97,7 @@ async function renderHome() {
     <section class="card">
       ${badge("rhythm")}
       <h2>リズムと強勢</h2>
+      ${gain("rhythm")}
       <p class="muted small">英語の「強・弱」のリズムを聞き取る練習です。単語の強い音節を聞き分け、文の中で強く読まれる語を聞き取ります。</p>
       <button class="btn" type="button" id="go-rhythm">リズムと強勢を練習する</button>
     </section>
@@ -102,6 +105,7 @@ async function renderHome() {
     <section class="card">
       ${badge("connected")}
       <h2>音の変化の学習</h2>
+      ${gain("connected")}
       <p class="muted small">音がつながる・弱くなる・消えるなど、文の中で音が変わるルールを、聞き比べと確認問題で学びます。</p>
       <button class="btn" type="button" id="go-connected">音の変化を学ぶ</button>
     </section>
@@ -109,6 +113,7 @@ async function renderHome() {
     <section class="card">
       ${badge("dictation")}
       <h2>書き取り（弱点診断）</h2>
+      ${gain("dictation")}
       <p class="muted small">文を聞いて書き取り、聞き取れなかった原因（音の変化・弱く発音される語・音の混同・知らない単語）を調べます。</p>
       <button class="btn" type="button" id="go-dictation">書き取りをする（10文）</button>
       <button class="btn" type="button" id="go-weakness">弱点のまとめを見る</button>
@@ -117,6 +122,7 @@ async function renderHome() {
     <section class="card">
       ${badge("shadowing")}
       <h2>シャドーイング</h2>
+      ${gain("shadowing")}
       <p class="muted small">短い文章を、内容理解 → 見ながら読む → 見ないで追いかける、の3ステップで練習します。</p>
       <button class="btn" type="button" id="go-shadowing">シャドーイングをする</button>
     </section>
@@ -124,6 +130,7 @@ async function renderHome() {
     <section class="card">
       ${badge("reading")}
       <h2>聞き読み（物語）</h2>
+      ${gain("reading")}
       <p class="muted small">絵本の読み聞かせのように、文字を見ながら短い物語を聞きます。多聴の入門にもなります。</p>
       <button class="btn" type="button" id="go-reading">物語を聞く</button>
     </section>
@@ -131,6 +138,7 @@ async function renderHome() {
     <section class="card">
       ${badge("extensive")}
       <h2>多聴</h2>
+      ${gain("extensive")}
       <p class="muted small">やさしい英語をたくさん聞いて、聞いてすぐ分かる「慣れ」を育てます。聞いた時間と理解度を記録します。</p>
       <button class="btn" type="button" id="go-extensive">多聴をする</button>
     </section>
@@ -138,6 +146,7 @@ async function renderHome() {
     <section class="card">
       ${badge("hvpt")}
       <h2>音の聞き分け訓練</h2>
+      ${gain("hvpt")}
       <p class="muted small">日本語話者が聞き分けにくい音のペアです。迷ったら、研究の根拠が最も強い /r/ と /l/ から始めましょう。</p>
       ${contrasts.map((c) => {
         const last = lastFor(c.id);
@@ -186,6 +195,7 @@ async function renderContrast(id) {
 
   app.innerHTML = `
     <h1>${esc(manifest.title)} の聞き分け</h1>
+    ${benefitCard("hvpt")}
 
     <section class="card">
       <p class="small"><strong>根拠 ${esc(manifest.evidence)}</strong>：${esc(EVIDENCE[manifest.evidence] || "")}</p>
@@ -677,6 +687,7 @@ function renderAbout() {
       <h2>プライバシー</h2>
       <p class="small">学習記録はこの端末の中だけに保存され、外部へは送信されません。アクセス解析や広告も使っていません。</p>
       <p class="small">シャドーイングの録音は、その画面を開いている間だけ端末のメモリに置かれ、画面を離れると消えます。保存も送信もしません。</p>
+      <p class="small">多聴の「アプリ内で聞く」（VOA、BBC、TED、LibriVox）では、音声を配信元のサーバーから直接受け取ります。そのため、再生するとこのスマホが配信元（と配信元が使う配信業者）のサーバーに接続します。学習記録は送りません。番組の一覧は、このアプリのサーバー（GitHub）が毎日取得したものを使います。</p>
     </section>
     <section class="card">
       <h2>クレジット</h2>

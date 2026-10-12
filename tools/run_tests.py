@@ -22,7 +22,7 @@ EDGE_PATHS = [
     r"C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe",
     r"C:\Program Files\Microsoft\Edge\Application\msedge.exe",
 ]
-TIMEOUT = 120
+TIMEOUT = 180
 
 
 class Handler(SimpleHTTPRequestHandler):
@@ -51,7 +51,11 @@ def main() -> int:
     threading.Thread(target=server.serve_forever, daemon=True).start()
     profile = tempfile.mkdtemp(prefix="edge-test-")
     url = f"http://127.0.0.1:{server.server_port}/tests/index.html"
+    # fake microphone for the recording test; autoplay allowed because test clicks are not
+    # real taps (mobile tap/autoplay rules must still be checked on a real phone)
     proc = subprocess.Popen([edge, "--headless=new", "--disable-gpu", "--no-first-run", "--no-default-browser-check",
+                             "--use-fake-ui-for-media-stream", "--use-fake-device-for-media-stream",
+                             "--autoplay-policy=no-user-gesture-required", "--mute-audio",
                              f"--user-data-dir={profile}", url],
                             stdout=subprocess.DEVNULL, stderr=subprocess.DEVNULL)
     try:

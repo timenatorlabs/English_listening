@@ -4,6 +4,7 @@ import * as db from "./db.js";
 import { esc, pct, pick, shuffle } from "./util.js";
 import { play } from "./audio.js";
 import { tokenize, eq } from "./scoring.js";
+import { benefitCard } from "./benefits.js";
 
 const app = document.getElementById("app");
 let data = null;
@@ -35,6 +36,7 @@ export async function renderList() {
   const best = await bestScores();
   app.innerHTML = `
     <h1>音の変化の学習</h1>
+    ${benefitCard("connected")}
     <section class="card">
       <p class="small">英語は、単語を1つずつ発音するときと、文の中で話すときとで音が変わります。知っている単語なのに聞き取れない原因の多くはここにあります。</p>
       <p class="muted small">根拠 ○：音の変化を明示的に学ぶと聞き取りが伸びたという報告があります（小規模な研究）。</p>

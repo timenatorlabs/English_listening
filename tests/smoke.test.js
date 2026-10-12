@@ -106,6 +106,70 @@ test("smoke: karte with data shows counts, ranges, differences and a chart", asy
   ok(errors.length === 0, errors.join(" | "));
 });
 
+test("smoke: shadowing records for the whole model playback", async () => {
+  await openApp();
+  click('[data-nav="home"]');
+  ok(await until(() => doc().querySelector("#go-shadowing")), "home missing");
+  click("#go-shadowing");
+  ok(await until(() => doc().querySelector('[data-passage="1-a"]')), "passage list missing");
+  click('[data-passage="1-a"]');
+  ok(await until(() => doc().querySelector('[data-step="2"]')), "passage did not open");
+  click('[data-step="2"]');
+  ok(await until(() => doc().querySelector("#record") && !doc().querySelector("#record").disabled), "record button missing or disabled");
+  const started = Date.now();
+  click("#record");
+  ok(await until(() => doc().querySelector("#record").textContent.includes("録音中"), 5000), "recording did not start");
+  // the model audio of 5 sentences lasts several seconds; recording must not stop right away
+  ok(await until(() => doc().querySelector('[data-sentence="2"].now'), 20000), "playback did not reach the 3rd sentence while recording");
+  ok(doc().querySelector("#record").textContent.includes("録音中"), "recording stopped early");
+  ok(await until(() => doc().querySelector("#play-mine"), 40000), "own recording was not offered");
+  ok(Date.now() - started > 4000, `recording ended too soon (${Date.now() - started} ms)`);
+  ok(errors.length === 0, errors.join(" | "));
+});
+
+test("smoke: benefit cards are shown (home and practice screens)", async () => {
+  await openApp();
+  click('[data-nav="home"]');
+  ok(await until(() => text().includes("できるようになること")), "home benefit lines missing");
+  click("#go-rhythm");
+  ok(await until(() => text().includes("この練習で何ができるようになるか")), "rhythm benefit card missing");
+  ok(errors.length === 0, errors.join(" | "));
+});
+
+for (const sid of ["voa", "bbc", "ted", "librivox"]) {
+  test(`smoke (network): ${sid} episodes load and play inside the app`, async () => {
+    await openApp();
+    click('[data-nav="home"]');
+    ok(await until(() => doc().querySelector("#go-extensive")), "home missing");
+    click("#go-extensive");
+    ok(await until(() => doc().querySelector(`[data-feed="${sid}"]`)), "in-app listen button missing");
+    click(`[data-feed="${sid}"]`);
+    ok(await until(() => doc().querySelector("[data-ep]"), 20000), "episode list did not load");
+    click('[data-ep="0"]');
+    ok(await until(() => doc().querySelector("#ep-audio")), "episode screen missing");
+    const audio = doc().querySelector("#ep-audio");
+    ok(audio.src.startsWith("https://"), `audio is not https: ${audio.src}`);
+    await audio.play();
+    ok(await until(() => audio.currentTime > 1, 30000), "audio did not play (network needed)");
+    audio.pause();
+    ok(await until(() => doc().querySelector("#listened").textContent !== "0分0秒"), "listening time not counted");
+    ok(errors.length === 0, errors.join(" | "));
+  });
+}
+
+test("smoke: shadowing offers female and male voices", async () => {
+  await openApp();
+  click('[data-nav="home"]');
+  ok(await until(() => doc().querySelector("#go-shadowing")));
+  click("#go-shadowing");
+  ok(await until(() => doc().querySelector('[data-passage="2-a"]')));
+  click('[data-passage="2-a"]');
+  ok(await until(() => doc().querySelector("[data-speaker]")), "voice buttons missing");
+  const labels = [...doc().querySelectorAll("[data-speaker]")].map((b) => b.textContent);
+  ok(labels.some((l) => l.includes("女性")) && labels.some((l) => l.includes("男性")), `labels: ${labels.join(",")}`);
+  ok(errors.length === 0, errors.join(" | "));
+});
+
 test("smoke: other screens open", async () => {
   await openApp();
   for (const [btn, expect] of [["#go-connected", "音の変化の学習"], ["#go-shadowing", "シャドーイング"], ["#go-rhythm", "リズムと強勢"],

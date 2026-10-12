@@ -1,0 +1,139 @@
+{
+ "note": "Sentence-material voices. female = clearest of sampled female-like voices by local ASR; male = existing voices with fewest audit mismatches.",
+ "female": [
+  539,
+  93
+ ],
+ "male": [
+  902,
+  227
+ ],
+ "pitch": {
+  "539": 216.2,
+  "93": 191.7,
+  "902": 102.1,
+  "227": 94.6
+ },
+ "candidates": [
+  {
+   "speaker": 539,
+   "f0": 216.2,
+   "asrErrors": 0
+  },
+  {
+   "speaker": 93,
+   "f0": 191.7,
+   "asrErrors": 0
+  },
+  {
+   "speaker": 707,
+   "f0": 188.5,
+   "asrErrors": 0
+  },
+  {
+   "speaker": 311,
+   "f0": 185.3,
+   "asrErrors": 0
+  },
+  {
+   "speaker": 229,
+   "f0": 185.3,
+   "asrErrors": 0
+  },
+  {
+   "speaker": 161,
+   "f0": 185.3,
+   "asrErrors": 0
+  },
+  {
+   "speaker": 625,
+   "f0": 182.2,
+   "asrErrors": 0
+  },
+  {
+   "speaker": 99,
+   "f0": 180.7,
+   "asrErrors": 0
+  },
+  {
+   "speaker": 599,
+   "f0": 179.3,
+   "asrErrors": 0
+  },
+  {
+   "speaker": 897,
+   "f0": 177.8,
+   "asrErrors": 0
+  },
+  {
+   "speaker": 0,
+   "f0": 175.0,
+   "asrErrors": 0
+  },
+  {
+   "speaker": 408,
+   "f0": 212.0,
+   "asrErrors": 2
+  },
+  {
+   "speaker": 487,
+   "f0": 181.5,
+   "asrErrors": 2
+  },
+  {
+   "speaker": 144,
+   "f0": 175.0,
+   "asrErrors": 2
+  },
+  {
+   "speaker": 61,
+   "f0": 195.1,
+   "asrErrors": 3
+  },
+  {
+   "speaker": 321,
+   "f0": 190.9,
+   "asrErrors": 3
+  },
+  {
+   "speaker": 107,
+   "f0": 190.1,
+   "asrErrors": 3
+  },
+  {
+   "speaker": 66,
+   "f0": 177.8,
+   "asrErrors": 3
+  },
+  {
+   "speaker": 692,
+   "f0": 176.4,
+   "asrErrors": 3
+  },
+  {
+   "speaker": 316,
+   "f0": 193.4,
+   "asrErrors": 5
+  },
+  {
+   "speaker": 853,
+   "f0": 179.3,
+   "asrErrors": 5
+  },
+  {
+   "speaker": 880,
+   "f0": 175.7,
+   "asrErrors": 5
+  },
+  {
+   "speaker": 83,
+   "f0": 191.7,
+   "asrErrors": 6
+  },
+  {
+   "speaker": 10,
+   "f0": 180.7,
+   "asrErrors": 7
+  }
+ ]
+}

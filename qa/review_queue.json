@@ -411,13 +411,8 @@
    "reason": "音声認識で別の語と判定された単語"
   },
   {
-   "path": "audio/dict/2-03_575.mp3",
-   "text": "She has a lot of friends.",
-   "reason": "音声認識で原文と違う語があった文"
-  },
-  {
-   "path": "audio/dict/2-04_575.mp3",
-   "text": "We need to leave at eight.",
+   "path": "audio/dict/2-10_539.mp3",
+   "text": "I think it's going to rain.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
@@ -426,27 +421,42 @@
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/dict/3-06_575.mp3",
-   "text": "She told me that she was tired.",
+   "path": "audio/dict/3-12_93.mp3",
+   "text": "Check it out when you have time.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/dict/4-01_575.mp3",
-   "text": "If I had known about it, I would have told you.",
-   "reason": "音声認識で原文と違う語があった文"
-  },
-  {
-   "path": "audio/dict/4-02_227.mp3",
+   "path": "audio/dict/4-02_539.mp3",
    "text": "You'd better leave now, or you'll miss the train.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/dict/5-01_575.mp3",
+   "path": "audio/dict/4-09_93.mp3",
+   "text": "As far as I know, the store is closed on Mondays.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/dict/5-01_93.mp3",
    "text": "I'd have gone with you if you'd asked me.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/dict/5-07_227.mp3",
+   "path": "audio/dict/5-02_539.mp3",
+   "text": "They're supposed to be here by now, aren't they?",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/dict/5-03_539.mp3",
+   "text": "What are you going to do about it?",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/dict/5-05_539.mp3",
+   "text": "We ought to get going before it gets dark.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/dict/5-07_539.mp3",
    "text": "Would you mind if I opened the window a little?",
    "reason": "音声認識で原文と違う語があった文"
   },
@@ -463,6 +473,11 @@
   {
    "path": "audio/cs/linking-ex4-words.mp3",
    "text": "for an hour",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/cs/linking-q2_93.mp3",
+   "text": "Take it easy.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
@@ -491,11 +506,6 @@
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/cs/elision-q1_575.mp3",
-   "text": "She left the room.",
-   "reason": "音声認識で原文と違う語があった文"
-  },
-  {
    "path": "audio/cs/assimilation-ex1-words.mp3",
    "text": "would you",
    "reason": "音声認識で原文と違う語があった文"
@@ -506,28 +516,28 @@
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/sh/1-a-3_575.mp3",
+   "path": "audio/sh/1-a-3_539.mp3",
    "text": "Then I walk to the station.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/sh/1-b-4_227.mp3",
+   "path": "audio/sh/1-b-4_93.mp3",
    "text": "We walk him every evening.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/sh/2-a-3_575.mp3",
+   "path": "audio/sh/2-a-0_93.mp3",
+   "text": "What are you doing this weekend?",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/sh/2-a-3_539.mp3",
    "text": "Do you want to come with us?",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/sh/2-b-3_227.mp3",
+   "path": "audio/sh/2-b-3_93.mp3",
    "text": "For here or to go?",
-   "reason": "音声認識で原文と違う語があった文"
-  },
-  {
-   "path": "audio/sh/2-b-4_575.mp3",
-   "text": "To go, please.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
@@ -536,17 +546,17 @@
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/sh/3-b-0_575.mp3",
+   "path": "audio/sh/3-b-0_902.mp3",
    "text": "I've been studying English for about a year.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/sh/3-b-1_575.mp3",
-   "text": "At first, it was hard to understand native speakers.",
+   "path": "audio/sh/4-a-0_539.mp3",
+   "text": "These days, a lot of people work from home.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/sh/4-a-1_227.mp3",
+   "path": "audio/sh/4-a-1_539.mp3",
    "text": "It saves time because you don't have to commute.",
    "reason": "音声認識で原文と違う語があった文"
   },
@@ -561,57 +571,62 @@
    "reason": "音声認識で原文と違う語があった文"
   },
   {
+   "path": "audio/sh/5-b-3_93.mp3",
+   "text": "It's okay to set limits and take care of yourself.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
    "path": "audio/story/s1-0_227.mp3",
    "text": "It was a rainy morning.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s1-1_902.mp3",
+   "path": "audio/story/s1-1_93.mp3",
    "text": "Ken took his blue umbrella and went to school.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s1-3_227.mp3",
+   "path": "audio/story/s1-3_902.mp3",
    "text": "Ken played soccer with his friends.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s1-5_227.mp3",
+   "path": "audio/story/s1-5_539.mp3",
    "text": "At home, his mother asked, \"Where is your umbrella?\"",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s1-6_227.mp3",
+   "path": "audio/story/s1-6_539.mp3",
    "text": "Ken looked at his hands.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s1-9_227.mp3",
+   "path": "audio/story/s1-9_539.mp3",
    "text": "Ken ran to school without an umbrella.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s1-11_575.mp3",
-   "text": "She smiled and gave him his blue umbrella.",
-   "reason": "音声認識で原文と違う語があった文"
-  },
-  {
-   "path": "audio/story/s1-13_227.mp3",
+   "path": "audio/story/s1-13_93.mp3",
    "text": "Ken laughed. \"Thank you! You are a good friend.\"",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s2-2_575.mp3",
-   "text": "She doesn't use a phone very much, so she writes letters by hand.",
+   "path": "audio/story/s2-0_539.mp3",
+   "text": "Every month, Mia gets a letter from her grandmother.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s2-4_227.mp3",
+   "path": "audio/story/s2-1_93.mp3",
+   "text": "Her grandmother lives in a small town by the sea.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s2-4_539.mp3",
    "text": "Mia always reads them twice.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s2-5_227.mp3",
+   "path": "audio/story/s2-5_539.mp3",
    "text": "One day, Mia decided to write back.",
    "reason": "音声認識で原文と違う語があった文"
   },
@@ -621,13 +636,13 @@
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s2-8_575.mp3",
-   "text": "She also drew a picture of her family.",
+   "path": "audio/story/s3-2_539.mp3",
+   "text": "There were hundreds of small shops selling food, clothes, and toys.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s3-2_575.mp3",
-   "text": "There were hundreds of small shops selling food, clothes, and toys.",
+   "path": "audio/story/s3-3_539.mp3",
+   "text": "Tom wanted to try everything, but he didn't know where to start.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
@@ -636,7 +651,7 @@
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s3-6_227.mp3",
+   "path": "audio/story/s3-6_93.mp3",
    "text": "Tom nodded.",
    "reason": "音声認識で原文と違う語があった文"
   },
@@ -646,23 +661,43 @@
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s4-1_227.mp3",
+   "path": "audio/story/s3-8_539.mp3",
+   "text": "Tom laughed and sat down.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s3-10_539.mp3",
+   "text": "While he was eating, the old man told him stories about the market.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s3-13_93.mp3",
+   "text": "\"Walk slowly,\" the man said. \"Don't just look at the food. Talk to the people.\"",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s3-15_93.mp3",
+   "text": "Tom followed his advice, and it became one of the best nights of his trip.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s4-1_539.mp3",
    "text": "Its job was simple: it painted cars the same shade of gray, all day long.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s4-5_227.mp3",
+   "path": "audio/story/s4-2_539.mp3",
+   "text": "One evening, after the workers had gone home, a small bird flew in through a broken window.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s4-5_93.mp3",
    "text": "The bird's feathers were bright orange, a color the robot had never used before.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/story/s4-6_575.mp3",
+   "path": "audio/story/s4-6_539.mp3",
    "text": "For the first time, Unit Seven wondered what it would be like to paint something other than gray.",
-   "reason": "音声認識で原文と違う語があった文"
-  },
-  {
-   "path": "audio/story/s4-7_575.mp3",
-   "text": "That night, it mixed a little red and yellow paint and carefully drew a bird on the side of a car.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
@@ -676,28 +711,33 @@
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/rhythm/r01_227.mp3",
+   "path": "audio/rhythm/r01_902.mp3",
    "text": "Cats chase mice.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/rhythm/r03_575.mp3",
+   "path": "audio/rhythm/r03_93.mp3",
    "text": "The cats have been chasing the mice.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/rhythm/r06_575.mp3",
+   "path": "audio/rhythm/r06_slow.mp3",
    "text": "She's going to call you later.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/rhythm/r10_227.mp3",
+   "path": "audio/rhythm/r10_93.mp3",
    "text": "I think it's going to rain tomorrow.",
    "reason": "音声認識で原文と違う語があった文"
   },
   {
-   "path": "audio/cs/reduction-ex2-words.mp3",
-   "text": "I've got to go",
+   "path": "audio/rhythm/r12_539.mp3",
+   "text": "Could you pass me the salt, please?",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/dict/5-05_93.mp3",
+   "text": "We ought to get going before it gets dark.",
    "reason": "無作為に選んだ抜き取り確認"
   },
   {
@@ -711,8 +751,8 @@
    "reason": "無作為に選んだ抜き取り確認"
   },
   {
-   "path": "audio/story/s4-0_227.mp3",
-   "text": "In a quiet factory at the edge of the city, there was a robot called Unit Seven.",
+   "path": "audio/sh/5-b-3_902.mp3",
+   "text": "It's okay to set limits and take care of yourself.",
    "reason": "無作為に選んだ抜き取り確認"
   },
   {
@@ -746,13 +786,18 @@
    "reason": "無作為に選んだ抜き取り確認"
   },
   {
+   "path": "audio/rhythm/r01_slow.mp3",
+   "text": "Cats chase mice.",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
    "path": "audio/stress/japanese_621.mp3",
    "text": "Japanese",
    "reason": "無作為に選んだ抜き取り確認"
   },
   {
-   "path": "audio/dict/3-07_227.mp3",
-   "text": "Not at all. It's my pleasure.",
+   "path": "audio/dict/2-11_902.mp3",
+   "text": "Turn off the light, please.",
    "reason": "無作為に選んだ抜き取り確認"
   },
   {
@@ -776,23 +821,18 @@
    "reason": "無作為に選んだ抜き取り確認"
   },
   {
-   "path": "audio/story/s4-4_227.mp3",
-   "text": "Unit Seven stopped working and watched.",
+   "path": "audio/story/s1-1_902.mp3",
+   "text": "Ken took his blue umbrella and went to school.",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/story/s3-8_93.mp3",
+   "text": "Tom laughed and sat down.",
    "reason": "無作為に選んだ抜き取り確認"
   },
   {
    "path": "audio/rl/v2/arrive_323.mp3",
    "text": "arrive",
-   "reason": "無作為に選んだ抜き取り確認"
-  },
-  {
-   "path": "audio/sth/v2/myth_1.mp3",
-   "text": "myth",
-   "reason": "無作為に選んだ抜き取り確認"
-  },
-  {
-   "path": "audio/rl/v2/cloud_447.mp3",
-   "text": "cloud",
    "reason": "無作為に選んだ抜き取り確認"
   }
  ]

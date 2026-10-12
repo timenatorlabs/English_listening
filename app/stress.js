@@ -5,6 +5,7 @@ import * as db from "./db.js";
 import { esc, pct, pick, shuffle } from "./util.js";
 import { play, loadAudio, player, stopAll } from "./audio.js";
 import { testKind, lastTrainingDate } from "./metrics.js";
+import { benefitCard } from "./benefits.js";
 
 const TRAIN_TRIALS = 30;
 const TEST_PER_GROUP = 10;
@@ -64,6 +65,7 @@ export async function renderMenu() {
   const last = tests[tests.length - 1];
   app.innerHTML = `
     <h1>リズムと強勢</h1>
+    ${benefitCard("rhythm")}
     <section class="card">
       <p class="small">英語は<strong>強く長い音節</strong>と<strong>弱く短い音節</strong>がくり返すリズムの言葉です。日本語のように、すべての拍を同じ長さで発音するのとは違います。</p>
       <ul class="small">

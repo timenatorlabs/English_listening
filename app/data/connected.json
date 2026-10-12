@@ -2,10 +2,17 @@
  "examples": "audio/cs/{lesson}-ex{i}-{kind}.mp3",
  "quiz": "audio/cs/{lesson}-q{i}_{speaker}.mp3",
  "speakers": [
-  227,
-  575,
-  902
+  539,
+  93,
+  902,
+  227
  ],
+ "voiceLabels": {
+  "539": "女性1",
+  "93": "女性2",
+  "902": "男性1",
+  "227": "男性2"
+ },
  "lessons": [
   {
    "id": "linking",

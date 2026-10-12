@@ -2,10 +2,17 @@
  "audio": "audio/rhythm/{id}_{speaker}.mp3",
  "slow": "audio/rhythm/{id}_slow.mp3",
  "speakers": [
-  227,
-  575,
-  902
+  539,
+  93,
+  902,
+  227
  ],
+ "voiceLabels": {
+  "539": "女性1",
+  "93": "女性2",
+  "902": "男性1",
+  "227": "男性2"
+ },
  "sentences": [
   {
    "id": "r01",

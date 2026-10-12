@@ -2,8 +2,9 @@
 // Self-recordings stay in memory only: never saved, never sent anywhere.
 import * as db from "./db.js";
 import { esc, toast } from "./util.js";
-import { play, playSequence, stopAll } from "./audio.js";
+import { play, playSequence, stopAll, unlock } from "./audio.js";
 import * as vocab from "./vocab.js";
+import { benefitCard } from "./benefits.js";
 
 const RATES = [0.7, 0.8, 0.9, 1.0, 1.1, 1.2];
 const DEFAULT_RATE = { 1: 0.8, 2: 0.9, 3: 1.0, 4: 1.0, 5: 1.0 };
@@ -79,6 +80,7 @@ export async function renderList() {
   const sorted = data.passages.slice().sort((a, b) => (a.level === level ? -1 : 0) - (b.level === level ? -1 : 0) || a.level - b.level);
   app.innerHTML = `
     <h1>シャドーイング</h1>
+    ${benefitCard("shadowing")}
     <section class="card">
       <p class="small">音声を聞きながら、少し遅れて同じように声に出す練習です。3つのステップで進めます。</p>
       <p class="muted small">根拠 ○：日本人学習者で音の聞き取りが改善し、特に初級の学習者で聴解の得点が伸びたという報告があります（Hamada 2016 など）。語彙学習など他の練習と組み合わせると効果的とされています。</p>
@@ -119,7 +121,7 @@ function renderPassage(st) {
       ${RATES.map((r) => `<button class="chip ${r === st.rate ? "on" : ""}" type="button" data-rate="${r}">${r.toFixed(1)}倍</button>`).join("")}
     </div>
     <div class="chips" aria-label="声">
-      ${data.speakers.map((sp, i) => `<button class="chip ${sp === st.speaker ? "on" : ""}" type="button" data-speaker="${sp}">声${i + 1}</button>`).join("")}
+      ${data.speakers.map((sp, i) => `<button class="chip ${sp === st.speaker ? "on" : ""}" type="button" data-speaker="${sp}">${esc((data.voiceLabels || {})[sp] || `声${i + 1}`)}</button>`).join("")}
     </div>
 
     <div class="row">
@@ -201,6 +203,7 @@ function renderPassage(st) {
   if (rec && canRecord()) {
     rec.onclick = async () => {
       if (recording) return;
+      unlock();   // must happen inside the tap, before waiting for the microphone
       try {
         recording = await startRecording();
       } catch (e) {

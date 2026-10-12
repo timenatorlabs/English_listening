@@ -6,6 +6,7 @@ import * as db from "./db.js";
 import { esc, pct, pick, shuffle } from "./util.js";
 import { loadAudio, play } from "./audio.js";
 import { analyze, FEATURE_NAMES } from "./scoring.js";
+import { benefitCard } from "./benefits.js";
 
 const SESSION_SIZE = 10;
 const RATES = [0.7, 0.8, 0.9, 1.0, 1.1, 1.2];
@@ -322,6 +323,7 @@ export async function renderWeakness() {
 
   app.innerHTML = `
     <h1>弱点のまとめ</h1>
+    ${benefitCard("dictation")}
     ${recent.length ? `
       <section class="card">
         <h2>機械による推定（入力した文字から）</h2>

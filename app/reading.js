@@ -4,6 +4,7 @@ import * as db from "./db.js";
 import { esc, toast } from "./util.js";
 import { play, playSequence, stopAll } from "./audio.js";
 import * as vocab from "./vocab.js";
+import { benefitCard } from "./benefits.js";
 
 const RATES = [0.7, 0.8, 0.9, 1.0, 1.1, 1.2];
 const COMP = ["ほとんど分からない", "半分くらい", "だいたい分かる", "ほぼ全部分かる"];
@@ -29,6 +30,7 @@ export async function renderList() {
   for (const t of await db.allTrials()) if (t.mode === "extensive" && t.source === "story" && t.story) counts[t.story] = (counts[t.story] || 0) + 1;
   app.innerHTML = `
     <h1>聞き読み（物語）</h1>
+    ${benefitCard("reading")}
     <section class="card">
       <p class="small">絵本の読み聞かせのように、<strong>文字を見ながら音声を聞く</strong>練習です。読んでいる文に色が付きます。</p>
       <p class="muted small">根拠 ○：オーディオブックを聞きながら読む学習で、聴解力と語彙が伸びたという報告があります（Chang 2011 など、小規模）。最後まで聞くと「多聴」の時間として記録されます。</p>
@@ -61,7 +63,7 @@ function renderStory(state) {
       ${RATES.map((r) => `<button class="chip ${r === state.rate ? "on" : ""}" type="button" data-rate="${r}">${r.toFixed(1)}倍</button>`).join("")}
     </div>
     <div class="chips" aria-label="声">
-      ${data.speakers.map((sp, i) => `<button class="chip ${sp === state.speaker ? "on" : ""}" type="button" data-speaker="${sp}">声${i + 1}</button>`).join("")}
+      ${data.speakers.map((sp, i) => `<button class="chip ${sp === state.speaker ? "on" : ""}" type="button" data-speaker="${sp}">${esc((data.voiceLabels || {})[sp] || `声${i + 1}`)}</button>`).join("")}
       <button class="chip ${state.showJa ? "on" : ""}" type="button" id="toggle-ja">和訳</button>
     </div>
     <div class="row">
