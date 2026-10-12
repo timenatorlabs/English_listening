@@ -127,8 +127,9 @@ test("smoke: shadowing records for the whole model playback", async () => {
   ok(Date.now() - started > 4000, `recording ended too soon (${Date.now() - started} ms)`);
   // pitch comparison graph
   click("#show-pitch");
-  ok(await until(() => doc().querySelector("#pitch-box .line-s1"), 30000), "pitch chart did not render");
-  ok(doc().querySelector("#pitch-box .line-s1").getAttribute("d").length > 20, "model contour is empty");
+  ok(await until(() => doc().querySelector("#pitch-box .karaoke"), 30000), "karaoke pitch chart did not render");
+  ok(doc().querySelectorAll("#pitch-box .k-bar").length > 5, "model word bars are missing");
+  ok(doc().querySelectorAll("#pitch-box .gw").length > 10, "word guide is missing in the result");
   ok(errors.length === 0, errors.join(" | "));
 });
 
@@ -174,12 +175,23 @@ for (const sid of ["voa", "bbc", "ted", "librivox"]) {
     ok(await until(() => doc().querySelector(`[data-feed="${sid}"]`)), "in-app listen button missing");
     click(`[data-feed="${sid}"]`);
     ok(await until(() => doc().querySelector("[data-ep]"), 20000), "episode list did not load");
-    click('[data-ep="0"]');
-    ok(await until(() => doc().querySelector("#ep-audio")), "episode screen missing");
-    const audio = doc().querySelector("#ep-audio");
-    ok(audio.src.startsWith("https://"), `audio is not https: ${audio.src}`);
-    await audio.play();
-    ok(await until(() => audio.currentTime > 1, 30000), "audio did not play (network needed)");
+    // publishers occasionally fail a single file: try up to three episodes
+    let audio = null;
+    for (let k = 0; k < 3 && !audio; k++) {
+      if (k) {
+        click("#back");
+        ok(await until(() => doc().querySelector(`[data-ep="${k}"]`), 20000), "episode list did not reload");
+      }
+      click(`[data-ep="${k}"]`);
+      ok(await until(() => doc().querySelector("#ep-audio")), "episode screen missing");
+      const a = doc().querySelector("#ep-audio");
+      ok(a.src.startsWith("https://"), `audio is not https: ${a.src}`);
+      try {
+        await a.play();
+        if (await until(() => a.currentTime > 1, 30000)) audio = a;
+      } catch (e) { /* try the next episode */ }
+    }
+    ok(audio, "none of the first three episodes played (network needed)");
     audio.pause();
     ok(await until(() => doc().querySelector("#listened").textContent !== "0分0秒"), "listening time not counted");
     ok(errors.length === 0, errors.join(" | "));
@@ -196,6 +208,8 @@ test("smoke: shadowing offers female and male voices", async () => {
   ok(await until(() => doc().querySelector("[data-speaker]")), "voice buttons missing");
   const labels = [...doc().querySelectorAll("[data-speaker]")].map((b) => b.textContent);
   ok(labels.some((l) => l.includes("女性")) && labels.some((l) => l.includes("男性")), `labels: ${labels.join(",")}`);
+  ok(await until(() => doc().querySelectorAll(".script .gw").length > 10), "intonation guide words missing in the script");
+  ok(doc().querySelector(".script .g-arrow.up, .script .g-arrow.down"), "no up/down marks in the guide");
   ok(errors.length === 0, errors.join(" | "));
 });
 

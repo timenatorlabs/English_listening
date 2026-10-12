@@ -6,7 +6,7 @@ import { play, playSequence, stopAll, unlock, loadAudio } from "./audio.js";
 import * as vocab from "./vocab.js";
 import { benefitCard } from "./benefits.js";
 import * as recorder from "./recorder.js";
-import { f0Track, semitones, stretch, bestLag, localLag, voicedShare, sentenceChart, directionAgreement, pitchNote } from "./pitch.js";
+import { f0Track, semitones, stretch, bestLag, localLag, voicedShare, sentenceChart, karaokeChart, pitchNote, wordDirection, ARROW } from "./pitch.js";
 
 const RATES = [0.7, 0.8, 0.9, 1.0, 1.1, 1.2];
 const DEFAULT_RATE = { 1: 0.8, 2: 0.9, 3: 1.0, 4: 1.0, 5: 1.0 };
@@ -20,6 +20,31 @@ const app = document.getElementById("app");
 let data = null;
 let recording = null;    // active recorder session
 let mine = null;         // { url, audio, samples, rate, diag } of the latest self-recording
+let prosody = null;      // word timings and intonation of the model audio (tools/word_prosody.py)
+
+async function loadProsody() {
+  if (prosody) return prosody;
+  try {
+    prosody = (await (await fetch("data/word_prosody.json")).json()).items;
+  } catch (e) {
+    prosody = {};
+  }
+  return prosody;
+}
+
+const wordsOf = (p, i, speaker) => (prosody && prosody[`${p.id}-${i}_${speaker}`]) || null;
+
+// Script words with intonation marks. results (optional): per-word "ok" / "ng" / null.
+function guideWords(words, results = null) {
+  // each word is a small column: arrow above, word, result mark below
+  return `<span class="guide">${words.map((w, k) => {
+    const r = results ? results[k] : undefined;
+    const mark = r === "ok" ? `<span class="g-mark ok">○</span>` : r === "ng" ? `<span class="g-mark ng">✗</span>` : r === null ? `<span class="g-mark">・</span>` : "";
+    return `<span class="gw ${w.strong ? "strong" : ""}"><span class="g-arrow ${w.dir}">${ARROW[w.dir] || "&nbsp;"}</span><span class="g-word">${esc(w.w)}</span>${mark}</span>`;
+  }).join("")}</span>`;
+}
+
+const GUIDE_LEGEND = `<p class="muted small guide-legend"><span class="arrow up">↗</span> 声を上げる　<span class="arrow down">↘</span> 声を下げる　<strong>太字</strong> 高く強く言う語。お手本の音声から自動で推定した目安です。</p>`;
 
 export function init(d) {
   data = d;
@@ -100,7 +125,10 @@ export async function renderList() {
     btn.onclick = async () => {
       const p = data.passages.find((x) => x.id === btn.dataset.passage);
       const saved = await db.get("shadowRate", null);
-      renderPassage({ p, level: level || p.level, step: 1, rate: saved || DEFAULT_RATE[p.level], speaker: data.speakers[0], showScript: false, current: -1 });
+      const recMode = await db.get("recMode", "standard");
+      const guide = await db.get("intonationGuide", true);
+      await loadProsody();
+      renderPassage({ p, level: level || p.level, step: 1, rate: saved || DEFAULT_RATE[p.level], speaker: data.speakers[0], showScript: false, current: -1, recMode, guide });
       window.scrollTo(0, 0);
     };
   });
@@ -133,6 +161,12 @@ function renderPassage(st) {
       <button class="btn" type="button" id="stop">■ 停止</button>
     </div>
     ${st.step > 1 ? `
+      <div class="chips" aria-label="録音の音質">
+        <span class="muted small" style="align-self:center">録音：</span>
+        <button class="chip ${st.recMode !== "natural" ? "on" : ""}" type="button" data-recmode="standard">標準（お手本が聞こえる）</button>
+        <button class="chip ${st.recMode === "natural" ? "on" : ""}" type="button" data-recmode="natural">そのまま（声が自然）</button>
+      </div>
+      ${st.recMode === "natural" ? `<p class="muted small">「そのまま」は声が自然に録れますが、iPhone では録音中にお手本が聞こえなくなることがあります。聞こえない場合は「標準」に戻してください。</p>` : ""}
       <button class="btn" type="button" id="record" ${canRecord() ? "" : "disabled"}>● 録音しながら再生</button>
       <button class="btn" type="button" id="mic-test" ${canRecord() ? "" : "disabled"}>マイクのテスト（お手本なしで4秒録音）</button>
       ${canRecord() ? "" : `<p class="muted small">この環境では録音できません（https のページで使えます）。</p>`}
@@ -141,12 +175,17 @@ function renderPassage(st) {
 
     <section class="card">
       ${scriptVisible ? `
+        <div class="chips"><button class="chip ${st.guide ? "on" : ""}" type="button" id="toggle-guide">抑揚ガイド</button></div>
+        ${st.guide ? GUIDE_LEGEND : ""}
         <ol class="script">
-          ${p.sentences.map((s, i) => `
+          ${p.sentences.map((s, i) => {
+            const words = st.guide ? wordsOf(p, i, st.speaker) : null;
+            return `
             <li class="${i === st.current ? "now" : ""}" data-sentence="${i}">
-              <span>${esc(s.text)}</span>
+              <span>${words ? guideWords(words) : esc(s.text)}</span>
               ${st.step === 1 ? `<span class="muted small">${esc(s.ja)}</span>` : ""}
-            </li>`).join("")}
+            </li>`;
+          }).join("")}
         </ol>` : `
         <p class="muted">スクリプトは隠れています。</p>
         <button class="btn" type="button" id="show-script">スクリプトを表示</button>`}
@@ -201,6 +240,19 @@ function renderPassage(st) {
     stopAll();
     highlight(-1);
   };
+  const tg = document.getElementById("toggle-guide");
+  if (tg) {
+    tg.onclick = () => {
+      db.set("intonationGuide", !st.guide);
+      renderPassage({ ...st, guide: !st.guide });
+    };
+  }
+  app.querySelectorAll("[data-recmode]").forEach((btn) => {
+    btn.onclick = () => {
+      db.set("recMode", btn.dataset.recmode);
+      renderPassage({ ...st, recMode: btn.dataset.recmode });
+    };
+  });
   const show = document.getElementById("show-script");
   if (show) show.onclick = () => renderPassage({ ...st, showScript: true });
   document.getElementById("back").onclick = renderList;
@@ -217,7 +269,7 @@ function renderPassage(st) {
     unlock();
     recorder.prepare();
     try {
-      recording = await recorder.start({ onLevel: showLevel });
+      recording = await recorder.start({ onLevel: showLevel, natural: st.recMode === "natural" });
     } catch (e) {
       toast(`マイクを使えませんでした（${e.name || "エラー"}）。設定でマイクを許可してください。`);
       return false;
@@ -328,6 +380,7 @@ function renderMine(paths, st, withModel) {
         const user = semitones(userTrack);
         // the delay drifts during a passage: each sentence starts from the previous one's delay
         let lag = bestLag(model, user);
+        const scores = [];
         const rows = st.p.sentences.map((s, i) => {
           const { start, end } = segments[i];
           const l = localLag(model, user, start, end, lag, 80);
@@ -335,19 +388,36 @@ function renderMine(paths, st, withModel) {
           const m = model.slice(start, end);
           const u = user.slice(start + l, end + l);
           const share = voicedShare(u);
-          const agree = directionAgreement(m, u, 0, 8);
+          // word windows on this sentence's timeline (model word times are at normal speed)
+          const words = (wordsOf(st.p, i, st.speaker) || []).map((w) => ({
+            ...w, a: Math.round(w.s / 0.01 / st.rate), b: Math.round(w.e / 0.01 / st.rate),
+          }));
+          // per word: did my pitch move the same way as the model's? (ok / ng / null = not measured)
+          const results = words.map((w) => {
+            const mine2 = wordDirection(u.slice(w.a, w.b));
+            if (!mine2) return null;
+            return mine2 === w.dir ? "ok" : "ng";
+          });
+          const judged = results.filter((r) => r !== null);
+          const okCount = judged.filter((r) => r === "ok").length;
+          const k = words.length ? karaokeChart(m, u, words) : null;
+          if (k && k.score !== null) scores.push(k.score);
           return `
             <div class="sentence-row">
-              <p class="small"><strong>${i + 1}.</strong> ${esc(s.text)}</p>
-              ${sentenceChart(m, u)}
-              <p class="muted small">${share < 0.1
-                ? "この文は、自分の声の高さを測れませんでした（声が小さい、または声が出ていない部分）。"
-                : agree === null ? "上がり下がりが少ない文です。" : `上がり下がりの向きがお手本と同じ：${Math.round(agree * 100)}%（目安）`}</p>
+              <p class="small"><strong>${i + 1}.</strong> ${words.length ? guideWords(words, results) : esc(s.text)}</p>
+              ${k ? k.svg : sentenceChart(m, u)}
+              <p class="small">${share < 0.1
+                ? `<span class="muted">この文は、自分の声の高さを測れませんでした（声が小さい、または声が出ていない部分）。</span>`
+                : `${k && k.score !== null ? `<span class="k-score">お手本に近い高さ：${Math.round(k.score * 100)}%</span>　` : ""}<span class="muted">${judged.length ? `上がり下がりが同じ単語：${okCount} / ${judged.length}語` : ""}</span>`}</p>
             </div>`;
         }).join("");
         const measured = voicedShare(user);
         document.getElementById("pitch-box").innerHTML = `
-          <div class="legend"><span><i class="key-s1"></i>お手本</span><span><i class="key-s2"></i>自分の声</span></div>
+          ${scores.length ? `<p class="stat">お手本に近い高さ：${Math.round((scores.reduce((a, b) => a + b, 0) / scores.length) * 100)}%</p>` : ""}
+          <div class="legend"><span><i class="key-bar"></i>お手本（単語ごとの高さ）</span><span><i class="key-s2"></i>自分の声</span><span><i class="key-s2 key-hit"></i>お手本に近い部分</span></div>
+          <p class="muted small">カラオケの採点画面のように、お手本の高さを単語ごとのバー（右上がり＝上げる、右下がり＝下げる、太いバー＝強く言う語）で表し、自分の声の線を重ねています。線がバーに重なるほど、お手本に近い抑揚です。</p>
+          ${GUIDE_LEGEND}
+          <p class="muted small">単語の下の <span class="wmark ok">○</span> はお手本と同じ向き（上げる・下げる・平ら）に言えた語、<span class="wmark ng">✗</span> は違った語、・は測れなかった語です。</p>
           ${rows}
           ${measured < 0.05 ? `<p class="small qa-note">録音全体で、自分の声の高さをほとんど測れませんでした。マイクに近づき、少し大きめの声で話してみてください。</p>` : ""}
           ${pitchNote()}

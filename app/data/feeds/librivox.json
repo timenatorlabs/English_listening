@@ -1,6 +1,6 @@
 {
  "source": "librivox",
- "fetched": "2026-10-12T13:01:55+00:00",
+ "fetched": "2026-10-12T14:24:53+00:00",
  "episodes": [
   {
    "group": "The Tale of Peter Rabbit and Others",
@@ -8,24 +8,6 @@
    "date": "",
    "duration": "5:22",
    "audio": "https://www.archive.org/download/thetaleofpeterrabbitandothers_2008_librivox/peterrabbitandothertales_01_potter_64kb.mp3",
-   "link": "https://librivox.org/the-tale-of-peter-rabbit-and-others-by-beatrix-potter/",
-   "summary": "The Tale of Peter Rabbit and Others / Beatrix Potter"
-  },
-  {
-   "group": "The Tale of Peter Rabbit and Others",
-   "title": "The Tale of Tom Kitten",
-   "date": "",
-   "duration": "4:19",
-   "audio": "https://www.archive.org/download/thetaleofpeterrabbitandothers_2008_librivox/peterrabbitandothertales_02_potter_64kb.mp3",
-   "link": "https://librivox.org/the-tale-of-peter-rabbit-and-others-by-beatrix-potter/",
-   "summary": "The Tale of Peter Rabbit and Others / Beatrix Potter"
-  },
-  {
-   "group": "The Tale of Peter Rabbit and Others",
-   "title": "The Tale of Squirrel Nutkin",
-   "date": "",
-   "duration": "6:46",
-   "audio": "https://www.archive.org/download/thetaleofpeterrabbitandothers_2008_librivox/peterrabbitandothertales_03_potter_64kb.mp3",
    "link": "https://librivox.org/the-tale-of-peter-rabbit-and-others-by-beatrix-potter/",
    "summary": "The Tale of Peter Rabbit and Others / Beatrix Potter"
   },
@@ -107,15 +89,6 @@
    "date": "",
    "duration": "1:41",
    "audio": "https://www.archive.org/download/thetaleofpeterrabbitandothers_2008_librivox/peterrabbitandothertales_12_potter_64kb.mp3",
-   "link": "https://librivox.org/the-tale-of-peter-rabbit-and-others-by-beatrix-potter/",
-   "summary": "The Tale of Peter Rabbit and Others / Beatrix Potter"
-  },
-  {
-   "group": "The Tale of Peter Rabbit and Others",
-   "title": "The Tale of Mr. Tod",
-   "date": "",
-   "duration": "28:11",
-   "audio": "https://www.archive.org/download/thetaleofpeterrabbitandothers_2008_librivox/peterrabbitandothertales_13_potter_64kb.mp3",
    "link": "https://librivox.org/the-tale-of-peter-rabbit-and-others-by-beatrix-potter/",
    "summary": "The Tale of Peter Rabbit and Others / Beatrix Potter"
   },
@@ -255,51 +228,6 @@
    "summary": "Just So Stories / Rudyard Kipling"
   },
   {
-   "group": "Just So Stories",
-   "title": "The Cat that walked by Himself",
-   "date": "",
-   "duration": "27:45",
-   "audio": "https://www.archive.org/download/just_so_stories/just_so_stories_11_kipling_reynard_64kb.mp3",
-   "link": "https://librivox.org/just-so-stories-by-rudyard-kipling/",
-   "summary": "Just So Stories / Rudyard Kipling"
-  },
-  {
-   "group": "Just So Stories",
-   "title": "The Butterfly that Stamped",
-   "date": "",
-   "duration": "24:23",
-   "audio": "https://www.archive.org/download/just_so_stories/just_so_stories_12_kipling_reynard_64kb.mp3",
-   "link": "https://librivox.org/just-so-stories-by-rudyard-kipling/",
-   "summary": "Just So Stories / Rudyard Kipling"
-  },
-  {
-   "group": "Aesop's Fables, Volume 03 (Fables 51-75)",
-   "title": "The Ass and His Shadow",
-   "date": "",
-   "duration": "1:17",
-   "audio": "https://www.archive.org/download/aesop_fables_volume_three_librivox/fables_03_01_aesop_64kb.mp3",
-   "link": "https://librivox.org/aesops-fables-volume-3-fables-51-75/",
-   "summary": "Aesop's Fables, Volume 03 (Fables 51-75) / Aesop"
-  },
-  {
-   "group": "Aesop's Fables, Volume 03 (Fables 51-75)",
-   "title": "The Farmer and His Sons",
-   "date": "",
-   "duration": "1:27",
-   "audio": "https://www.archive.org/download/aesop_fables_volume_three_librivox/fables_03_02_aesop_64kb.mp3",
-   "link": "https://librivox.org/aesops-fables-volume-3-fables-51-75/",
-   "summary": "Aesop's Fables, Volume 03 (Fables 51-75) / Aesop"
-  },
-  {
-   "group": "Aesop's Fables, Volume 03 (Fables 51-75)",
-   "title": "The Dog and The Cook",
-   "date": "",
-   "duration": "1:47",
-   "audio": "https://www.archive.org/download/aesop_fables_volume_three_librivox/fables_03_03_aesop_64kb.mp3",
-   "link": "https://librivox.org/aesops-fables-volume-3-fables-51-75/",
-   "summary": "Aesop's Fables, Volume 03 (Fables 51-75) / Aesop"
-  },
-  {
    "group": "Aesop's Fables, Volume 03 (Fables 51-75)",
    "title": "The Monkey As King",
    "date": "",
@@ -314,24 +242,6 @@
    "date": "",
    "duration": "0:46",
    "audio": "https://www.archive.org/download/aesop_fables_volume_three_librivox/fables_03_05_aesop_64kb.mp3",
-   "link": "https://librivox.org/aesops-fables-volume-3-fables-51-75/",
-   "summary": "Aesop's Fables, Volume 03 (Fables 51-75) / Aesop"
-  },
-  {
-   "group": "Aesop's Fables, Volume 03 (Fables 51-75)",
-   "title": "The Farmer and Fortune",
-   "date": "",
-   "duration": "1:11",
-   "audio": "https://www.archive.org/download/aesop_fables_volume_three_librivox/fables_03_06_aesop_64kb.mp3",
-   "link": "https://librivox.org/aesops-fables-volume-3-fables-51-75/",
-   "summary": "Aesop's Fables, Volume 03 (Fables 51-75) / Aesop"
-  },
-  {
-   "group": "Aesop's Fables, Volume 03 (Fables 51-75)",
-   "title": "Jupiter and the Monkey",
-   "date": "",
-   "duration": "1:12",
-   "audio": "https://www.archive.org/download/aesop_fables_volume_three_librivox/fables_03_07_aesop_64kb.mp3",
    "link": "https://librivox.org/aesops-fables-volume-3-fables-51-75/",
    "summary": "Aesop's Fables, Volume 03 (Fables 51-75) / Aesop"
   },
@@ -377,15 +287,6 @@
    "date": "",
    "duration": "1:07",
    "audio": "https://www.archive.org/download/aesop_fables_volume_three_librivox/fables_03_12_aesop_64kb.mp3",
-   "link": "https://librivox.org/aesops-fables-volume-3-fables-51-75/",
-   "summary": "Aesop's Fables, Volume 03 (Fables 51-75) / Aesop"
-  },
-  {
-   "group": "Aesop's Fables, Volume 03 (Fables 51-75)",
-   "title": "The Old Lion",
-   "date": "",
-   "duration": "1:08",
-   "audio": "https://www.archive.org/download/aesop_fables_volume_three_librivox/fables_03_13_aesop_64kb.mp3",
    "link": "https://librivox.org/aesops-fables-volume-3-fables-51-75/",
    "summary": "Aesop's Fables, Volume 03 (Fables 51-75) / Aesop"
   },
@@ -476,15 +377,6 @@
    "date": "",
    "duration": "0:49",
    "audio": "https://www.archive.org/download/aesop_fables_volume_three_librivox/fables_03_23_aesop_64kb.mp3",
-   "link": "https://librivox.org/aesops-fables-volume-3-fables-51-75/",
-   "summary": "Aesop's Fables, Volume 03 (Fables 51-75) / Aesop"
-  },
-  {
-   "group": "Aesop's Fables, Volume 03 (Fables 51-75)",
-   "title": "The Oxen and The Axletrees",
-   "date": "",
-   "duration": "0:53",
-   "audio": "https://www.archive.org/download/aesop_fables_volume_three_librivox/fables_03_24_aesop_64kb.mp3",
    "link": "https://librivox.org/aesops-fables-volume-3-fables-51-75/",
    "summary": "Aesop's Fables, Volume 03 (Fables 51-75) / Aesop"
   },

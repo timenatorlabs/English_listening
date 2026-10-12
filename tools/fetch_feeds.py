@@ -101,6 +101,16 @@ def fetch_librivox() -> list[dict]:
     return eps
 
 
+def playable(url: str) -> bool:
+    """Ask for the first 1 KB of the audio; servers sometimes fail single files."""
+    try:
+        req = urllib.request.Request(url, headers={**UA, "Range": "bytes=0-1023"})
+        with urllib.request.urlopen(req, timeout=30) as r:
+            return r.status in (200, 206) and "audio" in (r.headers.get("Content-Type") or "audio")
+    except Exception:  # noqa: BLE001
+        return False
+
+
 def main() -> int:
     OUT.mkdir(parents=True, exist_ok=True)
     failed = 0
@@ -109,6 +119,10 @@ def main() -> int:
     for sid, job in jobs.items():
         try:
             eps = job()
+            ok = [e for e in eps if playable(e["audio"])]
+            if len(ok) < len(eps):
+                print(f"  {sid}: left out {len(eps) - len(ok)} episode(s) whose audio did not respond", file=sys.stderr)
+            eps = ok
             if not eps:
                 raise ValueError("no episodes")
         except Exception as e:  # noqa: BLE001

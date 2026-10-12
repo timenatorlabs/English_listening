@@ -30,12 +30,16 @@ function toWav(samples, rate) {
 }
 
 // onLevel(rms 0..1) is called about 10 times a second while recording.
-export async function start({ onLevel } = {}) {
+// natural = false (default): the browser's call processing stays on. On iPhone this kept
+//   the model audio audible while recording, but the voice sounds a little processed.
+// natural = true: raw microphone sound (natural voice), but on iPhone the model audio
+//   could not be heard while recording in user tests (2026-10-12).
+export async function start({ onLevel, natural = false } = {}) {
   const ac = prepare();
-  // Raw microphone sound: echo cancellation / noise suppression / auto gain are made for
-  // calls and made the learner's voice sound processed. (Earphones keep the model out.)
   const stream = await navigator.mediaDevices.getUserMedia({
-    audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false },
+    audio: natural
+      ? { echoCancellation: false, noiseSuppression: false, autoGainControl: false }
+      : { echoCancellation: true, noiseSuppression: false, autoGainControl: true },
   });
   if (ac.state === "suspended") await ac.resume().catch(() => {});
   const track = stream.getAudioTracks()[0];

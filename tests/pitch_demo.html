@@ -15,7 +15,9 @@
     <section class="card"><div id="out">analysing…</div></section>
   </main>
   <script type="module">
-    import { f0Track, semitones, bestLag, localLag, voicedShare, sentenceChart, directionAgreement, pitchNote } from "../app/pitch.js";
+    import { f0Track, semitones, bestLag, localLag, voicedShare, karaokeChart, pitchNote, wordDirection, ARROW } from "../app/pitch.js";
+    const prosody = (await (await fetch("../app/data/word_prosody.json")).json()).items;
+    const guide = (words, results) => `<span class="guide">${words.map((w, k) => `<span class="gw ${w.strong ? "strong" : ""}"><span class="g-arrow ${w.dir}">${ARROW[w.dir] || "&nbsp;"}</span><span class="g-word">${w.w}</span>${results[k] === "ok" ? '<span class="g-mark ok">○</span>' : results[k] === "ng" ? '<span class="g-mark ng">✗</span>' : '<span class="g-mark">・</span>'}</span>`).join("")}</span>`;
     const ac = new (window.AudioContext || window.webkitAudioContext)();
     const p = (await (await fetch("../app/data/shadowing.json")).json()).passages.find((x) => x.id === "2-a");
     const load = async (path) => ac.decodeAudioData(await (await fetch(path)).arrayBuffer());
@@ -43,16 +45,18 @@
     for (const x of userParts) { raw.set(x, k); k += x.length; }
     const user = semitones(f0Track(raw, ac.sampleRate));
     let lag = bestLag(model, user);
-    document.getElementById("out").innerHTML = `<div class="legend"><span><i class="key-s1"></i>お手本</span><span><i class="key-s2"></i>自分の声</span></div>`
+    document.getElementById("out").innerHTML = `<div class="legend"><span><i class="key-bar"></i>お手本（単語ごとの高さ）</span><span><i class="key-s2"></i>自分の声</span><span><i class="key-s2 key-hit"></i>お手本に近い部分</span></div>`
       + p.sentences.map((s, i) => {
         const { start, end } = segments[i];
         const l = localLag(model, user, start, end, lag, 80);
         lag = l;
         const m = model.slice(start, end);
         const u = user.slice(start + l, end + l);
-        const a = directionAgreement(m, u, 0, 8);
-        return `<div class="sentence-row"><p class="small"><strong>${i + 1}.</strong> ${s.text}</p>${sentenceChart(m, u)}
-          <p class="muted small">voiced ${Math.round(voicedShare(u) * 100)}% / agreement ${a === null ? "-" : Math.round(a * 100) + "%"}</p></div>`;
+        const words = prosody[`2-a-${i}_539`].map((w) => ({ ...w, a: Math.round(w.s / 0.01), b: Math.round(w.e / 0.01) }));
+        const results = words.map((w) => { const d = wordDirection(u.slice(w.a, w.b)); return d ? (d === w.dir ? "ok" : "ng") : null; });
+        const kc = karaokeChart(m, u, words);
+        return `<div class="sentence-row"><p class="small"><strong>${i + 1}.</strong> ${guide(words, results)}</p>${kc.svg}
+          <p class="small"><span class="k-score">お手本に近い高さ：${kc.score === null ? "-" : Math.round(kc.score * 100) + "%"}</span>　<span class="muted">上がり下がりが同じ単語：${results.filter((r) => r === "ok").length} / ${results.filter((r) => r).length}語</span></p></div>`;
       }).join("") + pitchNote();
     document.title = "done";
   </script>

@@ -141,9 +141,10 @@ function path(arr, x0, pxPerPoint, yOf) {
   let d = "";
   let pen = false;
   arr.forEach((v, i) => {
-    if (Number.isNaN(v)) {
+    // a jump of more than 4 semitones in 10 ms is a measurement error, not intonation: break the line
+    if (Number.isNaN(v) || (i > 0 && !Number.isNaN(arr[i - 1]) && Math.abs(v - arr[i - 1]) > 4)) {
       pen = false;
-      return;
+      if (Number.isNaN(v)) return;
     }
     const x = (x0 + i * pxPerPoint).toFixed(1);
     const y = yOf(Math.max(-12, Math.min(12, v))).toFixed(1);
@@ -184,6 +185,66 @@ export function pitchChart(model, user, lag) {
   </div>`;
 }
 
+// Karaoke-style view (like karaoke scoring screens): the model is drawn as one thick bar per
+// word, slanted from the word's start pitch to its end pitch; the learner's pitch is a thin
+// line on top, highlighted where it is within `tol` semitones of the model bar.
+// Returns { svg, score } — score = share of the learner's measured points that were close
+// to the model (null when too few points were measured).
+export function karaokeChart(m, u, words, tol = 2.5) {
+  const W = 320;
+  const H = 168;
+  const pad = { l: 22, r: 6, t: 12, b: 40 };
+  const n = Math.max(m.length, u.length, 1);
+  const px = (W - pad.l - pad.r) / n;
+  const ih = H - pad.t - pad.b;
+  const clamp = (v) => Math.max(-10, Math.min(10, v));
+  const yOf = (st) => pad.t + ih / 2 - (clamp(st) / 10) * (ih / 2);
+  const mean = (xs) => xs.reduce((a, b) => a + b, 0) / xs.length;
+
+  const bars = words.map((w) => {
+    const v = [...m.slice(w.a, w.b)].filter((x) => !Number.isNaN(x));
+    if (v.length < 3) return null;
+    const k = Math.max(1, Math.floor(v.length / 3));
+    return { ...w, s0: mean(v.slice(0, k)), s1: mean(v.slice(-k)) };
+  });
+  const barAt = (i) => {
+    const b = bars.find((x) => x && i >= x.a && i < x.b);
+    return b ? b.s0 + ((b.s1 - b.s0) * (i - b.a)) / Math.max(1, b.b - b.a) : null;
+  };
+
+  let hits = 0;
+  let measured = 0;
+  let hitPath = "";
+  let pen = false;
+  for (let i = 0; i < u.length; i++) {
+    const target = barAt(i);
+    const v = u[i];
+    const ok = target !== null && !Number.isNaN(v) && Math.abs(v - target) <= tol;
+    if (target !== null && !Number.isNaN(v)) {
+      measured++;
+      if (ok) hits++;
+    }
+    if (ok) {
+      hitPath += `${pen ? "L" : "M"}${(pad.l + i * px).toFixed(1)} ${yOf(v).toFixed(1)} `;
+      pen = true;
+    } else {
+      pen = false;
+    }
+  }
+
+  const svg = `
+    <svg class="karaoke" viewBox="0 0 ${W} ${H}" role="img" aria-label="お手本の高さのバーと自分の声の線">
+      <line class="ref" x1="${pad.l}" x2="${W - pad.r}" y1="${yOf(0)}" y2="${yOf(0)}"/>
+      <text class="axis" x="${pad.l - 4}" y="${yOf(7) + 3}" text-anchor="end">高</text>
+      <text class="axis" x="${pad.l - 4}" y="${yOf(-7) + 3}" text-anchor="end">低</text>
+      ${bars.map((b) => (b ? `<line class="k-bar ${b.strong ? "strong" : ""}" x1="${(pad.l + b.a * px + 2).toFixed(1)}" y1="${yOf(b.s0).toFixed(1)}" x2="${(pad.l + b.b * px - 2).toFixed(1)}" y2="${yOf(b.s1).toFixed(1)}"/>` : "")).join("")}
+      <path class="k-user" d="${path(u, pad.l, px, yOf)}"/>
+      <path class="k-hit" d="${hitPath}"/>
+      ${words.map((w, i) => `<text class="word-label ${w.strong ? "strong" : ""}" x="${(pad.l + ((w.a + w.b) / 2) * px).toFixed(1)}" y="${H - pad.b + 16 + (i % 2) * 13}" text-anchor="middle">${w.w.replace(/[.,!?"<>&]/g, "")}</text>`).join("")}
+    </svg>`;
+  return { svg, score: measured >= 15 ? hits / measured : null };
+}
+
 // Refine the lag for one sentence: shadowing delay changes during a passage.
 export function localLag(model, user, start, end, base, range = 50) {
   let best = base;
@@ -206,11 +267,25 @@ export function localLag(model, user, start, end, base, range = 50) {
 
 export const voicedShare = (arr) => (arr.length ? [...arr].filter((v) => !Number.isNaN(v)).length / arr.length : 0);
 
+// Direction of the pitch within one word (same rule as tools/word_prosody.py):
+// mean of the last third minus mean of the first third, ±1 semitone.
+export function wordDirection(arr) {
+  const v = [...arr].filter((x) => !Number.isNaN(x));
+  if (v.length < 4) return null;
+  const k = Math.max(2, Math.floor(v.length / 3));
+  const mean = (xs) => xs.reduce((a, b) => a + b, 0) / xs.length;
+  const delta = mean(v.slice(-k)) - mean(v.slice(0, k));
+  return delta > 1 ? "up" : delta < -1 ? "down" : "flat";
+}
+
+export const ARROW = { up: "↗", down: "↘", flat: "" };
+
 // One sentence, scaled to the card width (no horizontal scrolling).
-export function sentenceChart(m, u) {
+// words (optional): [{ w, a, b, strong }] with a/b = point indices inside m.
+export function sentenceChart(m, u, words = []) {
   const W = 320;
-  const H = 120;
-  const pad = { l: 22, r: 6, t: 8, b: 8 };
+  const H = words.length ? 150 : 120;
+  const pad = { l: 22, r: 6, t: 8, b: words.length ? 38 : 8 };
   const n = Math.max(m.length, u.length, 1);
   const px = (W - pad.l - pad.r) / n;
   const ih = H - pad.t - pad.b;
@@ -222,6 +297,14 @@ export function sentenceChart(m, u) {
       <line class="grid" x1="${pad.l}" x2="${W - pad.r}" y1="${yOf(-6)}" y2="${yOf(-6)}"/>
       <text class="axis" x="${pad.l - 4}" y="${yOf(6) + 3}" text-anchor="end">高</text>
       <text class="axis" x="${pad.l - 4}" y="${yOf(-6) + 3}" text-anchor="end">低</text>
+      ${words.map((w, i) => {
+        const x0 = pad.l + w.a * px;
+        const xm = pad.l + ((w.a + w.b) / 2) * px;
+        // alternate two label rows so short neighbouring words do not overlap
+        const y = H - pad.b + 14 + (i % 2) * 13;
+        return `<line class="word-sep" x1="${x0}" x2="${x0}" y1="${pad.t}" y2="${H - pad.b}"/>
+          <text class="word-label ${w.strong ? "strong" : ""}" x="${xm}" y="${y}" text-anchor="middle">${w.w.replace(/[.,!?"<>&]/g, "")}</text>`;
+      }).join("")}
       <path class="line-s1" d="${path(m, pad.l, px, yOf)}"/>
       <path class="line-s2" d="${path(u, pad.l, px, yOf)}"/>
     </svg>`;
