@@ -2,9 +2,11 @@
 // Self-recordings stay in memory only: never saved, never sent anywhere.
 import * as db from "./db.js";
 import { esc, toast } from "./util.js";
-import { play, playSequence, stopAll, unlock } from "./audio.js";
+import { play, playSequence, stopAll, unlock, loadAudio } from "./audio.js";
 import * as vocab from "./vocab.js";
 import { benefitCard } from "./benefits.js";
+import * as recorder from "./recorder.js";
+import { f0Track, semitones, stretch, bestLag, pitchChart, directionAgreement, pitchNote } from "./pitch.js";
 
 const RATES = [0.7, 0.8, 0.9, 1.0, 1.1, 1.2];
 const DEFAULT_RATE = { 1: 0.8, 2: 0.9, 3: 1.0, 4: 1.0, 5: 1.0 };
@@ -16,8 +18,8 @@ const STEPS = [
 
 const app = document.getElementById("app");
 let data = null;
-let recording = null;    // active MediaRecorder session
-let mine = null;         // { url, audio } of the latest self-recording
+let recording = null;    // active recorder session
+let mine = null;         // { url, audio, samples, rate, diag } of the latest self-recording
 
 export function init(d) {
   data = d;
@@ -33,8 +35,9 @@ export function audioPaths() {
 export async function cleanup() {
   stopAll();
   if (recording) {
-    await recording.stop().catch(() => {});
+    const session = recording;
     recording = null;
+    await session.stop().catch(() => {});
   }
   if (mine) {
     mine.audio.pause();
@@ -43,27 +46,28 @@ export async function cleanup() {
   }
 }
 
-async function startRecording() {
-  const stream = await navigator.mediaDevices.getUserMedia({ audio: true });
-  const type = ["audio/webm", "audio/mp4"].find((t) => MediaRecorder.isTypeSupported && MediaRecorder.isTypeSupported(t));
-  const recorder = new MediaRecorder(stream, type ? { mimeType: type } : undefined);
-  const chunks = [];
-  recorder.ondataavailable = (e) => {
-    if (e.data.size) chunks.push(e.data);
-  };
-  const stopped = new Promise((resolve) => (recorder.onstop = resolve));
-  recorder.start();
-  return {
-    async stop() {
-      if (recorder.state !== "inactive") recorder.stop();
-      await stopped;
-      stream.getTracks().forEach((t) => t.stop());
-      return new Blob(chunks, { type: recorder.mimeType || type || "audio/webm" });
-    },
-  };
+const canRecord = recorder.canRecord;
+
+function keepRecording(result) {
+  if (mine) URL.revokeObjectURL(mine.url);
+  const url = URL.createObjectURL(result.blob);
+  mine = { url, audio: new Audio(url), samples: result.samples, rate: result.rate, diag: result.diag };
 }
 
-const canRecord = () => !!(window.MediaRecorder && navigator.mediaDevices && navigator.mediaDevices.getUserMedia && window.isSecureContext);
+// Plain-language diagnosis when nothing (or almost nothing) was captured
+function silenceHelp(diag, withModel) {
+  return `
+    <section class="card qa-note">
+      <h2>録音に声が入っていませんでした</h2>
+      <p class="small">考えられる原因：</p>
+      <ul class="small">
+        <li>マイクが許可されていない（iPhone：設定 → アプリ → Safari → マイク を「許可」。ホーム画面から開いている場合も同じです）</li>
+        <li>Bluetooth イヤホンの場合、イヤホンのマイクがうまく使われていない（有線イヤホンか、本体のマイクで試してください）</li>
+        ${withModel ? "<li>お手本を再生している間に、iPhone がマイクを止めた（下の「マイクのテスト」で、お手本なしで録音できるか確かめてください）</li>" : ""}
+      </ul>
+      <p class="muted small">記録：長さ ${diag.seconds.toFixed(1)}秒、最大の音量 ${(diag.peak * 100).toFixed(1)}%、途中でマイクが止められた回数 ${diag.muted}回</p>
+    </section>`;
+}
 
 async function practiceCounts() {
   const counts = {};
@@ -130,7 +134,9 @@ function renderPassage(st) {
     </div>
     ${st.step > 1 ? `
       <button class="btn" type="button" id="record" ${canRecord() ? "" : "disabled"}>● 録音しながら再生</button>
-      ${canRecord() ? "" : `<p class="muted small">この環境では録音できません（公開後の https のページでは使えます）。</p>`}
+      <button class="btn" type="button" id="mic-test" ${canRecord() ? "" : "disabled"}>マイクのテスト（お手本なしで4秒録音）</button>
+      ${canRecord() ? "" : `<p class="muted small">この環境では録音できません（https のページで使えます）。</p>`}
+      <div id="level-box" hidden><p class="small">マイクの音量</p><div class="meter level"><span id="level" style="width:0%"></span></div></div>
       <div id="mine"></div>` : ""}
 
     <section class="card">
@@ -200,46 +206,133 @@ function renderPassage(st) {
   document.getElementById("back").onclick = renderList;
 
   const rec = document.getElementById("record");
+  const test = document.getElementById("mic-test");
+  const levelBox = document.getElementById("level-box");
+  const showLevel = (rms) => {
+    const bar = document.getElementById("level");
+    if (bar) bar.style.width = `${Math.min(100, Math.sqrt(rms) * 250).toFixed(0)}%`;
+  };
+  // Both buttons: unlock playback and the audio engine inside the tap, then ask for the mic.
+  const begin = async () => {
+    unlock();
+    recorder.prepare();
+    try {
+      recording = await recorder.start({ onLevel: showLevel });
+    } catch (e) {
+      toast(`マイクを使えませんでした（${e.name || "エラー"}）。設定でマイクを許可してください。`);
+      return false;
+    }
+    if (levelBox) levelBox.hidden = false;
+    return true;
+  };
+  // Returns null when the recording was already discarded (e.g. the learner left the screen).
+  const finish = async () => {
+    const session = recording;
+    recording = null;
+    if (levelBox) levelBox.hidden = true;
+    return session ? session.stop() : null;
+  };
   if (rec && canRecord()) {
     rec.onclick = async () => {
       if (recording) return;
-      unlock();   // must happen inside the tap, before waiting for the microphone
-      try {
-        recording = await startRecording();
-      } catch (e) {
-        toast("マイクを使えませんでした。ブラウザの設定でマイクを許可してください。");
-        return;
-      }
+      if (!(await begin())) return;
       rec.textContent = "● 録音中…";
       rec.disabled = true;
+      if (test) test.disabled = true;
       const finished = await playSequence(paths, st.rate, { onIndex: highlight });
-      const blob = await recording.stop();
-      recording = null;
+      const result = await finish();
+      if (!result || !rec.isConnected) return;
       rec.textContent = "● 録音しながら再生";
       rec.disabled = false;
-      if (mine) URL.revokeObjectURL(mine.url);
-      const url = URL.createObjectURL(blob);
-      mine = { url, audio: new Audio(url) };
-      if (finished) logPractice(true);
-      renderMine(paths, st);
+      if (test) test.disabled = false;
+      keepRecording(result);
+      if (finished && !result.diag.silent) logPractice(true);
+      renderMine(paths, st, true);
     };
   }
-  if (mine) renderMine(paths, st);
+  if (test && canRecord()) {
+    test.onclick = async () => {
+      if (recording) return;
+      stopAll();
+      if (!(await begin())) return;
+      test.textContent = "録音中…（何か話してください）";
+      test.disabled = true;
+      if (rec) rec.disabled = true;
+      await new Promise((r) => setTimeout(r, 4000));
+      const result = await finish();
+      if (!result || !test.isConnected) return;
+      test.textContent = "マイクのテスト（お手本なしで4秒録音）";
+      test.disabled = false;
+      if (rec) rec.disabled = false;
+      keepRecording(result);
+      renderMine(paths, st, false);
+      if (!result.diag.silent) mine.audio.play().catch(() => {});
+    };
+  }
+  if (mine) renderMine(paths, st, true);
 }
 
-function renderMine(paths, st) {
+// Model contour: each sentence analysed at normal speed, stretched to the playback
+// speed, joined with the same pauses playSequence uses.
+async function modelContour(paths, rate) {
+  const parts = [];
+  for (const p of paths) {
+    const url = await loadAudio(p);
+    const buf = await recorder.decode(await (await fetch(url)).arrayBuffer());
+    parts.push(stretch(semitones(f0Track(buf.getChannelData(0), buf.sampleRate)), 1 / rate));
+    parts.push(new Float32Array(Math.round(0.4 / rate / 0.01)).fill(NaN));
+  }
+  const n = parts.reduce((a, x) => a + x.length, 0);
+  const out = new Float32Array(n);
+  let o = 0;
+  for (const x of parts) {
+    out.set(x, o);
+    o += x.length;
+  }
+  return out;
+}
+
+function renderMine(paths, st, withModel) {
   const box = document.getElementById("mine");
   if (!box || !mine) return;
+  if (mine.diag.silent) {
+    box.innerHTML = silenceHelp(mine.diag, withModel);
+    return;
+  }
   box.innerHTML = `
     <section class="card">
       <h2>自分の声</h2>
-      <p class="muted small">録音はこの画面を離れると消えます（保存も送信もしません）。</p>
+      <p class="muted small">録音（${mine.diag.seconds.toFixed(1)}秒）はこの画面を離れると消えます（保存も送信もしません）。</p>
       <div class="row">
         <button class="btn" type="button" id="play-mine">▶ 自分の声</button>
         <button class="btn" type="button" id="compare">▶ お手本 → 自分</button>
       </div>
+      ${withModel ? `<button class="btn" type="button" id="show-pitch">抑揚をグラフで比べる</button><div id="pitch-box"></div>` : ""}
     </section>
   `;
+  const sp = document.getElementById("show-pitch");
+  if (sp) {
+    sp.onclick = async () => {
+      sp.disabled = true;
+      sp.textContent = "分析中…";
+      try {
+        const model = await modelContour(paths, st.rate);
+        const user = semitones(f0Track(mine.samples, mine.rate));
+        const lag = bestLag(model, user);
+        const agree = directionAgreement(model, user, lag);
+        document.getElementById("pitch-box").innerHTML = `
+          ${pitchChart(model, user, lag)}
+          ${agree === null ? "" : `<p class="small">上がり下がりの向きがお手本と同じだった割合：<strong>${Math.round(agree * 100)}%</strong>（目安）</p>`}
+          ${pitchNote()}
+          <p class="muted small">自分の声は、お手本からの遅れ（約${(lag * 0.01).toFixed(1)}秒）を差し引いて重ねています。研究では、声の高さを画面で見ながら練習すると外国語の抑揚が改善したという報告があります（Hardison 2004、話す練習の研究）。聞き取りへの効果は間接的です。</p>`;
+        sp.hidden = true;
+      } catch (e) {
+        sp.disabled = false;
+        sp.textContent = "抑揚をグラフで比べる";
+        toast(`分析できませんでした（${e.name || "エラー"}）`);
+      }
+    };
+  }
   document.getElementById("play-mine").onclick = () => {
     stopAll();
     mine.audio.currentTime = 0;

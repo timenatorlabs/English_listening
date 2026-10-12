@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Pitch chart demo</title>
+  <link rel="stylesheet" href="../app/fonts/noto-sans-jp.css">
+  <link rel="stylesheet" href="../app/styles.css">
+  <style>main { max-width: none; }</style>
+</head>
+<body>
+  <main>
+    <!-- Visual check of the intonation graph: the "learner" is another TTS voice reading the
+         same passage, delayed by 0.6 s (sample data, not a real learner). -->
+    <section class="card"><div id="out">analysing…</div></section>
+  </main>
+  <script type="module">
+    import { f0Track, semitones, bestLag, pitchChart, directionAgreement, pitchNote } from "../app/pitch.js";
+    const AC = window.AudioContext || window.webkitAudioContext;
+    const ac = new AC();
+    async function load(path) {
+      const buf = await ac.decodeAudioData(await (await fetch(path)).arrayBuffer());
+      return buf;
+    }
+    async function passage(speaker, delaySec) {
+      const parts = [new Float32Array(Math.round(delaySec * 22050))];
+      for (let i = 0; i < 5; i++) {
+        const b = await load(`../app/audio/sh/2-a-${i}_${speaker}.mp3`);
+        parts.push(b.getChannelData(0), new Float32Array(Math.round(0.4 * b.sampleRate)));
+      }
+      const n = parts.reduce((a, x) => a + x.length, 0);
+      const out = new Float32Array(n);
+      let o = 0;
+      for (const x of parts) { out.set(x, o); o += x.length; }
+      return out;
+    }
+    const model = semitones(f0Track(await passage(539, 0), 22050));
+    const user = semitones(f0Track(await passage(902, 0.6), 22050));
+    const lag = bestLag(model, user);
+    const agree = directionAgreement(model, user, lag);
+    document.getElementById("out").innerHTML = pitchChart(model, user, lag)
+      + `<p class="small">lag ${(lag * 0.01).toFixed(2)} s / agreement ${agree === null ? "-" : Math.round(agree * 100) + "%"}</p>` + pitchNote();
+    document.title = "done";
+  </script>
+</body>
+</html>

@@ -122,8 +122,37 @@ test("smoke: shadowing records for the whole model playback", async () => {
   // the model audio of 5 sentences lasts several seconds; recording must not stop right away
   ok(await until(() => doc().querySelector('[data-sentence="2"].now'), 20000), "playback did not reach the 3rd sentence while recording");
   ok(doc().querySelector("#record").textContent.includes("録音中"), "recording stopped early");
-  ok(await until(() => doc().querySelector("#play-mine"), 40000), "own recording was not offered");
+  ok(await until(() => doc().querySelector("#play-mine") || doc().querySelector("#mine .qa-note"), 40000), "recording result missing");
+  ok(!doc().querySelector("#mine .qa-note"), "recording was judged silent (fake microphone should give sound)");
   ok(Date.now() - started > 4000, `recording ended too soon (${Date.now() - started} ms)`);
+  // pitch comparison graph
+  click("#show-pitch");
+  ok(await until(() => doc().querySelector("#pitch-box .line-s1"), 30000), "pitch chart did not render");
+  ok(doc().querySelector("#pitch-box .line-s1").getAttribute("d").length > 20, "model contour is empty");
+  ok(errors.length === 0, errors.join(" | "));
+});
+
+test("smoke: leaving the screen during a mic test causes no error", async () => {
+  await openApp();
+  ok(await until(() => doc().querySelector("#mic-test")), "mic test button missing");
+  click("#mic-test");
+  ok(await until(() => doc().querySelector("#mic-test").textContent.includes("録音中")), "mic test did not start");
+  click("#back");                                   // leave while recording
+  await sleep(5000);                                // let the 4 s timer finish
+  ok(errors.length === 0, errors.join(" | "));
+  click('[data-passage="1-a"]');
+  ok(await until(() => doc().querySelector('[data-step="2"]')));
+  click('[data-step="2"]');
+  ok(await until(() => doc().querySelector("#mic-test")));
+});
+
+test("smoke: microphone test records without the model audio", async () => {
+  await openApp();
+  ok(await until(() => doc().querySelector("#mic-test")), "mic test button missing (run after the shadowing test)");
+  click("#mic-test");
+  ok(await until(() => doc().querySelector("#mic-test").textContent.includes("録音中")), "mic test did not start");
+  ok(await until(() => doc().querySelector("#play-mine") || doc().querySelector("#mine .qa-note"), 10000), "mic test result missing");
+  ok(!doc().querySelector("#mine .qa-note"), "mic test was judged silent");
   ok(errors.length === 0, errors.join(" | "));
 });
 

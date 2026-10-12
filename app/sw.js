@@ -1,5 +1,5 @@
 // Service worker: app shell is network-first (so updates arrive), audio is cache-first.
-const SHELL_CACHE = "shell-v14";
+const SHELL_CACHE = "shell-v15";
 const AUDIO_CACHE = "audio-v1";
 const SHELL = [
   "./",
@@ -19,6 +19,8 @@ const SHELL = [
   "charts.js",
   "scoring.js",
   "benefits.js",
+  "recorder.js",
+  "pitch.js",
   "metrics.js",
   "stress.js",
   "reading.js",
