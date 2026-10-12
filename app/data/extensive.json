@@ -1,0 +1,19 @@
+{
+  "description": "多聴のおすすめ素材（外部サイトへのリンクのみ。音声をアプリに取り込むことはしない）。提供状況は変わることがある。",
+  "sources": [
+    {"id": "story", "name": "このアプリの聞き読み（物語）", "levels": [1, 2, 3, 4], "internal": true,
+     "desc": "文字を見ながら短い物語を聞きます。最後まで聞くと自動で多聴の時間に記録されます。"},
+    {"id": "app", "name": "このアプリのシャドーイング教材", "levels": [1, 2, 3, 4, 5], "internal": true,
+     "desc": "シャドーイングの①（内容を理解）で、和訳を見ながら聞くだけでも多聴になります。"},
+    {"id": "voa", "name": "VOA Learning English", "url": "https://learningenglish.voanews.com/", "levels": [1, 2, 3],
+     "desc": "学習者向けに、ゆっくり・やさしい英語で話すニュースや会話。スクリプト付き。※米国政府系のため、提供状況が変わっている可能性があります。"},
+    {"id": "bbc", "name": "BBC Learning English（6 Minute English など）", "url": "https://www.bbc.co.uk/learningenglish/", "levels": [3, 4],
+     "desc": "6分ほどの会話形式の番組。イギリス英語。スクリプト付きのものが多い。"},
+    {"id": "ted", "name": "TED Talks", "url": "https://www.ted.com/", "levels": [4, 5],
+     "desc": "様々な分野の講演。英語字幕・日本語字幕を切り替えられる。"},
+    {"id": "librivox", "name": "LibriVox", "url": "https://librivox.org/", "levels": [5],
+     "desc": "著作権の切れた本をボランティアが朗読した無料のオーディオブック。古い英語も多いので、内容を知っている作品から。"},
+    {"id": "other", "name": "その他（ポッドキャスト、ドラマなど）", "levels": [1, 2, 3, 4, 5],
+     "desc": "自分で選んだ素材も記録できます。"}
+  ]
+}

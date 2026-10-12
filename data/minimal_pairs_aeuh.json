@@ -1,0 +1,18 @@
+{
+  "pairs": [
+    {"a": "cap",   "b": "cup",   "pos": "vowel", "set": "train", "ja_a": "帽子",       "ja_b": "カップ"},
+    {"a": "cat",   "b": "cut",   "pos": "vowel", "set": "train", "ja_a": "猫",         "ja_b": "切る"},
+    {"a": "bag",   "b": "bug",   "pos": "vowel", "set": "train", "ja_a": "かばん",     "ja_b": "虫"},
+    {"a": "hat",   "b": "hut",   "pos": "vowel", "set": "train", "ja_a": "帽子",       "ja_b": "小屋"},
+    {"a": "ran",   "b": "run",   "pos": "vowel", "set": "train", "ja_a": "走った",     "ja_b": "走る"},
+    {"a": "match", "b": "much",  "pos": "vowel", "set": "train", "ja_a": "試合・マッチ", "ja_b": "たくさん"},
+    {"a": "fan",   "b": "fun",   "pos": "vowel", "set": "train", "ja_a": "ファン",     "ja_b": "楽しみ"},
+    {"a": "bad",   "b": "bud",   "pos": "vowel", "set": "train", "ja_a": "悪い",       "ja_b": "つぼみ"},
+    {"a": "lack",  "b": "luck",  "pos": "vowel", "set": "train", "ja_a": "不足",       "ja_b": "運"},
+    {"a": "ankle", "b": "uncle", "pos": "vowel", "set": "train", "ja_a": "足首",       "ja_b": "おじ"},
+    {"a": "cab",   "b": "cub",   "pos": "vowel", "set": "test",  "ja_a": "タクシー",   "ja_b": "（動物の）子"},
+    {"a": "mad",   "b": "mud",   "pos": "vowel", "set": "test",  "ja_a": "怒った",     "ja_b": "泥"},
+    {"a": "drank", "b": "drunk", "pos": "vowel", "set": "test",  "ja_a": "飲んだ",     "ja_b": "酔った"},
+    {"a": "staff", "b": "stuff", "pos": "vowel", "set": "test",  "ja_a": "職員",       "ja_b": "もの"}
+  ]
+}

@@ -1,0 +1,54 @@
+{
+ "contrasts": [
+  {
+   "id": "rl",
+   "title": "/r/ と /l/",
+   "labels": {
+    "a": "r",
+    "b": "l"
+   },
+   "evidence": "◎",
+   "note": "日本人学習者で効果・般化・保持が確認されている（Bradlow et al. 1997, 1999 など）"
+  },
+  {
+   "id": "bv",
+   "title": "/b/ と /v/",
+   "labels": {
+    "a": "b",
+    "b": "v"
+   },
+   "evidence": "○",
+   "note": "授業内の短期訓練で改善の報告（Ueda & Hashimoto）"
+  },
+  {
+   "id": "sth",
+   "title": "/s/ と /θ/",
+   "labels": {
+    "a": "s",
+    "b": "th"
+   },
+   "evidence": "○",
+   "note": "授業内の短期訓練で改善の報告（Ueda & Hashimoto）"
+  },
+  {
+   "id": "aeuh",
+   "title": "/æ/ と /ʌ/",
+   "labels": {
+    "a": "æ",
+    "b": "ʌ"
+   },
+   "evidence": "※",
+   "note": "日本語の「ア」1つに対応する英語の母音の区別"
+  },
+  {
+   "id": "iih",
+   "title": "/iː/ と /ɪ/",
+   "labels": {
+    "a": "iː",
+    "b": "ɪ"
+   },
+   "evidence": "※",
+   "note": "日本語の「イ」1つに対応する英語の母音の区別"
+  }
+ ]
+}

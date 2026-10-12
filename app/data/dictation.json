@@ -1,0 +1,905 @@
+{
+ "audio": "audio/dict/{id}_{speaker}.mp3",
+ "speakers": [
+  227,
+  575,
+  902
+ ],
+ "sentences": [
+  {
+   "id": "1-01",
+   "level": 1,
+   "text": "I want to go home.",
+   "ja": "家に帰りたい。",
+   "features": [
+    {
+     "span": "want to",
+     "type": "reduction",
+     "note": "want to は「ワナ」のように短くなることがある"
+    }
+   ]
+  },
+  {
+   "id": "1-02",
+   "level": 1,
+   "text": "Can you help me?",
+   "ja": "手伝ってくれる？",
+   "features": [
+    {
+     "span": "can you",
+     "type": "reduction",
+     "note": "can は弱く「クン」のように短くなる"
+    }
+   ]
+  },
+  {
+   "id": "1-03",
+   "level": 1,
+   "text": "Pick it up, please.",
+   "ja": "それを拾ってください。",
+   "features": [
+    {
+     "span": "pick it up",
+     "type": "linking",
+     "note": "つながって「ピキラップ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "1-04",
+   "level": 1,
+   "text": "Did you eat lunch?",
+   "ja": "お昼ごはん食べた？",
+   "features": [
+    {
+     "span": "did you",
+     "type": "assimilation",
+     "note": "d と y が混ざって「ディジュ」のようになる"
+    }
+   ]
+  },
+  {
+   "id": "1-05",
+   "level": 1,
+   "text": "This is a pen.",
+   "ja": "これはペンです。",
+   "features": [
+    {
+     "span": "this is a",
+     "type": "linking",
+     "note": "つながって「ディスィザ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "1-06",
+   "level": 1,
+   "text": "I'm not sure.",
+   "ja": "よく分からない。",
+   "features": [
+    {
+     "span": "not sure",
+     "type": "elision",
+     "note": "not の t がほとんど聞こえない"
+    }
+   ]
+  },
+  {
+   "id": "1-07",
+   "level": 1,
+   "text": "Give it to me.",
+   "ja": "それをちょうだい。",
+   "features": [
+    {
+     "span": "give it",
+     "type": "linking",
+     "note": "つながって「ギヴィッ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "1-08",
+   "level": 1,
+   "text": "What is your name?",
+   "ja": "お名前は何ですか？",
+   "features": [
+    {
+     "span": "what is",
+     "type": "flap",
+     "note": "t が軽い「ラ」のようになり「ワリズ」と聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "1-09",
+   "level": 1,
+   "text": "Let me see.",
+   "ja": "ええと、どれどれ。",
+   "features": [
+    {
+     "span": "let me",
+     "type": "elision",
+     "note": "t が消えて「レミ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "1-10",
+   "level": 1,
+   "text": "I like it a lot.",
+   "ja": "それがとても好き。",
+   "features": [
+    {
+     "span": "it a lot",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「イラロッ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "1-11",
+   "level": 1,
+   "text": "Thank you very much.",
+   "ja": "どうもありがとう。",
+   "features": [
+    {
+     "span": "thank you",
+     "type": "linking",
+     "note": "つながって「サンキュ」になる"
+    }
+   ]
+  },
+  {
+   "id": "1-12",
+   "level": 1,
+   "text": "Get out of here.",
+   "ja": "ここから出ていって。",
+   "features": [
+    {
+     "span": "get out of",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「ゲラウラ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "2-01",
+   "level": 2,
+   "text": "I'm going to call you later.",
+   "ja": "あとで電話するね。",
+   "features": [
+    {
+     "span": "going to",
+     "type": "reduction",
+     "note": "going to は「ガナ」のように短くなることがある"
+    },
+    {
+     "span": "later",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「レイラー」と聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "2-02",
+   "level": 2,
+   "text": "Would you like some water?",
+   "ja": "お水はいかがですか？",
+   "features": [
+    {
+     "span": "would you",
+     "type": "assimilation",
+     "note": "d と y が混ざって「ウッジュ」のようになる"
+    },
+    {
+     "span": "water",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「ワーラー」と聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "2-03",
+   "level": 2,
+   "text": "She has a lot of friends.",
+   "ja": "彼女には友達がたくさんいる。",
+   "features": [
+    {
+     "span": "a lot of",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「アラロヴ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "2-04",
+   "level": 2,
+   "text": "We need to leave at eight.",
+   "ja": "8時に出発しないといけない。",
+   "features": [
+    {
+     "span": "need to",
+     "type": "elision",
+     "note": "d がほとんど聞こえず「ニートゥ」となる"
+    },
+    {
+     "span": "leave at eight",
+     "type": "linking",
+     "note": "つながって「リーヴァテイ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "2-05",
+   "level": 2,
+   "text": "Put it on the table.",
+   "ja": "それをテーブルに置いて。",
+   "features": [
+    {
+     "span": "put it on",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「プリロン」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "2-06",
+   "level": 2,
+   "text": "I don't know what to do.",
+   "ja": "どうしたらいいか分からない。",
+   "features": [
+    {
+     "span": "don't know",
+     "type": "elision",
+     "note": "t が消えて「ドンノウ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "2-07",
+   "level": 2,
+   "text": "Could you open the window?",
+   "ja": "窓を開けてもらえますか？",
+   "features": [
+    {
+     "span": "could you",
+     "type": "assimilation",
+     "note": "d と y が混ざって「クッジュ」のようになる"
+    }
+   ]
+  },
+  {
+   "id": "2-08",
+   "level": 2,
+   "text": "He got up at seven.",
+   "ja": "彼は7時に起きた。",
+   "features": [
+    {
+     "span": "got up at",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「ガラッパッ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "2-09",
+   "level": 2,
+   "text": "Have you ever been there?",
+   "ja": "そこに行ったことはある？",
+   "features": [
+    {
+     "span": "have you ever",
+     "type": "linking",
+     "note": "つながって「ハヴュエヴァ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "2-10",
+   "level": 2,
+   "text": "I think it's going to rain.",
+   "ja": "雨が降りそうだと思う。",
+   "features": [
+    {
+     "span": "going to",
+     "type": "reduction",
+     "note": "going to は「ガナ」のように短くなることがある"
+    }
+   ]
+  },
+  {
+   "id": "2-11",
+   "level": 2,
+   "text": "Turn off the light, please.",
+   "ja": "電気を消してください。",
+   "features": [
+    {
+     "span": "turn off",
+     "type": "linking",
+     "note": "つながって「ターノフ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "2-12",
+   "level": 2,
+   "text": "It was a good day.",
+   "ja": "いい一日だった。",
+   "features": [
+    {
+     "span": "good day",
+     "type": "elision",
+     "note": "good の d がほとんど聞こえず「グッデイ」となる"
+    }
+   ]
+  },
+  {
+   "id": "3-01",
+   "level": 3,
+   "text": "I should have called you last night.",
+   "ja": "昨夜あなたに電話するべきだった。",
+   "features": [
+    {
+     "span": "should have",
+     "type": "reduction",
+     "note": "should have は「シュダ」のように短くなる"
+    },
+    {
+     "span": "last night",
+     "type": "elision",
+     "note": "last の t がほとんど聞こえない"
+    }
+   ]
+  },
+  {
+   "id": "3-02",
+   "level": 3,
+   "text": "What do you want to eat for dinner?",
+   "ja": "夕食に何を食べたい？",
+   "features": [
+    {
+     "span": "what do you",
+     "type": "reduction",
+     "note": "「ワダヤ」のように短くなることがある"
+    },
+    {
+     "span": "want to",
+     "type": "reduction",
+     "note": "want to は「ワナ」のように短くなることがある"
+    }
+   ]
+  },
+  {
+   "id": "3-03",
+   "level": 3,
+   "text": "Let's meet in front of the station.",
+   "ja": "駅の前で会おう。",
+   "features": [
+    {
+     "span": "meet in",
+     "type": "linking",
+     "note": "つながって「ミーティン」のように聞こえる"
+    },
+    {
+     "span": "front of",
+     "type": "linking",
+     "note": "つながって「フランタヴ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "3-04",
+   "level": 3,
+   "text": "I didn't get a chance to talk to him.",
+   "ja": "彼と話す機会がなかった。",
+   "features": [
+    {
+     "span": "get a",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「ゲラ」と聞こえる"
+    },
+    {
+     "span": "to him",
+     "type": "reduction",
+     "note": "him の h が落ちて「トゥイム」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "3-05",
+   "level": 3,
+   "text": "Can I ask you a question?",
+   "ja": "質問してもいいですか？",
+   "features": [
+    {
+     "span": "can I ask you a",
+     "type": "linking",
+     "note": "つながって「キャナイ・アスキュア」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "3-06",
+   "level": 3,
+   "text": "She told me that she was tired.",
+   "ja": "彼女は疲れていると言った。",
+   "features": [
+    {
+     "span": "that she was",
+     "type": "reduction",
+     "note": "that と was は弱く短く発音される"
+    }
+   ]
+  },
+  {
+   "id": "3-07",
+   "level": 3,
+   "text": "Not at all. It's my pleasure.",
+   "ja": "どういたしまして。喜んで。",
+   "features": [
+    {
+     "span": "not at all",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「ナラロー」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "3-08",
+   "level": 3,
+   "text": "I've got to finish this report.",
+   "ja": "この報告書を仕上げなければならない。",
+   "features": [
+    {
+     "span": "got to",
+     "type": "reduction",
+     "note": "got to は「ガラ」のように短くなることがある"
+    }
+   ]
+  },
+  {
+   "id": "3-09",
+   "level": 3,
+   "text": "Don't you think it's too expensive?",
+   "ja": "高すぎると思わない？",
+   "features": [
+    {
+     "span": "don't you",
+     "type": "assimilation",
+     "note": "t と y が混ざって「ドンチュ」のようになる"
+    }
+   ]
+  },
+  {
+   "id": "3-10",
+   "level": 3,
+   "text": "Hold on a second.",
+   "ja": "ちょっと待って。",
+   "features": [
+    {
+     "span": "hold on a",
+     "type": "linking",
+     "note": "つながって「ホウルドナ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "3-11",
+   "level": 3,
+   "text": "We had to wait for an hour.",
+   "ja": "1時間待たなければならなかった。",
+   "features": [
+    {
+     "span": "had to",
+     "type": "elision",
+     "note": "d がほとんど聞こえず「ハットゥ」となる"
+    },
+    {
+     "span": "for an hour",
+     "type": "linking",
+     "note": "つながって「フォラナウア」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "3-12",
+   "level": 3,
+   "text": "Check it out when you have time.",
+   "ja": "時間があるときに見てみて。",
+   "features": [
+    {
+     "span": "check it out",
+     "type": "linking",
+     "note": "つながって「チェキラウ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "4-01",
+   "level": 4,
+   "text": "If I had known about it, I would have told you.",
+   "ja": "それを知っていたら、あなたに伝えたのに。",
+   "features": [
+    {
+     "span": "about it",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「アバウリッ」のように聞こえる"
+    },
+    {
+     "span": "would have",
+     "type": "reduction",
+     "note": "would have は「ウダ」のように短くなる"
+    }
+   ]
+  },
+  {
+   "id": "4-02",
+   "level": 4,
+   "text": "You'd better leave now, or you'll miss the train.",
+   "ja": "もう出たほうがいい。でないと電車に乗り遅れるよ。",
+   "features": [
+    {
+     "span": "you'd better",
+     "type": "reduction",
+     "note": "you'd の d がほとんど聞こえず「ユーベラー」のようになる"
+    }
+   ]
+  },
+  {
+   "id": "4-03",
+   "level": 4,
+   "text": "I'm not used to getting up so early.",
+   "ja": "そんなに早く起きるのには慣れていない。",
+   "features": [
+    {
+     "span": "used to",
+     "type": "elision",
+     "note": "「ユーストゥ」と1語のように発音される"
+    },
+    {
+     "span": "getting up",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「ゲリンガップ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "4-04",
+   "level": 4,
+   "text": "There's a lot of traffic on the way to work.",
+   "ja": "通勤途中は交通量が多い。",
+   "features": [
+    {
+     "span": "a lot of",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「アラロヴ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "4-05",
+   "level": 4,
+   "text": "Why don't we grab something to eat after the meeting?",
+   "ja": "会議のあと何か食べに行かない？",
+   "features": [
+    {
+     "span": "why don't we",
+     "type": "elision",
+     "note": "t が消えて「ワイドンウィ」のように聞こえる"
+    },
+    {
+     "span": "meeting",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「ミーリン」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "4-06",
+   "level": 4,
+   "text": "He must have forgotten about our appointment.",
+   "ja": "彼は約束を忘れたにちがいない。",
+   "features": [
+    {
+     "span": "must have",
+     "type": "reduction",
+     "note": "must have は「マスタ」のように短くなる"
+    }
+   ]
+  },
+  {
+   "id": "4-07",
+   "level": 4,
+   "text": "I was wondering if you could give me a hand.",
+   "ja": "手伝っていただけないかと思いまして。",
+   "features": [
+    {
+     "span": "if you",
+     "type": "linking",
+     "note": "つながって「イフュ」のように聞こえる"
+    },
+    {
+     "span": "give me a",
+     "type": "reduction",
+     "note": "「ギミア」のように短くなる"
+    }
+   ]
+  },
+  {
+   "id": "4-08",
+   "level": 4,
+   "text": "It's kind of hard to explain.",
+   "ja": "ちょっと説明しにくい。",
+   "features": [
+    {
+     "span": "kind of",
+     "type": "reduction",
+     "note": "kind of は「カインダ」のように短くなる"
+    }
+   ]
+  },
+  {
+   "id": "4-09",
+   "level": 4,
+   "text": "As far as I know, the store is closed on Mondays.",
+   "ja": "私の知る限り、その店は月曜日は休みだ。",
+   "features": [
+    {
+     "span": "as far as I",
+     "type": "linking",
+     "note": "つながって「アズファーラザイ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "4-10",
+   "level": 4,
+   "text": "Did you get what you needed?",
+   "ja": "必要なものは手に入った？",
+   "features": [
+    {
+     "span": "did you",
+     "type": "assimilation",
+     "note": "d と y が混ざって「ディジュ」のようになる"
+    },
+    {
+     "span": "what you",
+     "type": "assimilation",
+     "note": "t と y が混ざって「ワッチュ」のようになる"
+    }
+   ]
+  },
+  {
+   "id": "4-11",
+   "level": 4,
+   "text": "Let me know as soon as possible.",
+   "ja": "できるだけ早く知らせてね。",
+   "features": [
+    {
+     "span": "let me",
+     "type": "elision",
+     "note": "t が消えて「レミ」のように聞こえる"
+    },
+    {
+     "span": "as soon as",
+     "type": "linking",
+     "note": "つながって「アズスーナズ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "4-12",
+   "level": 4,
+   "text": "She ended up taking a different job.",
+   "ja": "彼女は結局ちがう仕事に就いた。",
+   "features": [
+    {
+     "span": "ended up",
+     "type": "linking",
+     "note": "つながって「エンディダップ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "5-01",
+   "level": 5,
+   "text": "I'd have gone with you if you'd asked me.",
+   "ja": "頼まれていたら一緒に行ったのに。",
+   "features": [
+    {
+     "span": "i'd have",
+     "type": "reduction",
+     "note": "「アイダヴ」「アイダ」のように短くなる"
+    },
+    {
+     "span": "if you'd asked",
+     "type": "linking",
+     "note": "つながって「イフュダスクト」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "5-02",
+   "level": 5,
+   "text": "They're supposed to be here by now, aren't they?",
+   "ja": "もう着いているはずだよね？",
+   "features": [
+    {
+     "span": "supposed to",
+     "type": "elision",
+     "note": "d が消えて「サポウストゥ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "5-03",
+   "level": 5,
+   "text": "What are you going to do about it?",
+   "ja": "それをどうするつもり？",
+   "features": [
+    {
+     "span": "what are you",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「ワラヤ」のように聞こえる"
+    },
+    {
+     "span": "about it",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「アバウリッ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "5-04",
+   "level": 5,
+   "text": "I couldn't make it to the party last weekend.",
+   "ja": "先週末のパーティーには行けなかった。",
+   "features": [
+    {
+     "span": "make it",
+     "type": "linking",
+     "note": "つながって「メイキッ」のように聞こえる"
+    },
+    {
+     "span": "last weekend",
+     "type": "elision",
+     "note": "last の t がほとんど聞こえない"
+    }
+   ]
+  },
+  {
+   "id": "5-05",
+   "level": 5,
+   "text": "We ought to get going before it gets dark.",
+   "ja": "暗くなる前に出発したほうがいい。",
+   "features": [
+    {
+     "span": "ought to",
+     "type": "flap",
+     "note": "「オーラ」のように短くなることがある"
+    },
+    {
+     "span": "get going",
+     "type": "elision",
+     "note": "get の t がほとんど聞こえない"
+    }
+   ]
+  },
+  {
+   "id": "5-06",
+   "level": 5,
+   "text": "It turned out that he'd been lying the whole time.",
+   "ja": "彼はずっと嘘をついていたことがわかった。",
+   "features": [
+    {
+     "span": "turned out",
+     "type": "linking",
+     "note": "つながって「ターンダウ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "5-07",
+   "level": 5,
+   "text": "Would you mind if I opened the window a little?",
+   "ja": "窓を少し開けてもいいですか？",
+   "features": [
+    {
+     "span": "would you",
+     "type": "assimilation",
+     "note": "d と y が混ざって「ウッジュ」のようになる"
+    },
+    {
+     "span": "mind if I",
+     "type": "linking",
+     "note": "つながって「マインディファイ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "5-08",
+   "level": 5,
+   "text": "Whatever you do, don't give up on your dreams.",
+   "ja": "何があっても夢をあきらめないで。",
+   "features": [
+    {
+     "span": "whatever",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「ワレヴァ」のように聞こえる"
+    },
+    {
+     "span": "give up on",
+     "type": "linking",
+     "note": "つながって「ギヴァッポン」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "5-09",
+   "level": 5,
+   "text": "I've been meaning to ask you about that.",
+   "ja": "そのことをずっと聞こうと思っていた。",
+   "features": [
+    {
+     "span": "meaning to",
+     "type": "reduction",
+     "note": "「ミーニンタ」のように短くなる"
+    },
+    {
+     "span": "ask you about",
+     "type": "linking",
+     "note": "つながって「アスキュアバウ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "5-10",
+   "level": 5,
+   "text": "Not that I know of, but I'll look into it.",
+   "ja": "私の知る限りではないけど、調べてみるよ。",
+   "features": [
+    {
+     "span": "know of",
+     "type": "linking",
+     "note": "つながって「ノウォヴ」のように聞こえる"
+    },
+    {
+     "span": "look into it",
+     "type": "linking",
+     "note": "つながって「ルッキントゥイッ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "5-11",
+   "level": 5,
+   "text": "You should've seen the look on his face.",
+   "ja": "彼の顔を見せたかったよ。",
+   "features": [
+    {
+     "span": "should've",
+     "type": "reduction",
+     "note": "should've は「シュダ」のように短くなる"
+    },
+    {
+     "span": "on his",
+     "type": "reduction",
+     "note": "his の h が落ちて「オニズ」のように聞こえる"
+    }
+   ]
+  },
+  {
+   "id": "5-12",
+   "level": 5,
+   "text": "Let's get it over with.",
+   "ja": "さっさと片付けてしまおう。",
+   "features": [
+    {
+     "span": "get it over with",
+     "type": "flap",
+     "note": "t が軽い「ラ」になり「ゲリロウヴァ」のように聞こえる"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,157 @@
+{
+ "id": "sth",
+ "title": "/s/ と /θ/",
+ "labels": {
+  "a": "s",
+  "b": "th"
+ },
+ "evidence": "○",
+ "note": "授業内の短期訓練で改善の報告（Ueda & Hashimoto）",
+ "audio": "audio/sth/{word}_{speaker}.mp3",
+ "speakers": {
+  "train": [
+   1,
+   8,
+   44,
+   51,
+   70,
+   174,
+   227,
+   235,
+   238,
+   403,
+   416,
+   543,
+   569,
+   573,
+   575,
+   684,
+   778,
+   808,
+   836,
+   902
+  ],
+  "test": [
+   76,
+   323,
+   447,
+   559,
+   621,
+   671
+  ]
+ },
+ "pairs": [
+  {
+   "a": "sink",
+   "b": "think",
+   "pos": "initial",
+   "set": "train",
+   "ja_a": "流し・沈む",
+   "ja_b": "考える"
+  },
+  {
+   "a": "sick",
+   "b": "thick",
+   "pos": "initial",
+   "set": "train",
+   "ja_a": "病気の",
+   "ja_b": "厚い"
+  },
+  {
+   "a": "sum",
+   "b": "thumb",
+   "pos": "initial",
+   "set": "train",
+   "ja_a": "合計",
+   "ja_b": "親指"
+  },
+  {
+   "a": "sing",
+   "b": "thing",
+   "pos": "initial",
+   "set": "train",
+   "ja_a": "歌う",
+   "ja_b": "物"
+  },
+  {
+   "a": "sank",
+   "b": "thank",
+   "pos": "initial",
+   "set": "train",
+   "ja_a": "沈んだ",
+   "ja_b": "感謝する"
+  },
+  {
+   "a": "sought",
+   "b": "thought",
+   "pos": "initial",
+   "set": "train",
+   "ja_a": "探し求めた",
+   "ja_b": "考えた"
+  },
+  {
+   "a": "mouse",
+   "b": "mouth",
+   "pos": "final",
+   "set": "train",
+   "ja_a": "ネズミ",
+   "ja_b": "口"
+  },
+  {
+   "a": "pass",
+   "b": "path",
+   "pos": "final",
+   "set": "train",
+   "ja_a": "通る",
+   "ja_b": "小道"
+  },
+  {
+   "a": "face",
+   "b": "faith",
+   "pos": "final",
+   "set": "train",
+   "ja_a": "顔",
+   "ja_b": "信頼"
+  },
+  {
+   "a": "force",
+   "b": "forth",
+   "pos": "final",
+   "set": "train",
+   "ja_a": "力",
+   "ja_b": "前へ"
+  },
+  {
+   "a": "saw",
+   "b": "thaw",
+   "pos": "initial",
+   "set": "test",
+   "ja_a": "見た",
+   "ja_b": "解ける"
+  },
+  {
+   "a": "seem",
+   "b": "theme",
+   "pos": "initial",
+   "set": "test",
+   "ja_a": "〜に見える",
+   "ja_b": "テーマ"
+  },
+  {
+   "a": "tense",
+   "b": "tenth",
+   "pos": "final",
+   "set": "test",
+   "ja_a": "緊張した",
+   "ja_b": "10番目"
+  },
+  {
+   "a": "miss",
+   "b": "myth",
+   "pos": "final",
+   "set": "test",
+   "ja_a": "逃す",
+   "ja_b": "神話"
+  }
+ ]
+}

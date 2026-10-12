@@ -1,0 +1,69 @@
+{
+  "description": "聞き読み用の短い物語（Claude による作文。ライセンスの制約なし）。",
+  "stories": [
+    {"id": "s1", "level": 1, "title": "The Lost Umbrella", "ja_title": "忘れた傘", "names": ["Ken", "Yuki"], "sentences": [
+      {"text": "It was a rainy morning.", "ja": "雨の朝でした。"},
+      {"text": "Ken took his blue umbrella and went to school.", "ja": "ケンは青い傘を持って学校へ行きました。"},
+      {"text": "After school, the rain stopped.", "ja": "放課後、雨はやみました。"},
+      {"text": "Ken played soccer with his friends.", "ja": "ケンは友達とサッカーをしました。"},
+      {"text": "Then he walked home.", "ja": "それから歩いて家に帰りました。"},
+      {"text": "At home, his mother asked, \"Where is your umbrella?\"", "ja": "家で、お母さんが「傘はどこ？」と聞きました。"},
+      {"text": "Ken looked at his hands.", "ja": "ケンは自分の手を見ました。"},
+      {"text": "\"Oh no! I left it at school!\"", "ja": "「しまった！学校に忘れてきた！」"},
+      {"text": "The next morning, it was raining again.", "ja": "次の朝、また雨が降っていました。"},
+      {"text": "Ken ran to school without an umbrella.", "ja": "ケンは傘を持たずに学校へ走りました。"},
+      {"text": "His friend Yuki was waiting at the gate.", "ja": "友達のユキが門のところで待っていました。"},
+      {"text": "She smiled and gave him his blue umbrella.", "ja": "ユキはにっこりして、青い傘を渡してくれました。"},
+      {"text": "\"You forgot this yesterday,\" she said.", "ja": "「昨日、これ忘れてたよ」とユキは言いました。"},
+      {"text": "Ken laughed. \"Thank you! You are a good friend.\"", "ja": "ケンは笑いました。「ありがとう！君はいい友達だね。」"}
+    ]},
+    {"id": "s2", "level": 2, "title": "A Letter from Grandma", "ja_title": "おばあちゃんからの手紙", "names": ["Mia"], "sentences": [
+      {"text": "Every month, Mia gets a letter from her grandmother.", "ja": "毎月、ミアはおばあちゃんから手紙をもらいます。"},
+      {"text": "Her grandmother lives in a small town by the sea.", "ja": "おばあちゃんは海辺の小さな町に住んでいます。"},
+      {"text": "She doesn't use a phone very much, so she writes letters by hand.", "ja": "電話はあまり使わないので、手書きで手紙を書きます。"},
+      {"text": "In her letters, she talks about her garden, her cat, and the weather.", "ja": "手紙には、庭のこと、猫のこと、天気のことが書いてあります。"},
+      {"text": "Mia always reads them twice.", "ja": "ミアはいつも2回読みます。"},
+      {"text": "One day, Mia decided to write back.", "ja": "ある日、ミアは返事を書くことにしました。"},
+      {"text": "She wasn't sure what to say at first.", "ja": "最初は何を書けばいいかわかりませんでした。"},
+      {"text": "Then she wrote about her school, her new friends, and the book she was reading.", "ja": "それから、学校のこと、新しい友達のこと、読んでいる本のことを書きました。"},
+      {"text": "She also drew a picture of her family.", "ja": "家族の絵も描きました。"},
+      {"text": "A week later, her grandmother called.", "ja": "1週間後、おばあちゃんから電話がありました。"},
+      {"text": "\"I got your letter,\" she said. \"It made me so happy.\"", "ja": "「手紙が届いたよ。とてもうれしかった」とおばあちゃんは言いました。"},
+      {"text": "\"I put your picture on the wall.\"", "ja": "「絵は壁に飾ったよ。」"},
+      {"text": "Since then, Mia and her grandmother have written to each other every month.", "ja": "それ以来、ミアとおばあちゃんは毎月手紙をやりとりしています。"}
+    ]},
+    {"id": "s3", "level": 3, "title": "The Night Market", "ja_title": "夜市", "names": ["Tom"], "sentences": [
+      {"text": "Last summer, Tom visited a night market for the first time.", "ja": "去年の夏、トムは初めて夜市に行きました。"},
+      {"text": "The streets were full of people, and the air smelled of grilled meat and sweet fruit.", "ja": "通りは人でいっぱいで、焼いた肉と甘い果物のにおいがしていました。"},
+      {"text": "There were hundreds of small shops selling food, clothes, and toys.", "ja": "食べ物や服やおもちゃを売る小さな店が何百もありました。"},
+      {"text": "Tom wanted to try everything, but he didn't know where to start.", "ja": "トムは全部試してみたかったのですが、どこから始めればいいかわかりませんでした。"},
+      {"text": "An old man at a noodle shop noticed him looking around.", "ja": "麺の店の年配の男性が、きょろきょろしているトムに気づきました。"},
+      {"text": "\"First time here?\" he asked with a smile.", "ja": "「ここは初めてかい？」と彼はほほえんで聞きました。"},
+      {"text": "Tom nodded.", "ja": "トムはうなずきました。"},
+      {"text": "\"Then you should start with my noodles. They're the best in the market.\"", "ja": "「それならうちの麺から始めるといい。この市場でいちばんだよ。」"},
+      {"text": "Tom laughed and sat down.", "ja": "トムは笑って座りました。"},
+      {"text": "The noodles were hot and spicy, and they were delicious.", "ja": "麺は熱くて辛くて、とてもおいしかったです。"},
+      {"text": "While he was eating, the old man told him stories about the market.", "ja": "食べている間、男性は市場の話を聞かせてくれました。"},
+      {"text": "He had been cooking there for over forty years.", "ja": "彼はそこで40年以上料理をしてきたのです。"},
+      {"text": "When Tom finished, he thanked the man and asked for some advice.", "ja": "食べ終わると、トムはお礼を言って、アドバイスを求めました。"},
+      {"text": "\"Walk slowly,\" the man said. \"Don't just look at the food. Talk to the people.\"", "ja": "「ゆっくり歩きなさい。食べ物を見るだけじゃなく、人と話すんだ」と男性は言いました。"},
+      {"text": "\"That's the real taste of this place.\"", "ja": "「それがこの場所の本当の味だよ。」"},
+      {"text": "Tom followed his advice, and it became one of the best nights of his trip.", "ja": "トムはそのアドバイスに従い、それは旅でいちばん素敵な夜の一つになりました。"}
+    ]},
+    {"id": "s4", "level": 4, "title": "The Robot Who Wanted to Paint", "ja_title": "絵を描きたかったロボット", "names": ["Unit", "Seven"], "sentences": [
+      {"text": "In a quiet factory at the edge of the city, there was a robot called Unit Seven.", "ja": "町のはずれの静かな工場に、ユニット・セブンというロボットがいました。"},
+      {"text": "Its job was simple: it painted cars the same shade of gray, all day long.", "ja": "仕事は単純で、一日中、車を同じ灰色に塗ることでした。"},
+      {"text": "One evening, after the workers had gone home, a small bird flew in through a broken window.", "ja": "ある晩、作業員たちが帰ったあと、小さな鳥が割れた窓から飛び込んできました。"},
+      {"text": "It landed on a shelf and began to sing.", "ja": "鳥は棚にとまって、歌い始めました。"},
+      {"text": "Unit Seven stopped working and watched.", "ja": "ユニット・セブンは手を止めて、じっと見ました。"},
+      {"text": "The bird's feathers were bright orange, a color the robot had never used before.", "ja": "鳥の羽は明るいオレンジ色で、ロボットが一度も使ったことのない色でした。"},
+      {"text": "For the first time, Unit Seven wondered what it would be like to paint something other than gray.", "ja": "初めて、ユニット・セブンは灰色以外のものを塗ったらどんな感じだろうと思いました。"},
+      {"text": "That night, it mixed a little red and yellow paint and carefully drew a bird on the side of a car.", "ja": "その夜、ロボットは赤と黄色の塗料を少し混ぜて、車の側面にていねいに鳥を描きました。"},
+      {"text": "The next morning, the factory manager found the car and was very angry.", "ja": "次の朝、工場長がその車を見つけて、とても怒りました。"},
+      {"text": "But when customers saw it, they asked for more.", "ja": "ところが、お客さんたちはそれを見て、もっと欲しいと言いました。"},
+      {"text": "Before long, Unit Seven was painting birds, flowers, and even sunsets.", "ja": "まもなく、ユニット・セブンは鳥や花、さらには夕焼けまで描くようになりました。"},
+      {"text": "The factory became famous, and the robot finally understood something important.", "ja": "工場は有名になり、ロボットはついに大切なことに気づきました。"},
+      {"text": "Doing your job well is good, but doing it in your own way can be even better.", "ja": "仕事をきちんとこなすのはいいことだ。でも、自分らしいやり方でやれば、もっとよくなることもある。"}
+    ]}
+  ]
+}

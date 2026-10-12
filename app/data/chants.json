@@ -1,0 +1,106 @@
+{
+ "audio": "audio/chant/{id}_{tempo}.mp3",
+ "bpm": {
+  "normal": 80,
+  "slow": 64
+ },
+ "count_in": 4,
+ "chants": [
+  {
+   "id": "c1",
+   "level": 1,
+   "title": "Morning Routine",
+   "ja_title": "朝の支度",
+   "lines": [
+    {
+     "beats": "*Wake up, | *wash your | *face. | -",
+     "ja": "起きて、顔を洗って。"
+    },
+    {
+     "beats": "*Brush your | *teeth and | *comb your | *hair.",
+     "ja": "歯をみがいて、髪をとかして。"
+    },
+    {
+     "beats": "*Eat your | *breakfast, | *grab your | *bag,",
+     "ja": "朝ごはんを食べて、かばんを持って、"
+    },
+    {
+     "beats": "*out the | *door and | *off to | *school!",
+     "ja": "ドアを出て、学校へ！"
+    }
+   ]
+  },
+  {
+   "id": "c2",
+   "level": 2,
+   "title": "Where's My Phone?",
+   "ja_title": "スマホはどこ？",
+   "lines": [
+    {
+     "beats": "*Where's my | *phone? | *Where's my | *phone?",
+     "ja": "スマホはどこ？スマホはどこ？"
+    },
+    {
+     "beats": "I *had it | *just a | *minute | *ago.",
+     "ja": "ついさっきまで持っていたのに。"
+    },
+    {
+     "beats": "Is it *in my | *bag? | Is it *on the | *bed?",
+     "ja": "かばんの中？ベッドの上？"
+    },
+    {
+     "beats": "*Oh, it's | *right here | *in my | *hand!",
+     "ja": "あ、ここにある。手の中に！"
+    }
+   ]
+  },
+  {
+   "id": "c3",
+   "level": 2,
+   "title": "Do You Want to Go?",
+   "ja_title": "行かない？",
+   "lines": [
+    {
+     "beats": "Do you *want to | *go to the | *movies? | -",
+     "ja": "映画に行かない？"
+    },
+    {
+     "beats": "I'm *sorry, | I *can't. | I *have to | *work.",
+     "ja": "ごめん、行けない。仕事があるんだ。"
+    },
+    {
+     "beats": "*How about | to*morrow | *night? | -",
+     "ja": "明日の夜はどう？"
+    },
+    {
+     "beats": "*That sounds | *great. | I'll *see you | *then!",
+     "ja": "いいね。じゃあそのときに！"
+    }
+   ]
+  },
+  {
+   "id": "c4",
+   "level": 3,
+   "title": "Busy Day",
+   "ja_title": "忙しい一日",
+   "lines": [
+    {
+     "beats": "I've *got to | *call my | *boss at | *nine.",
+     "ja": "9時に上司に電話しなきゃ。"
+    },
+    {
+     "beats": "I've *got to | *answer | *twenty | *emails.",
+     "ja": "メールを20通返さなきゃ。"
+    },
+    {
+     "beats": "I've *got to | *pick up the | *kids at | *three,",
+     "ja": "3時に子どもを迎えに行かなきゃ。"
+    },
+    {
+     "beats": "and *then I'm | *going to | *sleep for a | *week!",
+     "ja": "それが終わったら、1週間寝るんだ！"
+    }
+   ]
+  }
+ ]
+}

@@ -1,0 +1,17 @@
+{
+  "description": "文のリズム用。* の付いた語が強く読まれる語（内容語・否定語）。demo=true の3文は「強い語の数が同じなら、弱い語が増えても大きくは長くならない」ことを体験する組。",
+  "sentences": [
+    {"id": "r01", "marked": "*Cats *chase *mice.", "ja": "猫はネズミを追いかける。", "demo": true},
+    {"id": "r02", "marked": "The *cats will *chase the *mice.", "ja": "猫たちはネズミを追いかけるだろう。", "demo": true},
+    {"id": "r03", "marked": "The *cats have been *chasing the *mice.", "ja": "猫たちはずっとネズミを追いかけている。", "demo": true},
+    {"id": "r04", "marked": "I *want to *go to the *park.", "ja": "公園に行きたい。"},
+    {"id": "r05", "marked": "*Where did you *put my *keys?", "ja": "私の鍵をどこに置いたの？"},
+    {"id": "r06", "marked": "She's *going to *call you *later.", "ja": "彼女があとで電話するよ。"},
+    {"id": "r07", "marked": "We *had a *great *time at the *beach.", "ja": "海でとても楽しく過ごした。"},
+    {"id": "r08", "marked": "He *can't *come to the *party.", "ja": "彼はパーティーに来られない。"},
+    {"id": "r09", "marked": "*What do you *want for *dinner?", "ja": "夕食に何が食べたい？"},
+    {"id": "r10", "marked": "I *think it's *going to *rain *tomorrow.", "ja": "明日は雨になると思う。"},
+    {"id": "r11", "marked": "*Tell me *more about your *trip.", "ja": "旅行の話をもっと聞かせて。"},
+    {"id": "r12", "marked": "Could you *pass me the *salt, *please?", "ja": "塩を取ってもらえますか？"}
+  ]
+}

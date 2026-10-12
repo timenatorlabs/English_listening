@@ -1,0 +1,20 @@
+{
+  "pairs": [
+    {"a": "berry",  "b": "very",   "pos": "initial", "set": "train", "ja_a": "ベリー",     "ja_b": "とても"},
+    {"a": "best",   "b": "vest",   "pos": "initial", "set": "train", "ja_a": "最も良い",   "ja_b": "ベスト（服）"},
+    {"a": "boat",   "b": "vote",   "pos": "initial", "set": "train", "ja_a": "ボート",     "ja_b": "投票する"},
+    {"a": "ban",    "b": "van",    "pos": "initial", "set": "train", "ja_a": "禁止する",   "ja_b": "バン（車）"},
+    {"a": "bet",    "b": "vet",    "pos": "initial", "set": "train", "ja_a": "賭ける",     "ja_b": "獣医"},
+    {"a": "base",   "b": "vase",   "pos": "initial", "set": "train", "ja_a": "土台",       "ja_b": "花びん"},
+    {"a": "bent",   "b": "vent",   "pos": "initial", "set": "train", "ja_a": "曲がった",   "ja_b": "通気口"},
+    {"a": "bolt",   "b": "volt",   "pos": "initial", "set": "train", "ja_a": "ボルト（ねじ）", "ja_b": "ボルト（電圧）"},
+    {"a": "bale",   "b": "veil",   "pos": "initial", "set": "train", "ja_a": "（干し草の）束", "ja_b": "ベール"},
+    {"a": "marble", "b": "marvel", "pos": "medial",  "set": "train", "ja_a": "大理石",     "ja_b": "驚嘆する"},
+    {"a": "saber",  "b": "saver",  "pos": "medial",  "set": "train", "ja_a": "サーベル",   "ja_b": "節約するもの"},
+    {"a": "curb",   "b": "curve",  "pos": "final",   "set": "train", "ja_a": "縁石・抑える", "ja_b": "曲線"},
+    {"a": "bat",    "b": "vat",    "pos": "initial", "set": "test",  "ja_a": "バット",     "ja_b": "大おけ"},
+    {"a": "bile",   "b": "vile",   "pos": "initial", "set": "test",  "ja_a": "胆汁",       "ja_b": "ひどい"},
+    {"a": "bane",   "b": "vane",   "pos": "initial", "set": "test",  "ja_a": "悩みの種",   "ja_b": "風見"},
+    {"a": "bowel",  "b": "vowel",  "pos": "initial", "set": "test",  "ja_a": "腸",         "ja_b": "母音"}
+  ]
+}

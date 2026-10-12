@@ -1,0 +1,75 @@
+{
+  "description": "シャドーイング用の短い文章（Claude による作文）。レベル1〜5に2本ずつ。",
+  "passages": [
+    {"id": "1-a", "level": 1, "title": "My Morning", "ja_title": "私の朝", "sentences": [
+      {"text": "I get up at seven every day.", "ja": "私は毎日7時に起きます。"},
+      {"text": "I wash my face and eat breakfast.", "ja": "顔を洗って朝ごはんを食べます。"},
+      {"text": "I usually have toast and coffee.", "ja": "たいていトーストとコーヒーです。"},
+      {"text": "Then I walk to the station.", "ja": "それから駅まで歩きます。"},
+      {"text": "It takes about ten minutes.", "ja": "10分くらいかかります。"}
+    ]},
+    {"id": "1-b", "level": 1, "title": "Our Dog", "ja_title": "うちの犬", "sentences": [
+      {"text": "I live with my family.", "ja": "私は家族と住んでいます。"},
+      {"text": "We have a small dog.", "ja": "小さな犬を飼っています。"},
+      {"text": "His name is Max.", "ja": "名前はマックスです。"},
+      {"text": "He likes to play in the park.", "ja": "公園で遊ぶのが好きです。"},
+      {"text": "We walk him every evening.", "ja": "毎晩散歩に連れて行きます。"}
+    ]},
+    {"id": "2-a", "level": 2, "title": "Weekend Plans", "ja_title": "週末の予定", "sentences": [
+      {"text": "What are you doing this weekend?", "ja": "今週末は何をするの？"},
+      {"text": "I'm going to see a movie with my friends.", "ja": "友達と映画を見に行くんだ。"},
+      {"text": "We want to try the new pizza place, too.", "ja": "新しいピザ屋さんにも行ってみたいんだ。"},
+      {"text": "Do you want to come with us?", "ja": "一緒に来ない？"},
+      {"text": "It's going to be fun.", "ja": "きっと楽しいよ。"}
+    ]},
+    {"id": "2-b", "level": 2, "title": "At the Cafe", "ja_title": "カフェで", "sentences": [
+      {"text": "Can I get a large coffee, please?", "ja": "コーヒーのLサイズをください。"},
+      {"text": "Would you like anything else?", "ja": "ほかに何かいかがですか？"},
+      {"text": "No, thank you. That's all.", "ja": "いいえ、けっこうです。それで全部です。"},
+      {"text": "For here or to go?", "ja": "店内でお召し上がりですか、お持ち帰りですか？"},
+      {"text": "To go, please.", "ja": "持ち帰りでお願いします。"}
+    ]},
+    {"id": "3-a", "level": 3, "title": "A Rainy Day", "ja_title": "雨の日", "sentences": [
+      {"text": "It started raining when I left the office.", "ja": "会社を出たとき、雨が降り始めた。"},
+      {"text": "I didn't have an umbrella, so I had to run to the station.", "ja": "傘を持っていなかったので、駅まで走るしかなかった。"},
+      {"text": "By the time I got there, I was completely wet.", "ja": "着いたころには、すっかりずぶぬれだった。"},
+      {"text": "I should have checked the weather forecast.", "ja": "天気予報を確認しておくべきだった。"},
+      {"text": "Next time, I'll be more careful.", "ja": "次はもっと気をつけよう。"}
+    ]},
+    {"id": "3-b", "level": 3, "title": "Learning English", "ja_title": "英語の勉強", "sentences": [
+      {"text": "I've been studying English for about a year.", "ja": "英語を勉強して1年くらいになる。"},
+      {"text": "At first, it was hard to understand native speakers.", "ja": "最初は、ネイティブの話を理解するのが難しかった。"},
+      {"text": "They talk so fast, and the words seem to run together.", "ja": "話すのがとても速くて、単語がつながって聞こえる。"},
+      {"text": "But little by little, I'm getting used to it.", "ja": "でも少しずつ慣れてきている。"},
+      {"text": "Practice really does make a difference.", "ja": "練習は本当に効果がある。"}
+    ]},
+    {"id": "4-a", "level": 4, "title": "Working from Home", "ja_title": "在宅勤務", "sentences": [
+      {"text": "These days, a lot of people work from home.", "ja": "最近は、多くの人が在宅で働いている。"},
+      {"text": "It saves time because you don't have to commute.", "ja": "通勤しなくていいので、時間の節約になる。"},
+      {"text": "On the other hand, it's easy to lose track of time.", "ja": "一方で、時間の感覚を失いやすい。"},
+      {"text": "Some people find it hard to separate work from their private life.", "ja": "仕事と私生活を分けるのが難しいと感じる人もいる。"},
+      {"text": "It's important to take regular breaks.", "ja": "定期的に休憩をとることが大切だ。"}
+    ]},
+    {"id": "4-b", "level": 4, "title": "A Trip to Kyoto", "ja_title": "京都旅行", "sentences": [
+      {"text": "Last spring, I went to Kyoto with a couple of friends.", "ja": "去年の春、友人2人と京都へ行った。"},
+      {"text": "We visited several temples and walked along the river.", "ja": "いくつかのお寺を訪れ、川沿いを歩いた。"},
+      {"text": "The trees were full of pink flowers, and it was absolutely beautiful.", "ja": "木々はピンクの花でいっぱいで、本当にきれいだった。"},
+      {"text": "We also tried some traditional sweets.", "ja": "伝統的なお菓子も食べてみた。"},
+      {"text": "I'd love to go back there again one day.", "ja": "いつかまた行きたい。"}
+    ]},
+    {"id": "5-a", "level": 5, "title": "Getting Enough Sleep", "ja_title": "十分な睡眠", "sentences": [
+      {"text": "Most of us know that sleep is important, but we don't always get enough of it.", "ja": "睡眠が大切なことは誰でも知っているが、いつも十分にとれているわけではない。"},
+      {"text": "Adults are generally advised to get seven or more hours a night.", "ja": "大人は一晩に7時間以上の睡眠が一般にすすめられている。"},
+      {"text": "When we don't sleep well, it's harder to focus and remember things.", "ja": "よく眠れないと、集中したり物事を覚えたりするのが難しくなる。"},
+      {"text": "Even a short nap in the afternoon can make a difference.", "ja": "午後の短い昼寝でさえ、違いを生むことがある。"},
+      {"text": "So if you're feeling tired, maybe it's time to go to bed a little earlier.", "ja": "だから疲れを感じているなら、少し早く寝る時なのかもしれない。"}
+    ]},
+    {"id": "5-b", "level": 5, "title": "Learning to Say No", "ja_title": "断ることを覚える", "sentences": [
+      {"text": "A lot of people find it difficult to say no.", "ja": "断るのが苦手な人は多い。"},
+      {"text": "We don't want to let others down, so we end up agreeing to things we don't really have time for.", "ja": "人をがっかりさせたくなくて、本当は時間がないことまで引き受けてしまう。"},
+      {"text": "But saying yes to everything can leave you exhausted.", "ja": "でも、何でも引き受けていると疲れ果ててしまう。"},
+      {"text": "It's okay to set limits and take care of yourself.", "ja": "限度を決めて、自分を大切にしていい。"},
+      {"text": "In the long run, the people around you will understand.", "ja": "長い目で見れば、周りの人もわかってくれる。"}
+    ]}
+  ]
+}

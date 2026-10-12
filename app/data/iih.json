@@ -1,0 +1,157 @@
+{
+ "id": "iih",
+ "title": "/iː/ と /ɪ/",
+ "labels": {
+  "a": "iː",
+  "b": "ɪ"
+ },
+ "evidence": "※",
+ "note": "日本語の「イ」1つに対応する英語の母音の区別",
+ "audio": "audio/iih/{word}_{speaker}.mp3",
+ "speakers": {
+  "train": [
+   1,
+   8,
+   44,
+   51,
+   70,
+   174,
+   227,
+   235,
+   238,
+   403,
+   416,
+   543,
+   569,
+   573,
+   575,
+   684,
+   778,
+   808,
+   836,
+   902
+  ],
+  "test": [
+   76,
+   323,
+   447,
+   559,
+   621,
+   671
+  ]
+ },
+ "pairs": [
+  {
+   "a": "sheep",
+   "b": "ship",
+   "pos": "vowel",
+   "set": "train",
+   "ja_a": "羊",
+   "ja_b": "船"
+  },
+  {
+   "a": "seat",
+   "b": "sit",
+   "pos": "vowel",
+   "set": "train",
+   "ja_a": "座席",
+   "ja_b": "座る"
+  },
+  {
+   "a": "feel",
+   "b": "fill",
+   "pos": "vowel",
+   "set": "train",
+   "ja_a": "感じる",
+   "ja_b": "満たす"
+  },
+  {
+   "a": "beat",
+   "b": "bit",
+   "pos": "vowel",
+   "set": "train",
+   "ja_a": "打つ",
+   "ja_b": "少し"
+  },
+  {
+   "a": "heat",
+   "b": "hit",
+   "pos": "vowel",
+   "set": "train",
+   "ja_a": "熱",
+   "ja_b": "打つ"
+  },
+  {
+   "a": "eat",
+   "b": "it",
+   "pos": "vowel",
+   "set": "train",
+   "ja_a": "食べる",
+   "ja_b": "それ"
+  },
+  {
+   "a": "reach",
+   "b": "rich",
+   "pos": "vowel",
+   "set": "train",
+   "ja_a": "届く",
+   "ja_b": "裕福な"
+  },
+  {
+   "a": "sleep",
+   "b": "slip",
+   "pos": "vowel",
+   "set": "train",
+   "ja_a": "眠る",
+   "ja_b": "滑る"
+  },
+  {
+   "a": "cheap",
+   "b": "chip",
+   "pos": "vowel",
+   "set": "train",
+   "ja_a": "安い",
+   "ja_b": "かけら"
+  },
+  {
+   "a": "peel",
+   "b": "pill",
+   "pos": "vowel",
+   "set": "train",
+   "ja_a": "皮をむく",
+   "ja_b": "錠剤"
+  },
+  {
+   "a": "deep",
+   "b": "dip",
+   "pos": "vowel",
+   "set": "test",
+   "ja_a": "深い",
+   "ja_b": "浸す"
+  },
+  {
+   "a": "green",
+   "b": "grin",
+   "pos": "vowel",
+   "set": "test",
+   "ja_a": "緑",
+   "ja_b": "にっこり笑う"
+  },
+  {
+   "a": "bead",
+   "b": "bid",
+   "pos": "vowel",
+   "set": "test",
+   "ja_a": "ビーズ",
+   "ja_b": "入札する"
+  },
+  {
+   "a": "wheel",
+   "b": "will",
+   "pos": "vowel",
+   "set": "test",
+   "ja_a": "車輪",
+   "ja_b": "〜だろう"
+  }
+ ]
+}
