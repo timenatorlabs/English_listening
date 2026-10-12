@@ -36,10 +36,12 @@ export function f0Track(samples, rate) {
     for (let i = 0; i < frame; i++) s += x[f * hop + i] ** 2;
     energy[f] = Math.sqrt(s / frame);
   }
-  const loud = [...energy].sort((a, b) => a - b)[Math.floor(frames * 0.9)] || 0;
+  // Loudness gate relative to this recording (phone microphones record quietly; a fixed
+  // threshold hid the whole learner contour in iPhone tests).
+  const loud = [...energy].sort((a, b) => a - b)[Math.floor(frames * 0.95)] || 0;
   const f0 = new Float32Array(frames).fill(NaN);
   for (let f = 0; f < frames; f++) {
-    if (energy[f] < Math.max(0.01, loud * 0.15)) continue;
+    if (energy[f] < Math.max(0.0005, loud * 0.12)) continue;
     const o = f * hop;
     let mean = 0;
     for (let i = 0; i < frame; i++) mean += x[o + i];
@@ -54,7 +56,7 @@ export function f0Track(samples, rate) {
       r[lag] = s;
       if (lag <= hi && s > best) best = s;
     }
-    if (r0 <= 0 || best / r0 < 0.45) continue;
+    if (r0 <= 0 || best / r0 < 0.4) continue;
     // Take the SHORTEST lag whose peak is nearly as strong as the best one: multiples of
     // the true period score almost as high and would read the pitch an octave too low.
     let bestLag = 0;
@@ -182,9 +184,52 @@ export function pitchChart(model, user, lag) {
   </div>`;
 }
 
+// Refine the lag for one sentence: shadowing delay changes during a passage.
+export function localLag(model, user, start, end, base, range = 50) {
+  let best = base;
+  let bestScore = -1;
+  for (let d = -range; d <= range; d += 2) {
+    const lag = base + d;
+    if (lag < 0) continue;
+    let score = 0;
+    for (let i = start; i < end; i++) {
+      const u = user[i + lag];
+      if (u !== undefined && !Number.isNaN(model[i]) && !Number.isNaN(u)) score++;
+    }
+    if (score > bestScore) {
+      bestScore = score;
+      best = lag;
+    }
+  }
+  return best;
+}
+
+export const voicedShare = (arr) => (arr.length ? [...arr].filter((v) => !Number.isNaN(v)).length / arr.length : 0);
+
+// One sentence, scaled to the card width (no horizontal scrolling).
+export function sentenceChart(m, u) {
+  const W = 320;
+  const H = 120;
+  const pad = { l: 22, r: 6, t: 8, b: 8 };
+  const n = Math.max(m.length, u.length, 1);
+  const px = (W - pad.l - pad.r) / n;
+  const ih = H - pad.t - pad.b;
+  const yOf = (st) => pad.t + ih / 2 - (st / 12) * (ih / 2);
+  return `
+    <svg class="sentence-pitch" viewBox="0 0 ${W} ${H}" role="img" aria-label="この文のお手本と自分の声の高さの変化">
+      <line class="grid" x1="${pad.l}" x2="${W - pad.r}" y1="${yOf(6)}" y2="${yOf(6)}"/>
+      <line class="ref" x1="${pad.l}" x2="${W - pad.r}" y1="${yOf(0)}" y2="${yOf(0)}"/>
+      <line class="grid" x1="${pad.l}" x2="${W - pad.r}" y1="${yOf(-6)}" y2="${yOf(-6)}"/>
+      <text class="axis" x="${pad.l - 4}" y="${yOf(6) + 3}" text-anchor="end">高</text>
+      <text class="axis" x="${pad.l - 4}" y="${yOf(-6) + 3}" text-anchor="end">低</text>
+      <path class="line-s1" d="${path(m, pad.l, px, yOf)}"/>
+      <path class="line-s2" d="${path(u, pad.l, px, yOf)}"/>
+    </svg>`;
+}
+
 // Share of points where both have voice and move in the same direction (rising/falling).
 // Only a rough guide; shown with that caveat.
-export function directionAgreement(model, user, lag) {
+export function directionAgreement(model, user, lag, minPoints = 20) {
   let same = 0;
   let total = 0;
   for (let i = 5; i < model.length; i++) {
@@ -199,7 +244,7 @@ export function directionAgreement(model, user, lag) {
     total++;
     if (Math.sign(dm) === Math.sign(du)) same++;
   }
-  return total >= 20 ? same / total : null;
+  return total >= minPoints ? same / total : null;
 }
 
-export const pitchNote = () => `<p class="muted small">声の高さの上がり下がり（抑揚）を比べるグラフです。声の高さは人によって違うため、それぞれの平均の高さを「中」にそろえています。線がとぎれている所は、声が出ていないか、高さを測れなかった所です。横にスクロールできます。</p>`;
+export const pitchNote = () => `<p class="muted small">声の高さの上がり下がり（抑揚）を比べるグラフです。グラフの左から右へ時間が進み、線が上にあるほど声が高いことを表します。声の高さは人によって違うため、それぞれの平均の高さを真ん中の点線にそろえ、上がり下がりの「形」を比べます。線がとぎれている所は、声が出ていないか、高さを測れなかった所です。</p>`;

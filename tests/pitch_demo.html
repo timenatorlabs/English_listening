@@ -2,43 +2,58 @@
 <html lang="ja">
 <head>
   <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Pitch chart demo</title>
   <link rel="stylesheet" href="../app/fonts/noto-sans-jp.css">
   <link rel="stylesheet" href="../app/styles.css">
-  <style>main { max-width: none; }</style>
 </head>
 <body>
   <main>
-    <!-- Visual check of the intonation graph: the "learner" is another TTS voice reading the
-         same passage, delayed by 0.6 s (sample data, not a real learner). -->
+    <!-- Visual check of the per-sentence intonation view. The "learner" is another TTS voice
+         reading the same passage, delayed by 0.6 s and made very quiet (x0.03) like a phone
+         recording. Sample data, not a real learner. -->
     <section class="card"><div id="out">analysing…</div></section>
   </main>
   <script type="module">
-    import { f0Track, semitones, bestLag, pitchChart, directionAgreement, pitchNote } from "../app/pitch.js";
-    const AC = window.AudioContext || window.webkitAudioContext;
-    const ac = new AC();
-    async function load(path) {
-      const buf = await ac.decodeAudioData(await (await fetch(path)).arrayBuffer());
-      return buf;
+    import { f0Track, semitones, bestLag, localLag, voicedShare, sentenceChart, directionAgreement, pitchNote } from "../app/pitch.js";
+    const ac = new (window.AudioContext || window.webkitAudioContext)();
+    const p = (await (await fetch("../app/data/shadowing.json")).json()).passages.find((x) => x.id === "2-a");
+    const load = async (path) => ac.decodeAudioData(await (await fetch(path)).arrayBuffer());
+    // model: per-sentence contours joined with 0.4 s pauses (as the app does)
+    const parts = [];
+    const segments = [];
+    let o = 0;
+    // decodeAudioData resamples to the context rate (often 48 kHz), not the file's 22.05 kHz
+    const userParts = [new Float32Array(Math.round(0.6 * ac.sampleRate))];
+    for (let i = 0; i < p.sentences.length; i++) {
+      const b = await load(`../app/audio/sh/2-a-${i}_539.mp3`);
+      const c = semitones(f0Track(b.getChannelData(0), b.sampleRate));
+      segments.push({ start: o, end: o + c.length });
+      parts.push(c, new Float32Array(40).fill(NaN));
+      o += c.length + 40;
+      const u = await load(`../app/audio/sh/2-a-${i}_902.mp3`);
+      userParts.push(u.getChannelData(0).map((v) => v * 0.03), new Float32Array(Math.round(0.4 * u.sampleRate)));
     }
-    async function passage(speaker, delaySec) {
-      const parts = [new Float32Array(Math.round(delaySec * 22050))];
-      for (let i = 0; i < 5; i++) {
-        const b = await load(`../app/audio/sh/2-a-${i}_${speaker}.mp3`);
-        parts.push(b.getChannelData(0), new Float32Array(Math.round(0.4 * b.sampleRate)));
-      }
-      const n = parts.reduce((a, x) => a + x.length, 0);
-      const out = new Float32Array(n);
-      let o = 0;
-      for (const x of parts) { out.set(x, o); o += x.length; }
-      return out;
-    }
-    const model = semitones(f0Track(await passage(539, 0), 22050));
-    const user = semitones(f0Track(await passage(902, 0.6), 22050));
-    const lag = bestLag(model, user);
-    const agree = directionAgreement(model, user, lag);
-    document.getElementById("out").innerHTML = pitchChart(model, user, lag)
-      + `<p class="small">lag ${(lag * 0.01).toFixed(2)} s / agreement ${agree === null ? "-" : Math.round(agree * 100) + "%"}</p>` + pitchNote();
+    const model = new Float32Array(o);
+    let k = 0;
+    for (const x of parts) { model.set(x, k); k += x.length; }
+    const n = userParts.reduce((a, x) => a + x.length, 0);
+    const raw = new Float32Array(n);
+    k = 0;
+    for (const x of userParts) { raw.set(x, k); k += x.length; }
+    const user = semitones(f0Track(raw, ac.sampleRate));
+    let lag = bestLag(model, user);
+    document.getElementById("out").innerHTML = `<div class="legend"><span><i class="key-s1"></i>お手本</span><span><i class="key-s2"></i>自分の声</span></div>`
+      + p.sentences.map((s, i) => {
+        const { start, end } = segments[i];
+        const l = localLag(model, user, start, end, lag, 80);
+        lag = l;
+        const m = model.slice(start, end);
+        const u = user.slice(start + l, end + l);
+        const a = directionAgreement(m, u, 0, 8);
+        return `<div class="sentence-row"><p class="small"><strong>${i + 1}.</strong> ${s.text}</p>${sentenceChart(m, u)}
+          <p class="muted small">voiced ${Math.round(voicedShare(u) * 100)}% / agreement ${a === null ? "-" : Math.round(a * 100) + "%"}</p></div>`;
+      }).join("") + pitchNote();
     document.title = "done";
   </script>
 </body>

@@ -6,7 +6,7 @@ import { play, playSequence, stopAll, unlock, loadAudio } from "./audio.js";
 import * as vocab from "./vocab.js";
 import { benefitCard } from "./benefits.js";
 import * as recorder from "./recorder.js";
-import { f0Track, semitones, stretch, bestLag, pitchChart, directionAgreement, pitchNote } from "./pitch.js";
+import { f0Track, semitones, stretch, bestLag, localLag, voicedShare, sentenceChart, directionAgreement, pitchNote } from "./pitch.js";
 
 const RATES = [0.7, 0.8, 0.9, 1.0, 1.1, 1.2];
 const DEFAULT_RATE = { 1: 0.8, 2: 0.9, 3: 1.0, 4: 1.0, 5: 1.0 };
@@ -274,22 +274,29 @@ function renderPassage(st) {
 
 // Model contour: each sentence analysed at normal speed, stretched to the playback
 // speed, joined with the same pauses playSequence uses.
+// Returns { contour, segments: [{ start, end }] } — where each sentence lies on the timeline.
 async function modelContour(paths, rate) {
   const parts = [];
+  const segments = [];
+  let o = 0;
   for (const p of paths) {
     const url = await loadAudio(p);
     const buf = await recorder.decode(await (await fetch(url)).arrayBuffer());
-    parts.push(stretch(semitones(f0Track(buf.getChannelData(0), buf.sampleRate)), 1 / rate));
-    parts.push(new Float32Array(Math.round(0.4 / rate / 0.01)).fill(NaN));
+    const c = stretch(semitones(f0Track(buf.getChannelData(0), buf.sampleRate)), 1 / rate);
+    segments.push({ start: o, end: o + c.length });
+    parts.push(c);
+    o += c.length;
+    const gap = new Float32Array(Math.round(0.4 / rate / 0.01)).fill(NaN);
+    parts.push(gap);
+    o += gap.length;
   }
-  const n = parts.reduce((a, x) => a + x.length, 0);
-  const out = new Float32Array(n);
-  let o = 0;
+  const contour = new Float32Array(o);
+  let k = 0;
   for (const x of parts) {
-    out.set(x, o);
-    o += x.length;
+    contour.set(x, k);
+    k += x.length;
   }
-  return out;
+  return { contour, segments };
 }
 
 function renderMine(paths, st, withModel) {
@@ -316,15 +323,35 @@ function renderMine(paths, st, withModel) {
       sp.disabled = true;
       sp.textContent = "分析中…";
       try {
-        const model = await modelContour(paths, st.rate);
-        const user = semitones(f0Track(mine.samples, mine.rate));
-        const lag = bestLag(model, user);
-        const agree = directionAgreement(model, user, lag);
+        const { contour: model, segments } = await modelContour(paths, st.rate);
+        const userTrack = f0Track(mine.samples, mine.rate);
+        const user = semitones(userTrack);
+        // the delay drifts during a passage: each sentence starts from the previous one's delay
+        let lag = bestLag(model, user);
+        const rows = st.p.sentences.map((s, i) => {
+          const { start, end } = segments[i];
+          const l = localLag(model, user, start, end, lag, 80);
+          lag = l;
+          const m = model.slice(start, end);
+          const u = user.slice(start + l, end + l);
+          const share = voicedShare(u);
+          const agree = directionAgreement(m, u, 0, 8);
+          return `
+            <div class="sentence-row">
+              <p class="small"><strong>${i + 1}.</strong> ${esc(s.text)}</p>
+              ${sentenceChart(m, u)}
+              <p class="muted small">${share < 0.1
+                ? "この文は、自分の声の高さを測れませんでした（声が小さい、または声が出ていない部分）。"
+                : agree === null ? "上がり下がりが少ない文です。" : `上がり下がりの向きがお手本と同じ：${Math.round(agree * 100)}%（目安）`}</p>
+            </div>`;
+        }).join("");
+        const measured = voicedShare(user);
         document.getElementById("pitch-box").innerHTML = `
-          ${pitchChart(model, user, lag)}
-          ${agree === null ? "" : `<p class="small">上がり下がりの向きがお手本と同じだった割合：<strong>${Math.round(agree * 100)}%</strong>（目安）</p>`}
+          <div class="legend"><span><i class="key-s1"></i>お手本</span><span><i class="key-s2"></i>自分の声</span></div>
+          ${rows}
+          ${measured < 0.05 ? `<p class="small qa-note">録音全体で、自分の声の高さをほとんど測れませんでした。マイクに近づき、少し大きめの声で話してみてください。</p>` : ""}
           ${pitchNote()}
-          <p class="muted small">自分の声は、お手本からの遅れ（約${(lag * 0.01).toFixed(1)}秒）を差し引いて重ねています。研究では、声の高さを画面で見ながら練習すると外国語の抑揚が改善したという報告があります（Hardison 2004、話す練習の研究）。聞き取りへの効果は間接的です。</p>`;
+          <p class="muted small">自分の声は、お手本からの遅れを文ごとに差し引いて重ねています。研究では、声の高さを画面で見ながら練習すると外国語の抑揚が改善したという報告があります（Hardison 2004、話す練習の研究）。聞き取りへの効果は間接的です。</p>`;
         sp.hidden = true;
       } catch (e) {
         sp.disabled = false;

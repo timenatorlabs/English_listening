@@ -32,8 +32,10 @@ function toWav(samples, rate) {
 // onLevel(rms 0..1) is called about 10 times a second while recording.
 export async function start({ onLevel } = {}) {
   const ac = prepare();
+  // Raw microphone sound: echo cancellation / noise suppression / auto gain are made for
+  // calls and made the learner's voice sound processed. (Earphones keep the model out.)
   const stream = await navigator.mediaDevices.getUserMedia({
-    audio: { echoCancellation: true, noiseSuppression: false, autoGainControl: true },
+    audio: { echoCancellation: false, noiseSuppression: false, autoGainControl: false },
   });
   if (ac.state === "suspended") await ac.resume().catch(() => {});
   const track = stream.getAudioTracks()[0];
@@ -83,7 +85,7 @@ export async function start({ onLevel } = {}) {
       const rms = n ? Math.sqrt(sum / n) : 0;
       return {
         samples, rate: ac.sampleRate, blob: toWav(samples, ac.sampleRate),
-        diag: { ...diag, seconds: n / ac.sampleRate, peak, rms, silent: peak < 0.01 },
+        diag: { ...diag, seconds: n / ac.sampleRate, peak, rms, silent: peak < 0.005 },
       };
     },
   };
