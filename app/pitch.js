@@ -185,64 +185,40 @@ export function pitchChart(model, user, lag) {
   </div>`;
 }
 
-// Karaoke-style view (like karaoke scoring screens): the model is drawn as one thick bar per
-// word, slanted from the word's start pitch to its end pitch; the learner's pitch is a thin
-// line on top, highlighted where it is within `tol` semitones of the model bar.
-// Returns { svg, score } — score = share of the learner's measured points that were close
-// to the model (null when too few points were measured).
-export function karaokeChart(m, u, words, tol = 2.5) {
-  const W = 320;
-  const H = 168;
-  const pad = { l: 22, r: 6, t: 12, b: 40 };
-  const n = Math.max(m.length, u.length, 1);
-  const px = (W - pad.l - pad.r) / n;
-  const ih = H - pad.t - pad.b;
-  const clamp = (v) => Math.max(-10, Math.min(10, v));
-  const yOf = (st) => pad.t + ih / 2 - (clamp(st) / 10) * (ih / 2);
-  const mean = (xs) => xs.reduce((a, b) => a + b, 0) / xs.length;
-
-  const bars = words.map((w) => {
-    const v = [...m.slice(w.a, w.b)].filter((x) => !Number.isNaN(x));
-    if (v.length < 3) return null;
-    const k = Math.max(1, Math.floor(v.length / 3));
-    return { ...w, s0: mean(v.slice(0, k)), s1: mean(v.slice(-k)) };
-  });
-  const barAt = (i) => {
-    const b = bars.find((x) => x && i >= x.a && i < x.b);
-    return b ? b.s0 + ((b.s1 - b.s0) * (i - b.a)) / Math.max(1, b.b - b.a) : null;
-  };
-
-  let hits = 0;
-  let measured = 0;
-  let hitPath = "";
-  let pen = false;
-  for (let i = 0; i < u.length; i++) {
-    const target = barAt(i);
-    const v = u[i];
-    const ok = target !== null && !Number.isNaN(v) && Math.abs(v - target) <= tol;
-    if (target !== null && !Number.isNaN(v)) {
-      measured++;
-      if (ok) hits++;
-    }
-    if (ok) {
-      hitPath += `${pen ? "L" : "M"}${(pad.l + i * px).toFixed(1)} ${yOf(v).toFixed(1)} `;
-      pen = true;
-    } else {
-      pen = false;
+// How similar the two intonation shapes are: Pearson correlation of the model and learner
+// contours over the points where both have a measured pitch (a standard measure in
+// prosody research). Returns { r, n } or null when fewer than minPoints overlap.
+export function contourCorrelation(m, u, minPoints = 15) {
+  const xs = [];
+  const ys = [];
+  for (let i = 0; i < m.length; i++) {
+    if (!Number.isNaN(m[i]) && u[i] !== undefined && !Number.isNaN(u[i])) {
+      xs.push(m[i]);
+      ys.push(u[i]);
     }
   }
+  if (xs.length < minPoints) return null;
+  const mean = (a) => a.reduce((s, v) => s + v, 0) / a.length;
+  const mx = mean(xs);
+  const my = mean(ys);
+  let sxy = 0;
+  let sxx = 0;
+  let syy = 0;
+  for (let i = 0; i < xs.length; i++) {
+    sxy += (xs[i] - mx) * (ys[i] - my);
+    sxx += (xs[i] - mx) ** 2;
+    syy += (ys[i] - my) ** 2;
+  }
+  if (!sxx || !syy) return null;
+  return { r: sxy / Math.sqrt(sxx * syy), n: xs.length };
+}
 
-  const svg = `
-    <svg class="karaoke" viewBox="0 0 ${W} ${H}" role="img" aria-label="お手本の高さのバーと自分の声の線">
-      <line class="ref" x1="${pad.l}" x2="${W - pad.r}" y1="${yOf(0)}" y2="${yOf(0)}"/>
-      <text class="axis" x="${pad.l - 4}" y="${yOf(7) + 3}" text-anchor="end">高</text>
-      <text class="axis" x="${pad.l - 4}" y="${yOf(-7) + 3}" text-anchor="end">低</text>
-      ${bars.map((b) => (b ? `<line class="k-bar ${b.strong ? "strong" : ""}" x1="${(pad.l + b.a * px + 2).toFixed(1)}" y1="${yOf(b.s0).toFixed(1)}" x2="${(pad.l + b.b * px - 2).toFixed(1)}" y2="${yOf(b.s1).toFixed(1)}"/>` : "")).join("")}
-      <path class="k-user" d="${path(u, pad.l, px, yOf)}"/>
-      <path class="k-hit" d="${hitPath}"/>
-      ${words.map((w, i) => `<text class="word-label ${w.strong ? "strong" : ""}" x="${(pad.l + ((w.a + w.b) / 2) * px).toFixed(1)}" y="${H - pad.b + 16 + (i % 2) * 13}" text-anchor="middle">${w.w.replace(/[.,!?"<>&]/g, "")}</text>`).join("")}
-    </svg>`;
-  return { svg, score: measured >= 15 ? hits / measured : null };
+// Plain-language reading of a correlation value
+export function correlationLabel(r) {
+  if (r >= 0.7) return "よく似ている";
+  if (r >= 0.4) return "ある程度似ている";
+  if (r >= 0) return "違いが大きい";
+  return "ほぼ逆の動き";
 }
 
 // Refine the lag for one sentence: shadowing delay changes during a passage.

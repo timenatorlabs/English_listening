@@ -156,7 +156,20 @@ function renderEpisode(source, ep, back) {
   };
   audio.addEventListener("pause", stopCounting);
   audio.addEventListener("ended", stopCounting);
-  audio.addEventListener("error", () => toast("音声を再生できませんでした。電波の状態を確認してください。"));
+  // Publishers' servers sometimes fail a single request (seen with the Internet Archive):
+  // retry once, then explain that the problem is on the publisher's side.
+  let retried = false;
+  audio.addEventListener("error", () => {
+    if (!retried) {
+      retried = true;
+      setTimeout(() => {
+        audio.src = ep.audio;
+        audio.load();
+      }, 2000);
+      return;
+    }
+    toast("配信元のサーバーが一時的に応答していません。少し待つか、別の回を選んでください。");
+  });
   ticker = setInterval(show, 1000);
   app.querySelectorAll("[data-rate]").forEach((btn) => {
     btn.onclick = () => {

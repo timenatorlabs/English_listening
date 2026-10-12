@@ -262,19 +262,7 @@ li.hl { background: var(--ng-bg); border-radius: 6px; padding: 2px 6px; }
 .sentence-pitch .word-sep { stroke: var(--line); stroke-width: 1; }
 .sentence-pitch .word-label { fill: var(--text); font-size: 10px; }
 .sentence-pitch .word-label.strong { font-weight: 700; font-size: 11px; }
-/* karaoke-style intonation chart */
-.karaoke { width: 100%; height: auto; display: block; background: var(--bg); border-radius: 10px; }
-.karaoke .ref { stroke: var(--line); stroke-width: 1; stroke-dasharray: 4 4; }
-.karaoke .axis { fill: var(--muted); font-size: 10px; }
-.karaoke .k-bar { stroke: var(--s1); stroke-opacity: 0.35; stroke-width: 9; stroke-linecap: round; }
-.karaoke .k-bar.strong { stroke-opacity: 0.55; stroke-width: 13; }
-.karaoke .k-user { fill: none; stroke: var(--s2); stroke-width: 2; stroke-linejoin: round; }
-.karaoke .k-hit { fill: none; stroke: var(--ok); stroke-width: 3.5; stroke-linejoin: round; stroke-linecap: round; }
-.karaoke .word-label { fill: var(--text); font-size: 10px; }
-.karaoke .word-label.strong { font-weight: 700; font-size: 11px; }
 .k-score { font-size: 1.05rem; font-weight: 700; }
-.legend .key-bar { display: inline-block; width: 18px; height: 8px; border-radius: 4px; background: var(--s1); opacity: 0.45; margin-right: 6px; vertical-align: middle; }
-.legend .key-hit { background: var(--ok) !important; height: 4px !important; }
 .sentence-row { padding: 8px 0; border-bottom: 1px solid var(--line); }
 .sentence-row p { margin: 0 0 4px; }
 .sentence-pitch { width: 100%; height: auto; display: block; }

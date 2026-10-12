@@ -127,8 +127,9 @@ test("smoke: shadowing records for the whole model playback", async () => {
   ok(Date.now() - started > 4000, `recording ended too soon (${Date.now() - started} ms)`);
   // pitch comparison graph
   click("#show-pitch");
-  ok(await until(() => doc().querySelector("#pitch-box .karaoke"), 30000), "karaoke pitch chart did not render");
-  ok(doc().querySelectorAll("#pitch-box .k-bar").length > 5, "model word bars are missing");
+  ok(await until(() => doc().querySelector("#pitch-box .sentence-pitch"), 30000), "pitch chart did not render");
+  ok(doc().querySelector("#pitch-box .sentence-pitch .line-s1").getAttribute("d").length > 20, "model contour is empty");
+  ok(doc().querySelectorAll("#pitch-box .word-label").length > 10, "word labels are missing under the chart");
   ok(doc().querySelectorAll("#pitch-box .gw").length > 10, "word guide is missing in the result");
   ok(errors.length === 0, errors.join(" | "));
 });

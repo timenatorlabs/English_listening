@@ -1,4 +1,17 @@
 import { test, eq, ok, close } from "./harness.js";
+import { contourCorrelation, correlationLabel } from "../app/pitch.js";
+
+test("contourCorrelation: same shape = 1, opposite = -1, gaps ignored, too few points = null", () => {
+  const m = Float32Array.from({ length: 40 }, (_, i) => Math.sin(i / 5));
+  const same = Float32Array.from(m, (v) => v * 2 + 3);          // same shape, other range/height
+  const opp = Float32Array.from(m, (v) => -v);
+  close(contourCorrelation(m, same).r, 1, 1e-6);
+  close(contourCorrelation(m, opp).r, -1, 1e-6);
+  const gappy = Float32Array.from(same, (v, i) => (i % 3 === 0 ? NaN : v));
+  close(contourCorrelation(m, gappy).r, 1, 1e-6);
+  eq(contourCorrelation(m.slice(0, 10), same.slice(0, 10)), null);
+  eq([correlationLabel(0.8), correlationLabel(0.5), correlationLabel(0.1), correlationLabel(-0.3)], ["よく似ている", "ある程度似ている", "違いが大きい", "ほぼ逆の動き"]);
+});
 import {
   wilson, measure, ppDiff, judge, perceptionRows, stressRows, dictationRows, connectedRow,
   testKind, retentionPlan, normalizeTest, suggestions, MIN_N,

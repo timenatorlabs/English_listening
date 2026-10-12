@@ -6,7 +6,7 @@ import { play, playSequence, stopAll, unlock, loadAudio } from "./audio.js";
 import * as vocab from "./vocab.js";
 import { benefitCard } from "./benefits.js";
 import * as recorder from "./recorder.js";
-import { f0Track, semitones, stretch, bestLag, localLag, voicedShare, sentenceChart, karaokeChart, pitchNote, wordDirection, ARROW } from "./pitch.js";
+import { f0Track, semitones, stretch, bestLag, localLag, voicedShare, sentenceChart, contourCorrelation, correlationLabel, pitchNote, wordDirection, ARROW } from "./pitch.js";
 
 const RATES = [0.7, 0.8, 0.9, 1.0, 1.1, 1.2];
 const DEFAULT_RATE = { 1: 0.8, 2: 0.9, 3: 1.0, 4: 1.0, 5: 1.0 };
@@ -400,22 +400,27 @@ function renderMine(paths, st, withModel) {
           });
           const judged = results.filter((r) => r !== null);
           const okCount = judged.filter((r) => r === "ok").length;
-          const k = words.length ? karaokeChart(m, u, words) : null;
-          if (k && k.score !== null) scores.push(k.score);
+          const c = contourCorrelation(m, u);
+          if (c) scores.push(c);
           return `
             <div class="sentence-row">
               <p class="small"><strong>${i + 1}.</strong> ${words.length ? guideWords(words, results) : esc(s.text)}</p>
-              ${k ? k.svg : sentenceChart(m, u)}
+              ${sentenceChart(m, u, words)}
               <p class="small">${share < 0.1
                 ? `<span class="muted">この文は、自分の声の高さを測れませんでした（声が小さい、または声が出ていない部分）。</span>`
-                : `${k && k.score !== null ? `<span class="k-score">お手本に近い高さ：${Math.round(k.score * 100)}%</span>　` : ""}<span class="muted">${judged.length ? `上がり下がりが同じ単語：${okCount} / ${judged.length}語` : ""}</span>`}</p>
+                : `${c ? `<span class="k-score">抑揚の一致度：${c.r.toFixed(2)}（${correlationLabel(c.r)}）</span>　` : ""}<span class="muted">${judged.length ? `上がり下がりが同じ単語：${okCount} / ${judged.length}語` : ""}</span>`}</p>
             </div>`;
         }).join("");
         const measured = voicedShare(user);
         document.getElementById("pitch-box").innerHTML = `
-          ${scores.length ? `<p class="stat">お手本に近い高さ：${Math.round((scores.reduce((a, b) => a + b, 0) / scores.length) * 100)}%</p>` : ""}
-          <div class="legend"><span><i class="key-bar"></i>お手本（単語ごとの高さ）</span><span><i class="key-s2"></i>自分の声</span><span><i class="key-s2 key-hit"></i>お手本に近い部分</span></div>
-          <p class="muted small">カラオケの採点画面のように、お手本の高さを単語ごとのバー（右上がり＝上げる、右下がり＝下げる、太いバー＝強く言う語）で表し、自分の声の線を重ねています。線がバーに重なるほど、お手本に近い抑揚です。</p>
+          ${scores.length ? (() => {
+            // overall: average of the sentences' correlations, weighted by measured points
+            const w = scores.reduce((a, s) => a + s.n, 0);
+            const r = scores.reduce((a, s) => a + s.r * s.n, 0) / w;
+            return `<p class="stat">抑揚の一致度：${r.toFixed(2)}（${correlationLabel(r)}）</p>`;
+          })() : ""}
+          <div class="legend"><span><i class="key-s1"></i>お手本</span><span><i class="key-s2"></i>自分の声</span></div>
+          <p class="muted small">抑揚の一致度は、お手本と自分の声の高さの線の「形」がどれだけ似ているかを表す数値（相関係数、−1〜1）です。1 に近いほど似ています（0.7 以上：よく似ている、0.4〜0.7：ある程度似ている、0.4 未満：違いが大きい）。声の高さそのものではなく、上がり下がりの形を比べます。</p>
           ${GUIDE_LEGEND}
           <p class="muted small">単語の下の <span class="wmark ok">○</span> はお手本と同じ向き（上げる・下げる・平ら）に言えた語、<span class="wmark ng">✗</span> は違った語、・は測れなかった語です。</p>
           ${rows}

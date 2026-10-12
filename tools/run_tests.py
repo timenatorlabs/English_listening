@@ -69,10 +69,14 @@ def main() -> int:
         print(f"tests did not report within {TIMEOUT}s")
         return 1
     r = server.results
+    # Tests named "(network)" depend on outside servers (publishers' audio). Their failures
+    # are reported as warnings so an outage elsewhere is not mistaken for a bug in the app.
+    warn = [ln for ln in r["lines"] if ln.startswith("FAIL") and "(network)" in ln]
+    fail = r["fail"] - len(warn)
     for line in r["lines"]:
-        print(line)
-    print(f"PASS {r['pass']} FAIL {r['fail']}")
-    return 0 if r["fail"] == 0 else 1
+        print(("WARN" + line[4:]) if line in warn else line)
+    print(f"PASS {r['pass']} FAIL {fail}" + (f" WARN {len(warn)} (outside servers)" if warn else ""))
+    return 0 if fail == 0 else 1
 
 
 if __name__ == "__main__":
