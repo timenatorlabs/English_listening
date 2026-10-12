@@ -4,6 +4,7 @@
 import * as db from "./db.js";
 import { esc, pct, pick, shuffle } from "./util.js";
 import { play, loadAudio, player, stopAll } from "./audio.js";
+import { testKind, lastTrainingDate } from "./metrics.js";
 
 const TRAIN_TRIALS = 30;
 const TEST_PER_GROUP = 10;
@@ -83,7 +84,7 @@ export async function renderMenu() {
 
     <section class="card">
       <h2>文のリズム</h2>
-      <p class="muted small">文を聞いて、強く読まれた語を選びます。強い語だけを拾えば、文の意味の骨組みがつかめることを体験します。</p>
+      <p class="muted small">文を聞いて、強く読まれた語を選びます。強い語だけを拾えば、文の意味の骨組みがつかめることを体験します。正解は文法上の規則にもとづく目安です。</p>
       <button class="btn primary" type="button" id="rhythm">文のリズムを練習する</button>
     </section>
 
@@ -288,7 +289,8 @@ function testGroup(pool, n, group) {
 }
 
 async function startTest() {
-  const kind = (await testHistory()).length ? "事後" : "事前";
+  const trials = await db.allTrials();
+  const kind = testKind(trials.filter((t) => t.mode === "stress-test").map((t) => t.date), lastTrainingDate(trials, "stress"));
   const s = {
     mode: "test", i: 0, kind,
     items: shuffle([
@@ -430,6 +432,7 @@ function showRhythm(st) {
         <div class="small">強い語だけ：<strong>${esc(ws.filter((w) => w.strong).map((w) => w.text.replace(/[.,?!]/g, "")).join(" … "))}</strong></div>
         <div class="muted small">${esc(s.ja)}</div>
         <p class="muted small">強い語だけでも、文の意味の骨組みがわかります。聞き取れない弱い語は、文の形から補いましょう。</p>
+        <p class="muted small">正解は「内容語（名詞・動詞・形容詞など）と否定語は強く読まれやすい」という規則にもとづく目安です。この音声で実際にそう読まれているかは確認できていない文もあり、話し方によって変わることもあります。</p>
       </div>`;
     const last = st.i + 1 >= st.items.length;
     document.getElementById("actions").innerHTML = `

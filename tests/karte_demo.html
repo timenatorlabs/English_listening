@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <title>Karte demo (sample data)</title>
+  <style>body { margin: 0; } iframe { border: 0; width: 390px; height: 2560px; }</style>
+</head>
+<body>
+  <!-- Opens the app with SAMPLE data in this test origin's storage, then shows the karte.
+       For visual checks only; the numbers are invented, not anyone's results. -->
+  <iframe id="f"></iframe>
+  <script type="module">
+    import * as db from "../app/db.js";
+    const day = (n) => new Date(Date.UTC(2026, 0, 1 + n)).toISOString();
+    await db.clearAll();
+    await db.set("level", 2);
+    await db.addTest({ contrast: "rl", date: day(0), kind: "事前", n: 40, correct: 22, audioVersion: 2,
+      newWords: { n: 20, correct: 10 }, trainedWords: { n: 20, correct: 12 }, aTarget: { n: 20, correct: 11 }, bTarget: { n: 20, correct: 11 } });
+    await db.addTest({ contrast: "rl", date: day(10), kind: "事後", n: 40, correct: 29, audioVersion: 2,
+      newWords: { n: 20, correct: 13 }, trainedWords: { n: 20, correct: 16 }, aTarget: { n: 20, correct: 15 }, bTarget: { n: 20, correct: 14 } });
+    await db.addTest({ contrast: "rl", date: day(20), kind: "事後", n: 40, correct: 36, audioVersion: 2,
+      newWords: { n: 20, correct: 17 }, trainedWords: { n: 20, correct: 19 }, aTarget: { n: 20, correct: 18 }, bTarget: { n: 20, correct: 18 } });
+    for (let i = 0; i < 150; i++) await db.addTrial({ mode: "train", contrast: "rl", correct: i > 40 + (i % 7), date: day(1 + Math.floor(i / 10)) });
+    for (let i = 0; i < 12; i++) await db.addTrial({ mode: "dictation", level: 2, id: `2-${String(i + 1).padStart(2, "0")}`, firstTry: true, matched: 5 + (i % 3), total: 8, date: day(i), errors: [] });
+    for (let w = 0; w < 6; w++) await db.addTrial({ mode: "extensive", source: "voa", minutes: 20 + w * 10, comp: 3, date: new Date(Date.now() - (5 - w) * 7 * 86400000).toISOString() });
+    const f = document.getElementById("f");
+    f.src = "../app/index.html";
+    f.onload = () => {
+      const tryOpen = () => {
+        const b = f.contentDocument.querySelector('[data-nav="progress"]');
+        if (b) b.click(); else setTimeout(tryOpen, 100);
+      };
+      tryOpen();
+    };
+  </script>
+</body>
+</html>

@@ -7,7 +7,13 @@
  },
  "evidence": "※",
  "note": "日本語の「イ」1つに対応する英語の母音の区別",
- "audio": "audio/iih/{word}_{speaker}.mp3",
+ "audio": "audio/iih/v2/{word}_{speaker}.mp3",
+ "audioVersion": 2,
+ "durationMatched": true,
+ "durationJitter": [
+  0.85,
+  1.15
+ ],
  "speakers": {
   "train": [
    1,

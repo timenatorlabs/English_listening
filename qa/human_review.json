@@ -1,0 +1,636 @@
+{
+ "items": {
+  "audio/rl/v2/light_44.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:33.405Z"
+  },
+  "audio/rl/v2/lice_44.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:35.295Z"
+  },
+  "audio/rl/v2/loom_323.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:38.918Z"
+  },
+  "audio/rl/v2/list_51.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:45.112Z"
+  },
+  "audio/rl/v2/lush_44.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:47.575Z"
+  },
+  "audio/rl/v2/ride_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:48.882Z"
+  },
+  "audio/rl/v2/lied_671.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:51.249Z"
+  },
+  "audio/rl/v2/grass_671.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:52.233Z"
+  },
+  "audio/rl/v2/grow_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:53.279Z"
+  },
+  "audio/rl/v2/glow_8.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:55.364Z"
+  },
+  "audio/rl/v2/bloom_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:56.319Z"
+  },
+  "audio/rl/v2/breed_51.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:57.303Z"
+  },
+  "audio/rl/v2/bleed_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:58.195Z"
+  },
+  "audio/rl/v2/crack_44.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:59.039Z"
+  },
+  "audio/rl/v2/clack_447.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:39:59.855Z"
+  },
+  "audio/rl/v2/lag_671.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:00.922Z"
+  },
+  "audio/rl/v2/lid_621.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:01.975Z"
+  },
+  "audio/rl/v2/lust_44.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:02.880Z"
+  },
+  "audio/rl/v2/lent_44.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:03.777Z"
+  },
+  "audio/rl/v2/lot_671.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:04.592Z"
+  },
+  "audio/rl/v2/bland_8.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:05.279Z"
+  },
+  "audio/rl/v2/clash_621.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:06.122Z"
+  },
+  "audio/rl/v2/elect_51.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:06.915Z"
+  },
+  "audio/bv/v2/berry_671.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:07.638Z"
+  },
+  "audio/bv/v2/very_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:08.480Z"
+  },
+  "audio/bv/v2/best_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:09.208Z"
+  },
+  "audio/bv/v2/vest_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:10.007Z"
+  },
+  "audio/bv/v2/boat_51.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:10.992Z"
+  },
+  "audio/bv/v2/vote_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:11.791Z"
+  },
+  "audio/bv/v2/ban_621.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:12.508Z"
+  },
+  "audio/bv/v2/van_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:13.258Z"
+  },
+  "audio/bv/v2/bet_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:13.960Z"
+  },
+  "audio/bv/v2/vet_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:14.634Z"
+  },
+  "audio/bv/v2/vase_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:15.325Z"
+  },
+  "audio/bv/v2/bent_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:16.187Z"
+  },
+  "audio/bv/v2/vent_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:16.735Z"
+  },
+  "audio/bv/v2/bolt_44.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:17.399Z"
+  },
+  "audio/bv/v2/volt_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:18.241Z"
+  },
+  "audio/bv/v2/bale_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:19.014Z"
+  },
+  "audio/bv/v2/veil_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:21.177Z"
+  },
+  "audio/bv/v2/marble_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:22.747Z"
+  },
+  "audio/bv/v2/saber_51.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:23.446Z"
+  },
+  "audio/bv/v2/curb_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:24.274Z"
+  },
+  "audio/bv/v2/bat_51.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:24.979Z"
+  },
+  "audio/bv/v2/vat_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:25.620Z"
+  },
+  "audio/bv/v2/bile_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:26.250Z"
+  },
+  "audio/bv/v2/bane_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:26.877Z"
+  },
+  "audio/bv/v2/vane_8.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:27.644Z"
+  },
+  "audio/bv/v2/vowel_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:28.364Z"
+  },
+  "audio/sth/v2/thick_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:29.117Z"
+  },
+  "audio/sth/v2/thank_76.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:29.791Z"
+  },
+  "audio/sth/v2/thought_8.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:30.573Z"
+  },
+  "audio/sth/v2/path_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:31.215Z"
+  },
+  "audio/sth/v2/face_44.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:32.030Z"
+  },
+  "audio/sth/v2/forth_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:32.767Z"
+  },
+  "audio/sth/v2/thaw_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:33.426Z"
+  },
+  "audio/sth/v2/tense_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:34.049Z"
+  },
+  "audio/sth/v2/myth_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:42.003Z"
+  },
+  "audio/aeuh/v2/cap_8.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:35.314Z"
+  },
+  "audio/aeuh/v2/cat_8.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:35.976Z"
+  },
+  "audio/aeuh/v2/cut_559.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:36.572Z"
+  },
+  "audio/aeuh/v2/bag_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:37.216Z"
+  },
+  "audio/aeuh/v2/hat_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:37.874Z"
+  },
+  "audio/aeuh/v2/hut_671.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:38.532Z"
+  },
+  "audio/aeuh/v2/much_51.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:39.204Z"
+  },
+  "audio/aeuh/v2/bad_44.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:39.892Z"
+  },
+  "audio/aeuh/v2/lack_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:40.563Z"
+  },
+  "audio/aeuh/v2/luck_559.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:41.303Z"
+  },
+  "audio/aeuh/v2/ankle_51.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:42.007Z"
+  },
+  "audio/aeuh/v2/cab_8.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:42.695Z"
+  },
+  "audio/aeuh/v2/cub_671.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:43.416Z"
+  },
+  "audio/aeuh/v2/drunk_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:44.091Z"
+  },
+  "audio/aeuh/v2/staff_8.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:44.780Z"
+  },
+  "audio/iih/v2/feel_559.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:45.550Z"
+  },
+  "audio/iih/v2/fill_447.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:46.068Z"
+  },
+  "audio/iih/v2/bit_44.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:46.768Z"
+  },
+  "audio/iih/v2/it_8.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:47.425Z"
+  },
+  "audio/iih/v2/slip_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:48.146Z"
+  },
+  "audio/iih/v2/cheap_559.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:48.789Z"
+  },
+  "audio/iih/v2/peel_559.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:49.490Z"
+  },
+  "audio/iih/v2/pill_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:50.259Z"
+  },
+  "audio/iih/v2/will_1.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:50.920Z"
+  },
+  "audio/dict/2-03_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:51.607Z"
+  },
+  "audio/dict/2-04_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:52.376Z"
+  },
+  "audio/dict/3-02_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:55.048Z"
+  },
+  "audio/dict/3-06_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:56.963Z"
+  },
+  "audio/dict/4-01_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:58.453Z"
+  },
+  "audio/dict/4-02_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:40:59.486Z"
+  },
+  "audio/dict/5-01_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:00.644Z"
+  },
+  "audio/dict/5-07_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:01.601Z"
+  },
+  "audio/cs/linking-ex1-natural.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:02.508Z"
+  },
+  "audio/cs/linking-ex2-words.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:03.463Z"
+  },
+  "audio/cs/linking-ex4-words.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:04.391Z"
+  },
+  "audio/cs/linking-q3_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:05.286Z"
+  },
+  "audio/cs/reduction-ex3-words.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:06.194Z"
+  },
+  "audio/cs/reduction-q4_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:06.867Z"
+  },
+  "audio/cs/elision-ex2-words.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:07.854Z"
+  },
+  "audio/cs/elision-ex2-natural.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:08.819Z"
+  },
+  "audio/cs/elision-q1_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:10.134Z"
+  },
+  "audio/cs/assimilation-ex1-words.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:11.038Z"
+  },
+  "audio/cs/flap-q3_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:12.055Z"
+  },
+  "audio/sh/1-a-3_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:13.134Z"
+  },
+  "audio/sh/1-b-4_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:14.671Z"
+  },
+  "audio/sh/2-a-3_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:15.547Z"
+  },
+  "audio/sh/2-b-3_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:16.507Z"
+  },
+  "audio/sh/2-b-4_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:17.358Z"
+  },
+  "audio/sh/3-a-0_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:18.532Z"
+  },
+  "audio/sh/3-b-0_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:21.281Z"
+  },
+  "audio/sh/3-b-1_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:22.284Z"
+  },
+  "audio/sh/4-a-1_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:23.209Z"
+  },
+  "audio/sh/4-b-3_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:23.984Z"
+  },
+  "audio/sh/5-b-2_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:24.581Z"
+  },
+  "audio/story/s1-0_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:25.367Z"
+  },
+  "audio/story/s1-1_902.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:26.278Z"
+  },
+  "audio/story/s1-3_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:27.200Z"
+  },
+  "audio/story/s1-5_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:28.122Z"
+  },
+  "audio/story/s1-6_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:28.999Z"
+  },
+  "audio/story/s1-9_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:29.812Z"
+  },
+  "audio/story/s1-11_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:30.532Z"
+  },
+  "audio/story/s1-13_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:31.143Z"
+  },
+  "audio/story/s2-2_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:31.641Z"
+  },
+  "audio/story/s2-4_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:32.007Z"
+  },
+  "audio/story/s2-5_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:32.311Z"
+  },
+  "audio/story/s2-6_902.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:32.489Z"
+  },
+  "audio/story/s2-8_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:32.644Z"
+  },
+  "audio/story/s3-2_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:32.807Z"
+  },
+  "audio/story/s3-5_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:32.957Z"
+  },
+  "audio/story/s3-6_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:33.098Z"
+  },
+  "audio/story/s3-7_902.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:33.246Z"
+  },
+  "audio/story/s4-1_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:33.417Z"
+  },
+  "audio/story/s4-5_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:33.589Z"
+  },
+  "audio/story/s4-6_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:33.778Z"
+  },
+  "audio/story/s4-7_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:33.948Z"
+  },
+  "audio/story/s4-9_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:34.171Z"
+  },
+  "audio/story/s4-10_902.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:34.827Z"
+  },
+  "audio/rhythm/r01_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:35.096Z"
+  },
+  "audio/rhythm/r03_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:35.245Z"
+  },
+  "audio/rhythm/r06_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:35.386Z"
+  },
+  "audio/rhythm/r10_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:35.528Z"
+  },
+  "audio/cs/reduction-ex2-words.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:35.677Z"
+  },
+  "audio/bv/v2/saver_403.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:35.833Z"
+  },
+  "audio/stress/energy_323.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:35.996Z"
+  },
+  "audio/story/s4-0_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:36.170Z"
+  },
+  "audio/sth/v2/sink_573.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:36.375Z"
+  },
+  "audio/rl/v2/rate_902.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:37.160Z"
+  },
+  "audio/rl/v2/lid_684.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:37.627Z"
+  },
+  "audio/aeuh/v2/cup_44.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:38.001Z"
+  },
+  "audio/sth/v2/thaw_44.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:38.178Z"
+  },
+  "audio/bv/v2/vile_684.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:38.348Z"
+  },
+  "audio/stress/japanese_621.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:38.525Z"
+  },
+  "audio/dict/3-07_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:38.731Z"
+  },
+  "audio/rl/v2/plank_575.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:38.949Z"
+  },
+  "audio/sth/v2/force_70.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:39.338Z"
+  },
+  "audio/bv/v2/bent_323.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:39.684Z"
+  },
+  "audio/aeuh/v2/mud_323.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:40.012Z"
+  },
+  "audio/story/s4-4_227.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:40.733Z"
+  },
+  "audio/rl/v2/arrive_323.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:41.453Z"
+  },
+  "audio/rl/v2/cloud_447.mp3": {
+   "result": "ok",
+   "date": "2026-10-12T10:41:43.005Z"
+  }
+ }
+}

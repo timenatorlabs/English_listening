@@ -1,0 +1,3113 @@
+{
+ "date": "2026-10-12",
+ "files": {
+  "referenced": 7395,
+  "missing": [],
+  "orphans": 0,
+  "orphanDirs": []
+ },
+ "audioProblems": [],
+ "separation": {
+  "rl": {
+   "wordOverlap": 0,
+   "speakerOverlap": 0,
+   "testPairs": 12,
+   "repeatsPer20NewItems": 1.7
+  },
+  "bv": {
+   "wordOverlap": 0,
+   "speakerOverlap": 0,
+   "testPairs": 4,
+   "repeatsPer20NewItems": 5.0
+  },
+  "sth": {
+   "wordOverlap": 0,
+   "speakerOverlap": 0,
+   "testPairs": 4,
+   "repeatsPer20NewItems": 5.0
+  },
+  "aeuh": {
+   "wordOverlap": 0,
+   "speakerOverlap": 0,
+   "testPairs": 4,
+   "repeatsPer20NewItems": 5.0
+  },
+  "iih": {
+   "wordOverlap": 0,
+   "speakerOverlap": 0,
+   "testPairs": 4,
+   "repeatsPer20NewItems": 5.0
+  },
+  "stress": {
+   "wordOverlap": 0,
+   "speakerOverlap": 0,
+   "testWords": 9,
+   "repeatsPer10NewItems": 1.1
+  }
+ },
+ "durationCue": {
+  "rl": {
+   "aLongerShare": 0.48,
+   "durationOnlyAccuracy": 0.52
+  },
+  "bv": {
+   "aLongerShare": 0.435,
+   "durationOnlyAccuracy": 0.565
+  },
+  "sth": {
+   "aLongerShare": 0.522,
+   "durationOnlyAccuracy": 0.522
+  },
+  "aeuh": {
+   "aLongerShare": 0.467,
+   "durationOnlyAccuracy": 0.533
+  },
+  "iih": {
+   "aLongerShare": 0.473,
+   "durationOnlyAccuracy": 0.527
+  }
+ },
+ "textIssues": [],
+ "asr": {
+  "pairWordFilesFlagged": 303,
+  "pairWordsFlagged": [
+   "aeuh:bag",
+   "aeuh:drunk",
+   "aeuh:hat",
+   "aeuh:staff",
+   "bv:bane",
+   "bv:bat",
+   "bv:bent",
+   "bv:best",
+   "bv:bet",
+   "bv:bile",
+   "bv:boat",
+   "bv:curb",
+   "bv:marble",
+   "bv:saber",
+   "bv:van",
+   "bv:vane",
+   "bv:vase",
+   "bv:vat",
+   "bv:veil",
+   "bv:very",
+   "bv:vest",
+   "bv:vet",
+   "bv:volt",
+   "bv:vote",
+   "bv:vowel",
+   "iih:it",
+   "iih:peel",
+   "iih:pill",
+   "iih:slip",
+   "iih:will",
+   "rl:bland",
+   "rl:crack",
+   "rl:lent",
+   "rl:lice",
+   "rl:lust",
+   "sth:forth",
+   "sth:tense",
+   "sth:thaw",
+   "sth:thought"
+  ],
+  "stressWordsFlagged": [
+   "banana",
+   "cartoon",
+   "comedy",
+   "damage",
+   "hamburger",
+   "pajamas",
+   "piano",
+   "sandwich"
+  ],
+  "sentences": 671,
+  "sentencesMismatch": [
+   {
+    "path": "audio/dict/2-03_575.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "she"
+    ],
+    "diffWords": [
+     "she",
+     "he"
+    ],
+    "expected": "She has a lot of friends.",
+    "heard": "He has a lot of friends."
+   },
+   {
+    "path": "audio/dict/2-04_575.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "eight",
+     "hate"
+    ],
+    "diffWords": [
+     "at",
+     "eight",
+     "it",
+     "hate"
+    ],
+    "expected": "We need to leave at eight.",
+    "heard": "We need to leave it hate."
+   },
+   {
+    "path": "audio/dict/3-02_227.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "eat",
+     "e"
+    ],
+    "diffWords": [
+     "to",
+     "eat",
+     "e"
+    ],
+    "expected": "What do you want to eat for dinner?",
+    "heard": "What do you want E for dinner?"
+   },
+   {
+    "path": "audio/dict/3-06_575.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "she"
+    ],
+    "diffWords": [
+     "she",
+     "he"
+    ],
+    "expected": "She told me that she was tired.",
+    "heard": "He told me that she was tired."
+   },
+   {
+    "path": "audio/dict/4-01_575.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "known",
+     "not"
+    ],
+    "diffWords": [
+     "known",
+     "not"
+    ],
+    "expected": "If I had known about it, I would have told you.",
+    "heard": "If I had not about it, I would have told you."
+   },
+   {
+    "path": "audio/dict/4-02_227.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "you'd"
+    ],
+    "diffWords": [
+     "you'd",
+     "you"
+    ],
+    "expected": "You'd better leave now, or you'll miss the train.",
+    "heard": "You better leave now, or you'll miss the train."
+   },
+   {
+    "path": "audio/dict/4-02_575.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "you'd"
+    ],
+    "diffWords": [
+     "you'd",
+     "you",
+     "the",
+     "a"
+    ],
+    "expected": "You'd better leave now, or you'll miss the train.",
+    "heard": "You better leave now, or you'll miss a train."
+   },
+   {
+    "path": "audio/dict/4-02_902.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "you'd"
+    ],
+    "diffWords": [
+     "you'd",
+     "you",
+     "the",
+     "a"
+    ],
+    "expected": "You'd better leave now, or you'll miss the train.",
+    "heard": "You better leave now or you'll miss a train."
+   },
+   {
+    "path": "audio/dict/5-01_575.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "asked",
+     "ask"
+    ],
+    "diffWords": [
+     "asked",
+     "ask"
+    ],
+    "expected": "I'd have gone with you if you'd asked me.",
+    "heard": "I'd have gone with you if you'd ask me."
+   },
+   {
+    "path": "audio/dict/5-07_227.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "opened",
+     "open"
+    ],
+    "diffWords": [
+     "opened",
+     "open"
+    ],
+    "expected": "Would you mind if I opened the window a little?",
+    "heard": "Would you mind if I open the window a little?"
+   },
+   {
+    "path": "audio/dict/5-07_575.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "opened",
+     "open"
+    ],
+    "diffWords": [
+     "opened",
+     "open"
+    ],
+    "expected": "Would you mind if I opened the window a little?",
+    "heard": "Would you mind if I open the window a little?"
+   },
+   {
+    "path": "audio/dict/5-07_902.mp3",
+    "group": "dictation",
+    "match": false,
+    "contentWords": [
+     "opened",
+     "open"
+    ],
+    "diffWords": [
+     "opened",
+     "open"
+    ],
+    "expected": "Would you mind if I opened the window a little?",
+    "heard": "Would you mind if I open the window a little?"
+   },
+   {
+    "path": "audio/cs/linking-ex1-natural.mp3",
+    "group": "connected-example-natural",
+    "match": false,
+    "contentWords": [
+     "check",
+     "chicken"
+    ],
+    "diffWords": [
+     "check",
+     "in",
+     "chicken"
+    ],
+    "expected": "check in",
+    "heard": "Chicken"
+   },
+   {
+    "path": "audio/cs/linking-ex2-words.mp3",
+    "group": "connected-example-words",
+    "match": false,
+    "contentWords": [
+     "ann"
+    ],
+    "diffWords": [
+     "an",
+     "ann"
+    ],
+    "expected": "an apple",
+    "heard": "Ann Apple"
+   },
+   {
+    "path": "audio/cs/linking-ex4-words.mp3",
+    "group": "connected-example-words",
+    "match": false,
+    "contentWords": [
+     "four"
+    ],
+    "diffWords": [
+     "for",
+     "an",
+     "four",
+     "and"
+    ],
+    "expected": "for an hour",
+    "heard": "4 and hour"
+   },
+   {
+    "path": "audio/cs/linking-q3_227.mp3",
+    "group": "connected-quiz",
+    "match": false,
+    "contentWords": [
+     "out",
+     "up"
+    ],
+    "diffWords": [
+     "out",
+     "up"
+    ],
+    "expected": "Let's eat out tonight.",
+    "heard": "Let's eat up tonight."
+   },
+   {
+    "path": "audio/cs/reduction-ex3-words.mp3",
+    "group": "connected-example-words",
+    "match": false,
+    "contentWords": [
+     "both"
+    ],
+    "diffWords": [
+     "of",
+     "both"
+    ],
+    "expected": "kind of tired",
+    "heard": "Kind, both tired."
+   },
+   {
+    "path": "audio/cs/reduction-q4_227.mp3",
+    "group": "connected-quiz",
+    "match": false,
+    "contentWords": [
+     "ran",
+     "run"
+    ],
+    "diffWords": [
+     "i",
+     "ran",
+     "a",
+     "run"
+    ],
+    "expected": "I ran out of time.",
+    "heard": "a run out of time."
+   },
+   {
+    "path": "audio/cs/elision-ex2-words.mp3",
+    "group": "connected-example-words",
+    "match": false,
+    "contentWords": [
+     "bus",
+     "buss"
+    ],
+    "diffWords": [
+     "bus",
+     "buss"
+    ],
+    "expected": "bus stop",
+    "heard": "Buss, stop."
+   },
+   {
+    "path": "audio/cs/elision-ex2-natural.mp3",
+    "group": "connected-example-natural",
+    "match": false,
+    "contentWords": [
+     "bus",
+     "let"
+    ],
+    "diffWords": [
+     "bus",
+     "let",
+     "us"
+    ],
+    "expected": "bus stop",
+    "heard": "Let's stop."
+   },
+   {
+    "path": "audio/cs/elision-q1_575.mp3",
+    "group": "connected-quiz",
+    "match": false,
+    "contentWords": [
+     "she"
+    ],
+    "diffWords": [
+     "she",
+     "he"
+    ],
+    "expected": "She left the room.",
+    "heard": "He left the room."
+   },
+   {
+    "path": "audio/cs/assimilation-ex1-words.mp3",
+    "group": "connected-example-words",
+    "match": false,
+    "contentWords": [
+     "wood"
+    ],
+    "diffWords": [
+     "would",
+     "wood"
+    ],
+    "expected": "would you",
+    "heard": "Wood, you."
+   },
+   {
+    "path": "audio/cs/flap-q3_227.mp3",
+    "group": "connected-quiz",
+    "match": false,
+    "contentWords": [
+     "hot",
+     "hawk"
+    ],
+    "diffWords": [
+     "hot",
+     "hawk"
+    ],
+    "expected": "It's a little hot.",
+    "heard": "It's a little hawk."
+   },
+   {
+    "path": "audio/sh/1-a-3_575.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "walk",
+     "walked"
+    ],
+    "diffWords": [
+     "walk",
+     "walked"
+    ],
+    "expected": "Then I walk to the station.",
+    "heard": "Then I walked to the station."
+   },
+   {
+    "path": "audio/sh/1-a-3_902.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "walk",
+     "walked"
+    ],
+    "diffWords": [
+     "walk",
+     "walked"
+    ],
+    "expected": "Then I walk to the station.",
+    "heard": "Then I walked to the station."
+   },
+   {
+    "path": "audio/sh/1-b-4_227.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "walk",
+     "welcome"
+    ],
+    "diffWords": [
+     "walk",
+     "him",
+     "welcome"
+    ],
+    "expected": "We walk him every evening.",
+    "heard": "We welcome every evening."
+   },
+   {
+    "path": "audio/sh/1-b-4_575.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "walk",
+     "welcome"
+    ],
+    "diffWords": [
+     "walk",
+     "him",
+     "welcome"
+    ],
+    "expected": "We walk him every evening.",
+    "heard": "We welcome every evening."
+   },
+   {
+    "path": "audio/sh/2-a-3_575.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "me"
+    ],
+    "diffWords": [
+     "do",
+     "me"
+    ],
+    "expected": "Do you want to come with us?",
+    "heard": "You want me to come with us?"
+   },
+   {
+    "path": "audio/sh/2-b-3_227.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "we"
+    ],
+    "diffWords": [
+     "for",
+     "we",
+     "are",
+     "or"
+    ],
+    "expected": "For here or to go?",
+    "heard": "We're here to go."
+   },
+   {
+    "path": "audio/sh/2-b-3_575.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "we"
+    ],
+    "diffWords": [
+     "for",
+     "we",
+     "are"
+    ],
+    "expected": "For here or to go?",
+    "heard": "We're here or to go."
+   },
+   {
+    "path": "audio/sh/2-b-3_902.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "we"
+    ],
+    "diffWords": [
+     "for",
+     "we",
+     "are"
+    ],
+    "expected": "For here or to go?",
+    "heard": "We're here or to go."
+   },
+   {
+    "path": "audio/sh/2-b-4_575.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "go",
+     "pickle"
+    ],
+    "diffWords": [
+     "to",
+     "go",
+     "pickle"
+    ],
+    "expected": "To go, please.",
+    "heard": "Pickle, please."
+   },
+   {
+    "path": "audio/sh/3-a-0_227.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "when",
+     "while"
+    ],
+    "diffWords": [
+     "when",
+     "while"
+    ],
+    "expected": "It started raining when I left the office.",
+    "heard": "It started raining while I left the office."
+   },
+   {
+    "path": "audio/sh/3-b-0_575.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "studying",
+     "steady"
+    ],
+    "diffWords": [
+     "studying",
+     "steady",
+     "in"
+    ],
+    "expected": "I've been studying English for about a year.",
+    "heard": "I've been steady in English for about a year."
+   },
+   {
+    "path": "audio/sh/3-b-0_902.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "studying",
+     "study"
+    ],
+    "diffWords": [
+     "studying",
+     "study"
+    ],
+    "expected": "I've been studying English for about a year.",
+    "heard": "I've been study, English for about a year."
+   },
+   {
+    "path": "audio/sh/3-b-1_575.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "native",
+     "these"
+    ],
+    "diffWords": [
+     "native",
+     "these"
+    ],
+    "expected": "At first, it was hard to understand native speakers.",
+    "heard": "At first, it was hard to understand these speakers."
+   },
+   {
+    "path": "audio/sh/4-a-1_227.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "saves",
+     "this"
+    ],
+    "diffWords": [
+     "it",
+     "saves",
+     "this"
+    ],
+    "expected": "It saves time because you don't have to commute.",
+    "heard": "This time because you don't have to commute."
+   },
+   {
+    "path": "audio/sh/4-b-3_227.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "tried",
+     "try"
+    ],
+    "diffWords": [
+     "tried",
+     "try"
+    ],
+    "expected": "We also tried some traditional sweets.",
+    "heard": "We also try some traditional sweets."
+   },
+   {
+    "path": "audio/sh/5-b-2_227.mp3",
+    "group": "shadowing",
+    "match": false,
+    "contentWords": [
+     "saying",
+     "let",
+     "say"
+    ],
+    "diffWords": [
+     "but",
+     "saying",
+     "let",
+     "us",
+     "say"
+    ],
+    "expected": "But saying yes to everything can leave you exhausted.",
+    "heard": "Let's say yes to everything can leave you exhausted."
+   },
+   {
+    "path": "audio/story/s1-0_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "rainy",
+     "ringy"
+    ],
+    "diffWords": [
+     "rainy",
+     "ringy"
+    ],
+    "expected": "It was a rainy morning.",
+    "heard": "It was a ringy morning."
+   },
+   {
+    "path": "audio/story/s1-1_902.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "han"
+    ],
+    "diffWords": [
+     "ken",
+     "han"
+    ],
+    "expected": "Ken took his blue umbrella and went to school.",
+    "heard": "Han took his blue umbrella and went to school."
+   },
+   {
+    "path": "audio/story/s1-3_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "hand"
+    ],
+    "diffWords": [
+     "ken",
+     "hand"
+    ],
+    "expected": "Ken played soccer with his friends.",
+    "heard": "Hand played soccer with his friends."
+   },
+   {
+    "path": "audio/story/s1-3_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "played",
+     "play"
+    ],
+    "diffWords": [
+     "ken",
+     "played",
+     "can",
+     "play"
+    ],
+    "expected": "Ken played soccer with his friends.",
+    "heard": "Can play soccer with his friends."
+   },
+   {
+    "path": "audio/story/s1-3_902.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "soccer",
+     "sucker"
+    ],
+    "diffWords": [
+     "soccer",
+     "sucker"
+    ],
+    "expected": "Ken played soccer with his friends.",
+    "heard": "Ken played sucker with his friends. //"
+   },
+   {
+    "path": "audio/story/s1-5_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "where",
+     "where's"
+    ],
+    "diffWords": [
+     "where",
+     "is",
+     "where's"
+    ],
+    "expected": "At home, his mother asked, \"Where is your umbrella?\"",
+    "heard": "At home his mother asked, where's your umbrella?"
+   },
+   {
+    "path": "audio/story/s1-5_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "where",
+     "where's"
+    ],
+    "diffWords": [
+     "where",
+     "is",
+     "where's"
+    ],
+    "expected": "At home, his mother asked, \"Where is your umbrella?\"",
+    "heard": "At home, his mother asked, where's your umbrella?"
+   },
+   {
+    "path": "audio/story/s1-6_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "kim"
+    ],
+    "diffWords": [
+     "ken",
+     "kim"
+    ],
+    "expected": "Ken looked at his hands.",
+    "heard": "Kim looked at his hands."
+   },
+   {
+    "path": "audio/story/s1-6_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "looked",
+     "look"
+    ],
+    "diffWords": [
+     "ken",
+     "looked",
+     "at",
+     "can",
+     "look",
+     "to"
+    ],
+    "expected": "Ken looked at his hands.",
+    "heard": "can look to his hands."
+   },
+   {
+    "path": "audio/story/s1-6_902.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "looked",
+     "look"
+    ],
+    "diffWords": [
+     "ken",
+     "looked",
+     "at",
+     "can",
+     "look",
+     "to"
+    ],
+    "expected": "Ken looked at his hands.",
+    "heard": "can look to his hands."
+   },
+   {
+    "path": "audio/story/s1-9_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken"
+    ],
+    "diffWords": [
+     "ken",
+     "and"
+    ],
+    "expected": "Ken ran to school without an umbrella.",
+    "heard": "and ran to school without an umbrella."
+   },
+   {
+    "path": "audio/story/s1-9_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "ran",
+     "rent"
+    ],
+    "diffWords": [
+     "ken",
+     "ran",
+     "to",
+     "can",
+     "rent",
+     "a"
+    ],
+    "expected": "Ken ran to school without an umbrella.",
+    "heard": "can rent a school without an umbrella."
+   },
+   {
+    "path": "audio/story/s1-9_902.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "han"
+    ],
+    "diffWords": [
+     "ken",
+     "han"
+    ],
+    "expected": "Ken ran to school without an umbrella.",
+    "heard": "Han ran to school without an umbrella."
+   },
+   {
+    "path": "audio/story/s1-11_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "she"
+    ],
+    "diffWords": [
+     "she",
+     "he"
+    ],
+    "expected": "She smiled and gave him his blue umbrella.",
+    "heard": "He smiled and gave him his blue umbrella."
+   },
+   {
+    "path": "audio/story/s1-13_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "laughed",
+     "last"
+    ],
+    "diffWords": [
+     "ken",
+     "laughed",
+     "can",
+     "last"
+    ],
+    "expected": "Ken laughed. \"Thank you! You are a good friend.\"",
+    "heard": "Can last, thank you, you are a good friend."
+   },
+   {
+    "path": "audio/story/s1-13_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "laughed",
+     "laugh"
+    ],
+    "diffWords": [
+     "ken",
+     "laughed",
+     "can",
+     "laugh"
+    ],
+    "expected": "Ken laughed. \"Thank you! You are a good friend.\"",
+    "heard": "Can laugh, thank you, you are a good friend."
+   },
+   {
+    "path": "audio/story/s1-13_902.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "ken",
+     "kim"
+    ],
+    "diffWords": [
+     "ken",
+     "kim"
+    ],
+    "expected": "Ken laughed. \"Thank you! You are a good friend.\"",
+    "heard": "Kim laughed, thank you, you are a good friend."
+   },
+   {
+    "path": "audio/story/s2-2_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "she"
+    ],
+    "diffWords": [
+     "she",
+     "he"
+    ],
+    "expected": "She doesn't use a phone very much, so she writes letters by hand.",
+    "heard": "He doesn't use a phone very much, so she writes letters by hand."
+   },
+   {
+    "path": "audio/story/s2-4_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "mia",
+     "me",
+     "reads",
+     "read"
+    ],
+    "diffWords": [
+     "mia",
+     "me",
+     "reads",
+     "read"
+    ],
+    "expected": "Mia always reads them twice.",
+    "heard": "Me always read them twice."
+   },
+   {
+    "path": "audio/story/s2-4_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "mia",
+     "may",
+     "reads",
+     "read"
+    ],
+    "diffWords": [
+     "mia",
+     "may",
+     "i",
+     "reads",
+     "read"
+    ],
+    "expected": "Mia always reads them twice.",
+    "heard": "May I always read them twice?"
+   },
+   {
+    "path": "audio/story/s2-5_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "mia",
+     "me"
+    ],
+    "diffWords": [
+     "mia",
+     "me"
+    ],
+    "expected": "One day, Mia decided to write back.",
+    "heard": "One day, me decided to write back."
+   },
+   {
+    "path": "audio/story/s2-5_902.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "mia",
+     "may"
+    ],
+    "diffWords": [
+     "mia",
+     "may"
+    ],
+    "expected": "One day, Mia decided to write back.",
+    "heard": "One day, May decided to write back."
+   },
+   {
+    "path": "audio/story/s2-6_902.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "she"
+    ],
+    "diffWords": [
+     "she",
+     "he"
+    ],
+    "expected": "She wasn't sure what to say at first.",
+    "heard": "He wasn't sure what to say at first."
+   },
+   {
+    "path": "audio/story/s2-8_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "she"
+    ],
+    "diffWords": [
+     "she",
+     "he"
+    ],
+    "expected": "She also drew a picture of her family.",
+    "heard": "He also drew a picture of her family."
+   },
+   {
+    "path": "audio/story/s3-2_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "shops",
+     "shop"
+    ],
+    "diffWords": [
+     "were",
+     "are",
+     "shops",
+     "shop"
+    ],
+    "expected": "There were hundreds of small shops selling food, clothes, and toys.",
+    "heard": "There are hundreds of small shop selling food, clothes and toys."
+   },
+   {
+    "path": "audio/story/s3-2_902.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "shops",
+     "shop"
+    ],
+    "diffWords": [
+     "shops",
+     "shop"
+    ],
+    "expected": "There were hundreds of small shops selling food, clothes, and toys.",
+    "heard": "There were hundreds of small shop selling food, clothes and toys."
+   },
+   {
+    "path": "audio/story/s3-5_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "with"
+    ],
+    "diffWords": [
+     "with",
+     "a",
+     "for",
+     "the"
+    ],
+    "expected": "\"First time here?\" he asked with a smile.",
+    "heard": "First time here, he asked for the smile."
+   },
+   {
+    "path": "audio/story/s3-6_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "nodded",
+     "notted"
+    ],
+    "diffWords": [
+     "nodded",
+     "notted"
+    ],
+    "expected": "Tom nodded.",
+    "heard": "Tom Notted."
+   },
+   {
+    "path": "audio/story/s3-7_902.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "noodles",
+     "new",
+     "vels"
+    ],
+    "diffWords": [
+     "noodles",
+     "new",
+     "vels"
+    ],
+    "expected": "\"Then you should start with my noodles. They're the best in the market.\"",
+    "heard": "Then you should start with my new vels, they're the best in the market."
+   },
+   {
+    "path": "audio/story/s4-1_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "its"
+    ],
+    "diffWords": [
+     "its",
+     "his",
+     "it",
+     "he"
+    ],
+    "expected": "Its job was simple: it painted cars the same shade of gray, all day long.",
+    "heard": "His job was simple. He painted cars the same shade of gray all day long."
+   },
+   {
+    "path": "audio/story/s4-1_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "gray",
+     "grey"
+    ],
+    "diffWords": [
+     "gray",
+     "grey"
+    ],
+    "expected": "Its job was simple: it painted cars the same shade of gray, all day long.",
+    "heard": "Its job was simple. It painted cars the same shade of grey all day long."
+   },
+   {
+    "path": "audio/story/s4-1_902.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "gray",
+     "grey"
+    ],
+    "diffWords": [
+     "gray",
+     "grey"
+    ],
+    "expected": "Its job was simple: it painted cars the same shade of gray, all day long.",
+    "heard": "Its job was simple, it painted cars the same shade of grey all day long."
+   },
+   {
+    "path": "audio/story/s4-5_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "robot",
+     "robo"
+    ],
+    "diffWords": [
+     "robot",
+     "robo"
+    ],
+    "expected": "The bird's feathers were bright orange, a color the robot had never used before.",
+    "heard": "The bird's feathers were bright orange, a color the robo had never used before."
+   },
+   {
+    "path": "audio/story/s4-5_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "bird's",
+     "bird"
+    ],
+    "diffWords": [
+     "bird's",
+     "bird"
+    ],
+    "expected": "The bird's feathers were bright orange, a color the robot had never used before.",
+    "heard": "The bird feathers were bright orange, a color the robot had never used before."
+   },
+   {
+    "path": "audio/story/s4-6_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "gray",
+     "grey"
+    ],
+    "diffWords": [
+     "gray",
+     "grey"
+    ],
+    "expected": "For the first time, Unit Seven wondered what it would be like to paint something other than gray.",
+    "heard": "For the first time, Unit 7 wondered what it would be like to paint something other than grey."
+   },
+   {
+    "path": "audio/story/s4-7_575.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "mixed",
+     "makes"
+    ],
+    "diffWords": [
+     "mixed",
+     "makes"
+    ],
+    "expected": "That night, it mixed a little red and yellow paint and carefully drew a bird on the side of a car.",
+    "heard": "That night, it makes a little red and yellow paint and carefully drew a bird on the side of a car. //"
+   },
+   {
+    "path": "audio/story/s4-9_227.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "when",
+     "though"
+    ],
+    "diffWords": [
+     "but",
+     "when",
+     "though"
+    ],
+    "expected": "But when customers saw it, they asked for more.",
+    "heard": "Though customers saw it, they asked for more."
+   },
+   {
+    "path": "audio/story/s4-10_902.mp3",
+    "group": "story",
+    "match": false,
+    "contentWords": [
+     "sunsets",
+     "cinsets"
+    ],
+    "diffWords": [
+     "sunsets",
+     "cinsets"
+    ],
+    "expected": "Before long, Unit Seven was painting birds, flowers, and even sunsets.",
+    "heard": "Before long, Unit 7 was painting birds, flowers, and even cinsets."
+   },
+   {
+    "path": "audio/rhythm/r01_227.mp3",
+    "group": "rhythm",
+    "match": false,
+    "contentWords": [
+     "cats",
+     "catch"
+    ],
+    "diffWords": [
+     "cats",
+     "catch"
+    ],
+    "expected": "Cats chase mice.",
+    "heard": "Catch Chase Mice"
+   },
+   {
+    "path": "audio/rhythm/r01_575.mp3",
+    "group": "rhythm",
+    "match": false,
+    "contentWords": [
+     "cats",
+     "that's"
+    ],
+    "diffWords": [
+     "cats",
+     "that's"
+    ],
+    "expected": "Cats chase mice.",
+    "heard": "That's Chase Mice."
+   },
+   {
+    "path": "audio/rhythm/r01_902.mp3",
+    "group": "rhythm",
+    "match": false,
+    "contentWords": [
+     "cats",
+     "that's"
+    ],
+    "diffWords": [
+     "cats",
+     "that's"
+    ],
+    "expected": "Cats chase mice.",
+    "heard": "That's Chase Mice. //"
+   },
+   {
+    "path": "audio/rhythm/r03_575.mp3",
+    "group": "rhythm",
+    "match": false,
+    "contentWords": [
+     "bit"
+    ],
+    "diffWords": [
+     "have",
+     "been",
+     "are",
+     "bit"
+    ],
+    "expected": "The cats have been chasing the mice.",
+    "heard": "The cats are bit chasing the mice."
+   },
+   {
+    "path": "audio/rhythm/r06_575.mp3",
+    "group": "rhythm",
+    "match": false,
+    "contentWords": [
+     "she's",
+     "he's"
+    ],
+    "diffWords": [
+     "she's",
+     "he's"
+    ],
+    "expected": "She's going to call you later.",
+    "heard": "He's going to call you later."
+   },
+   {
+    "path": "audio/rhythm/r06_slow.mp3",
+    "group": "rhythm-slow",
+    "match": false,
+    "contentWords": [
+     "she's",
+     "he's"
+    ],
+    "diffWords": [
+     "she's",
+     "he's"
+    ],
+    "expected": "She's going to call you later.",
+    "heard": "He's going to call you later."
+   },
+   {
+    "path": "audio/rhythm/r10_227.mp3",
+    "group": "rhythm",
+    "match": false,
+    "contentWords": [
+     "think",
+     "it's",
+     "he's",
+     "rain",
+     "ring"
+    ],
+    "diffWords": [
+     "i",
+     "think",
+     "it's",
+     "he's",
+     "rain",
+     "ring"
+    ],
+    "expected": "I think it's going to rain tomorrow.",
+    "heard": "He's going to ring tomorrow."
+   },
+   {
+    "path": "audio/rhythm/r10_slow.mp3",
+    "group": "rhythm-slow",
+    "match": false,
+    "contentWords": [
+     "rain",
+     "ring"
+    ],
+    "diffWords": [
+     "rain",
+     "ring"
+    ],
+    "expected": "I think it's going to rain tomorrow.",
+    "heard": "I think it's going to ring tomorrow."
+   }
+  ],
+  "sentencesMinor": 18
+ },
+ "labelStatus": {
+  "rl:right": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:light": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:rock": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lock": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:road": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:load": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:rice": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lice": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 7/10"
+  },
+  "rl:red": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:led": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:raw": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:law": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:rate": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:late": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:ray": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lay": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:room": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:loom": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:row": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:low": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:rip": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lip": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:race": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lace": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:rhyme": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lime": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:wrist": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:list": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:ram": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lamb": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:rap": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lap": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:reap": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:leap": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:rush": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lush": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 8/10"
+  },
+  "rl:wrong": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:long": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:ride": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:lied": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:pray": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:play": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:crowd": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:cloud": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:grass": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:glass": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:fry": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:fly": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:free": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:flee": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:brew": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:blue": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:grow": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:glow": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 8/10"
+  },
+  "rl:crime": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:climb": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:fright": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:flight": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:broom": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:bloom": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:fresh": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:flesh": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:breed": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:bleed": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 8/10"
+  },
+  "rl:grand": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:gland": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:crack": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 6/10"
+  },
+  "rl:clack": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:arrive": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:alive": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:correct": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:collect": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:berry": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:belly": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:fire": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:file": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:rake": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lake": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:rag": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lag": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:rid": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lid": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "2件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:rust": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lust": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 6/10"
+  },
+  "rl:rent": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lent": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 7/10"
+  },
+  "rl:rot": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:lot": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:frame": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:flame": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:brand": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:bland": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 7/10"
+  },
+  "rl:crash": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:clash": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:prank": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:plank": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:erect": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:elect": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "rl:tire": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "rl:tile": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "bv:berry": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "bv:very": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 5/10"
+  },
+  "bv:best": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 1/10"
+  },
+  "bv:vest": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 6/10"
+  },
+  "bv:boat": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 7/10"
+  },
+  "bv:vote": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 3/10"
+  },
+  "bv:ban": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "bv:van": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 2/10"
+  },
+  "bv:bet": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 4/10"
+  },
+  "bv:vet": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 0/10"
+  },
+  "bv:base": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "bv:vase": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 0/10"
+  },
+  "bv:bent": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "2件確認・問題なし",
+   "note": "音声認識で意図した語と判定 2/10"
+  },
+  "bv:vent": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "bv:bolt": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 8/10"
+  },
+  "bv:volt": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 0/10"
+  },
+  "bv:bale": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "bv:veil": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 4/10"
+  },
+  "bv:marble": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 0/10"
+  },
+  "bv:marvel": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "bv:saber": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 5/10"
+  },
+  "bv:saver": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "bv:curb": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 3/10"
+  },
+  "bv:curve": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "bv:bat": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 7/10"
+  },
+  "bv:vat": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 1/10"
+  },
+  "bv:bile": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 3/10"
+  },
+  "bv:vile": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "bv:bane": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 5/10"
+  },
+  "bv:vane": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 7/10"
+  },
+  "bv:bowel": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "bv:vowel": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 2/10"
+  },
+  "sth:sink": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:think": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:sick": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:thick": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "sth:sum": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:thumb": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:sing": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:thing": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:sank": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:thank": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "sth:sought": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:thought": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 7/10"
+  },
+  "sth:mouse": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:mouth": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:pass": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:path": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 8/10"
+  },
+  "sth:face": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 8/10"
+  },
+  "sth:faith": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:force": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:forth": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 0/10"
+  },
+  "sth:saw": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:thaw": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "2件確認・問題なし",
+   "note": "音声認識で意図した語と判定 3/10"
+  },
+  "sth:seem": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:theme": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:tense": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 0/10"
+  },
+  "sth:tenth": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:miss": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "sth:myth": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 8/10"
+  },
+  "aeuh:cap": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "aeuh:cup": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "aeuh:cat": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "aeuh:cut": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "aeuh:bag": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 5/10"
+  },
+  "aeuh:bug": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "aeuh:hat": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 5/10"
+  },
+  "aeuh:hut": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "aeuh:ran": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "aeuh:run": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "aeuh:match": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "aeuh:much": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "aeuh:fan": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "aeuh:fun": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "aeuh:bad": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "aeuh:bud": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "aeuh:lack": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 8/10"
+  },
+  "aeuh:luck": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "aeuh:ankle": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 8/10"
+  },
+  "aeuh:uncle": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "aeuh:cab": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 8/10"
+  },
+  "aeuh:cub": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "aeuh:mad": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "aeuh:mud": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "aeuh:drank": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "aeuh:drunk": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 4/10"
+  },
+  "aeuh:staff": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 5/10"
+  },
+  "aeuh:stuff": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:sheep": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:ship": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:seat": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:sit": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:feel": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "iih:fill": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 9/10"
+  },
+  "iih:beat": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:bit": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 8/10"
+  },
+  "iih:heat": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:hit": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:eat": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:it": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 1/10"
+  },
+  "iih:reach": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:rich": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:sleep": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:slip": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 1/10"
+  },
+  "iih:cheap": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 8/10"
+  },
+  "iih:chip": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:peel": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 7/10"
+  },
+  "iih:pill": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 4/10"
+  },
+  "iih:deep": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:dip": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:green": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:grin": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:bead": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:bid": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:wheel": {
+   "kind": "聞き分けの単語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": "音声認識で意図した語と判定 10/10"
+  },
+  "iih:will": {
+   "kind": "聞き分けの単語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "音声認識で意図した語と判定 0/10"
+  },
+  "stress:hotel": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:event": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:career": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:guitar": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:police": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:machine": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:balloon": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:cartoon": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 2/4"
+  },
+  "stress:percent": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:technique": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:image": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:damage": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 3/4"
+  },
+  "stress:label": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:sandwich": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 3/4"
+  },
+  "stress:problem": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:banana": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 0/4"
+  },
+  "stress:tomato": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:potato": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:vanilla": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:museum": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:idea": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:important": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:energy": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "1件確認・問題なし",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:alcohol": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:vitamin": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:allergy": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:calendar": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:hamburger": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 0/4"
+  },
+  "stress:volunteer": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:engineer": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:Japanese": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "1件確認・問題なし",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:elevator": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:original": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:success": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:Japan": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:mistake": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:piano": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 0/4"
+  },
+  "stress:pajamas": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 2/4"
+  },
+  "stress:Olympic": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:comedy": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 3/4"
+  },
+  "stress:interview": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "stress:animal": {
+   "kind": "強勢の単語",
+   "auto": "発音記号で照合済み（音での強さは未確認）",
+   "human": "未確認",
+   "note": "単語の聞き取り 4/4"
+  },
+  "rhythm:r01": {
+   "kind": "文の強い語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "語の対応付けに失敗"
+  },
+  "rhythm:r02": {
+   "kind": "文の強い語",
+   "auto": "要確認",
+   "human": "未確認",
+   "note": "強い語なのに弱く聞こえる可能性: cats, chase, mice."
+  },
+  "rhythm:r03": {
+   "kind": "文の強い語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "強い語なのに弱く聞こえる可能性: mice."
+  },
+  "rhythm:r04": {
+   "kind": "文の強い語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": ""
+  },
+  "rhythm:r05": {
+   "kind": "文の強い語",
+   "auto": "要確認",
+   "human": "未確認",
+   "note": "強い語なのに弱く聞こえる可能性: put"
+  },
+  "rhythm:r06": {
+   "kind": "文の強い語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "強い語なのに弱く聞こえる可能性: call, going, later."
+  },
+  "rhythm:r07": {
+   "kind": "文の強い語",
+   "auto": "要確認",
+   "human": "未確認",
+   "note": "強い語なのに弱く聞こえる可能性: had"
+  },
+  "rhythm:r08": {
+   "kind": "文の強い語",
+   "auto": "要確認",
+   "human": "未確認",
+   "note": "強い語なのに弱く聞こえる可能性: come, party."
+  },
+  "rhythm:r09": {
+   "kind": "文の強い語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": ""
+  },
+  "rhythm:r10": {
+   "kind": "文の強い語",
+   "auto": "要確認",
+   "human": "1件確認・問題なし",
+   "note": "強い語なのに弱く聞こえる可能性: going, rain, think, tomorrow."
+  },
+  "rhythm:r11": {
+   "kind": "文の強い語",
+   "auto": "合格",
+   "human": "未確認",
+   "note": ""
+  },
+  "rhythm:r12": {
+   "kind": "文の強い語",
+   "auto": "要確認",
+   "human": "未確認",
+   "note": "強い語なのに弱く聞こえる可能性: please?"
+  },
+  "connected:linking": {
+   "kind": "音の変化の例",
+   "auto": "自動確認できない",
+   "human": "未確認",
+   "note": "TTS で音の変化が実際に起きているかは人の確認が必要"
+  },
+  "connected:reduction": {
+   "kind": "音の変化の例",
+   "auto": "自動確認できない",
+   "human": "未確認",
+   "note": "TTS で音の変化が実際に起きているかは人の確認が必要"
+  },
+  "connected:elision": {
+   "kind": "音の変化の例",
+   "auto": "自動確認できない",
+   "human": "未確認",
+   "note": "TTS で音の変化が実際に起きているかは人の確認が必要"
+  },
+  "connected:assimilation": {
+   "kind": "音の変化の例",
+   "auto": "自動確認できない",
+   "human": "未確認",
+   "note": "TTS で音の変化が実際に起きているかは人の確認が必要"
+  },
+  "connected:flap": {
+   "kind": "音の変化の例",
+   "auto": "自動確認できない",
+   "human": "未確認",
+   "note": "TTS で音の変化が実際に起きているかは人の確認が必要"
+  }
+ }
+}

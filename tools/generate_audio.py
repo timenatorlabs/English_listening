@@ -36,7 +36,13 @@ SEED = 20261012          # fixed so the speaker selection is reproducible
 N_TRAIN_SPEAKERS = 20
 N_TEST_SPEAKERS = 6
 N_DICTATION_SPEAKERS = 3
-VOLUME = 0.9            # 1.0 slightly overshoots full scale after MP3 encoding
+# Minimal-pair audio v2: word length must not give the answer away (v1 audits
+# found /s/ words longer than /θ/ words in 95% of same-speaker pairs). For each
+# pair and speaker, both words are re-synthesized to the pair's mean length,
+# each with its own independent random factor in DURATION_JITTER.
+HVPT_AUDIO_VERSION = 2
+DURATION_JITTER = [0.85, 1.15]
+VOLUME = 0.9           # 1.0 slightly overshoots full scale after MP3 encoding
 
 
 def synthesize(voice: PiperVoice, text: str, speaker: int, length_scale: float | None = None) -> tuple[np.ndarray, int]:
@@ -123,6 +129,25 @@ def render_chant(voice: PiperVoice, lines: list[list[str | None]], bpm: int, spe
     return (out * 32767).astype(np.int16), rate
 
 
+def synthesize_pair(voice: PiperVoice, contrast: str, a: str, b: str, speaker: int) -> dict:
+    """Both words of a pair at the pair's mean length times an independent random factor."""
+    first = {w: synthesize(voice, w, speaker) for w in (a, b)}
+    dur = {w: len(x) / r for w, (x, r) in first.items()}
+    mean = (dur[a] + dur[b]) / 2
+    out = {}
+    for w in (a, b):
+        target = mean * random.Random(f"{contrast}:{w}:{speaker}").uniform(*DURATION_JITTER)
+        scale = target / dur[w]                     # duration scales roughly linearly with length_scale
+        x, r = synthesize(voice, w, speaker, scale)
+        scale *= target / (len(x) / r)              # one correction step for the non-linear part
+        out[w] = synthesize(voice, w, speaker, scale)
+    return out
+
+
+def J(path: Path):
+    return json.loads(path.read_text(encoding="utf-8"))
+
+
 def write_json(path: Path, obj) -> None:
     path.parent.mkdir(parents=True, exist_ok=True)
     path.write_text(json.dumps(obj, ensure_ascii=False, indent=1), encoding="utf-8")
@@ -138,23 +163,28 @@ def main() -> None:
     contrasts = json.loads((DATA / "contrasts.json").read_text(encoding="utf-8"))["contrasts"]
     for c in contrasts:
         pairs = json.loads((DATA / f"minimal_pairs_{c['id']}.json").read_text(encoding="utf-8"))["pairs"]
-        audio_dir = APP / "audio" / c["id"]
+        audio_dir = APP / "audio" / c["id"] / f"v{HVPT_AUDIO_VERSION}"
         audio_dir.mkdir(parents=True, exist_ok=True)
+        manifest_path = APP / "data" / f"{c['id']}.json"
+        matched = manifest_path.exists() and J(manifest_path).get("durationMatched") is True
         words = sorted({w for p in pairs for w in (p["a"], p["b"])})
         made = skipped = 0
-        for word in words:
+        for p in pairs:
             for spk in train_speakers + test_speakers:
-                path = audio_dir / f"{word}_{spk}.mp3"
-                if path.exists():
-                    skipped += 1
+                paths = {w: audio_dir / f"{w}_{spk}.mp3" for w in (p["a"], p["b"])}
+                if matched and all(x.exists() for x in paths.values()):
+                    skipped += 2
                     continue
-                audio, rate = synthesize(voice, word, spk)
-                sf.write(path, audio, rate, format="MP3")
-                made += 1
+                for w, (audio, rate) in synthesize_pair(voice, c["id"], p["a"], p["b"], spk).items():
+                    sf.write(paths[w], audio, rate, format="MP3")
+                    made += 1
 
-        write_json(APP / "data" / f"{c['id']}.json", {
+        write_json(manifest_path, {
             **c,
-            "audio": f"audio/{c['id']}/{{word}}_{{speaker}}.mp3",
+            "audio": f"audio/{c['id']}/v{HVPT_AUDIO_VERSION}/{{word}}_{{speaker}}.mp3",
+            "audioVersion": HVPT_AUDIO_VERSION,
+            "durationMatched": True,
+            "durationJitter": DURATION_JITTER,
             "speakers": {"train": train_speakers, "test": test_speakers},
             "pairs": pairs,
         })

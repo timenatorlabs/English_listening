@@ -1,37 +1,37 @@
-// Dictation used as a diagnostic: listen, type, then classify what was missed.
-// Evidence for dictation itself as a learning method is weak (spec: △); the
-// point here is to find which kind of listening problem causes the errors.
+// Dictation used as a diagnostic: listen, type, then look for *likely* causes of misses.
+// Evidence for dictation itself as a learning method is weak (spec: △). The automatic
+// classification only sees the typed text, so it is shown as an estimate, and the
+// learner's own report of the cause is stored separately (scoringVersion 2).
 import * as db from "./db.js";
 import { esc, pct, pick, shuffle } from "./util.js";
 import { loadAudio, play } from "./audio.js";
+import { analyze, FEATURE_NAMES } from "./scoring.js";
 
 const SESSION_SIZE = 10;
 const RATES = [0.7, 0.8, 0.9, 1.0, 1.1, 1.2];
 const DEFAULT_RATE = { 1: 0.8, 2: 0.9, 3: 1.0, 4: 1.0, 5: 1.1 };
 const RECENT = 30;   // sentences used for the weakness summary
+const SCORING_VERSION = 2;
 
-const FEATURE_NAMES = {
-  linking: "連結（音がつながる）",
-  reduction: "弱化・短縮（音が弱く短くなる）",
-  elision: "脱落（音が消える）",
-  assimilation: "同化（となりの音と混ざる）",
-  flap: "はじき音（t がラ行のようになる）",
-};
-
+// Estimated causes (from the typed text only)
 const CATEGORIES = {
-  change: { name: "音の変化", desc: "音がつながる・弱くなる・消える部分の聞き落とし" },
-  weak: { name: "弱く発音される語", desc: "a, the, to, can など、文の中で弱く短く発音される語" },
-  confusion: { name: "音の混同", desc: "right / light など、似た音の聞き違い" },
-  unknown: { name: "知らない単語", desc: "自分で「知らない」と選んだ単語" },
-  other: { name: "その他", desc: "上のどれにも当てはまらない聞き取りミス" },
+  change: { name: "音の変化", desc: "音がつながる・弱くなる・消える部分での誤り" },
+  weak: { name: "弱く発音される語", desc: "a, the, to, can など、文の中で弱く短く発音される語の誤り" },
+  confusion: { name: "似た音の取り違え", desc: "right / light など、似た音の単語と取り違えた誤り" },
+  other: { name: "その他", desc: "上のどれにも当てはまらない誤り（タイプミスを含む）" },
 };
 
-// Words that usually take a weak (reduced) form inside a sentence.
-const FUNCTION_WORDS = new Set(("a an the and but or as at for from of to than that can could would should must shall "
-  + "have has had do does am are is was were be been he him his her them us you your some there 'd").split(" "));
+// Causes the learner reports after checking the answer
+const SELF_CAUSES = {
+  vocab: "知らない単語があった",
+  sound: "音が聞き分けられなかった",
+  change: "音のつながり・変化に気づかなかった",
+  speed: "速くて意味が追いつかなかった",
+  slip: "聞き取れたが書き間違えた",
+};
 
 const app = document.getElementById("app");
-let ctx = null;                 // { data, manifests, openContrast, levels }
+let ctx = null;                 // { data, manifests, openContrast, openLesson, levels }
 const pairIndex = new Map();    // "word|word" -> contrast id
 
 export function init(c) {
@@ -48,123 +48,6 @@ const sentencePath = (s, speaker) => ctx.data.audio.replace("{id}", s.id).replac
 
 export function audioPaths() {
   return ctx.data.sentences.flatMap((s) => ctx.data.speakers.map((sp) => sentencePath(s, sp)));
-}
-
-// ---------- text comparison ----------
-
-const SPECIAL = { "can't": ["can", "not"], "won't": ["will", "not"], "let's": ["let", "us"] };
-const SUFFIX = { m: "am", re: "are", ve: "have", ll: "will", d: "'d", s: "is" };
-
-function expand(w) {
-  if (SPECIAL[w]) return SPECIAL[w];
-  let m = w.match(/^(.+)n't$/);
-  if (m) return [m[1], "not"];
-  m = w.match(/^(.+)'(m|re|ve|ll|d|s)$/);
-  if (m) return [m[1], SUFFIX[m[2]]];
-  return [w];
-}
-
-// Contractions are expanded so "I'm" and "I am" compare equal.
-// Each token remembers which original word it came from.
-export function tokenize(text) {
-  const words = text.replace(/’/g, "'").split(/\s+/).filter(Boolean);
-  const tokens = [];
-  words.forEach((raw, wi) => {
-    const w = raw.toLowerCase().replace(/[^a-z0-9']+/g, "").replace(/^'+|'+$/g, "");
-    if (!w) return;
-    for (const t of expand(w)) tokens.push({ t, w: wi });
-  });
-  return { words, tokens };
-}
-
-const D_FORMS = new Set(["'d", "had", "would"]);
-export const eq = (a, b) => a === b || ((a === "'d" || b === "'d") && D_FORMS.has(a) && D_FORMS.has(b));
-
-// Word-level edit-distance alignment.
-function align(target, typed) {
-  const n = target.length;
-  const m = typed.length;
-  const d = Array.from({ length: n + 1 }, (_, i) => Array.from({ length: m + 1 }, (_, j) => (i === 0 ? j : j === 0 ? i : 0)));
-  for (let i = 1; i <= n; i++) {
-    for (let j = 1; j <= m; j++) {
-      d[i][j] = Math.min(d[i - 1][j] + 1, d[i][j - 1] + 1, d[i - 1][j - 1] + (eq(target[i - 1], typed[j - 1]) ? 0 : 1));
-    }
-  }
-  const ops = [];
-  let i = n;
-  let j = m;
-  while (i > 0 || j > 0) {
-    const same = i > 0 && j > 0 && eq(target[i - 1], typed[j - 1]);
-    if (i > 0 && j > 0 && d[i][j] === d[i - 1][j - 1] + (same ? 0 : 1)) {
-      ops.push({ type: same ? "match" : "sub", t: i - 1, u: j - 1 });
-      i--;
-      j--;
-    } else if (i > 0 && d[i][j] === d[i - 1][j] + 1) {
-      ops.push({ type: "del", t: i - 1 });
-      i--;
-    } else {
-      ops.push({ type: "ins", u: j - 1 });
-      j--;
-    }
-  }
-  return ops.reverse();
-}
-
-function confusionContrast(target, typed) {
-  if (!typed || target === typed) return null;
-  const hit = pairIndex.get(`${target}|${typed}`);
-  if (hit) return hit;
-  // pairs that are not in the training lists: differ only by r/l, b/v or s/th
-  for (const [x, y, id] of [["r", "l", "rl"], ["v", "b", "bv"], ["th", "s", "sth"]]) {
-    if (target.split(x).join(y) === typed.split(x).join(y)) return id;
-  }
-  return null;
-}
-
-function analyze(sentence, typedText, unknown) {
-  const tgt = tokenize(sentence.text);
-  const usr = tokenize(typedText);
-  const tt = tgt.tokens.map((x) => x.t);
-  const ops = align(tt, usr.tokens.map((x) => x.t));
-
-  const featureAt = new Array(tt.length).fill(null);
-  for (const f of sentence.features) {
-    const sp = tokenize(f.span).tokens.map((x) => x.t);
-    for (let i = 0; i + sp.length <= tt.length; i++) {
-      if (sp.every((s, k) => tt[i + k] === s)) {
-        for (let k = 0; k < sp.length; k++) if (!featureAt[i + k]) featureAt[i + k] = f;
-        break;
-      }
-    }
-  }
-
-  const states = tgt.words.map(() => ({ ok: true, typed: [], err: null }));
-  const extras = [];
-  let matched = 0;
-  for (const op of ops) {
-    if (op.type === "match") {
-      matched++;
-      continue;
-    }
-    if (op.type === "ins") {
-      extras.push(usr.tokens[op.u].t);
-      continue;
-    }
-    const tok = tgt.tokens[op.t];
-    const typed = op.type === "sub" ? usr.tokens[op.u].t : null;
-    const st = states[tok.w];
-    st.ok = false;
-    if (typed) st.typed.push(typed);
-    if (st.err) continue;
-    const f = featureAt[op.t];
-    const contrast = confusionContrast(tok.t, typed);
-    if (unknown.has(tok.w)) st.err = { cat: "unknown" };
-    else if (f) st.err = { cat: "change", feature: f.type };
-    else if (contrast) st.err = { cat: "confusion", contrast };
-    else if (FUNCTION_WORDS.has(tok.t)) st.err = { cat: "weak" };
-    else st.err = { cat: "other" };
-  }
-  return { words: tgt.words, states, extras, matched, total: tt.length, featureAt };
 }
 
 // ---------- screens ----------
@@ -190,8 +73,12 @@ export async function start() {
     renderChooseLevel();
     return;
   }
+  // sentences never dictated before come first, so first-try scores stay measurable
+  const seen = new Set((await db.allTrials()).filter((t) => t.mode === "dictation").map((t) => t.id));
   const pool = ctx.data.sentences.filter((s) => s.level === level);
-  const items = shuffle(pool).slice(0, SESSION_SIZE).map((s) => ({ s, speaker: pick(ctx.data.speakers) }));
+  const fresh = shuffle(pool.filter((s) => !seen.has(s.id)));
+  const again = shuffle(pool.filter((s) => seen.has(s.id)));
+  const items = [...fresh, ...again].slice(0, SESSION_SIZE).map((s) => ({ s, speaker: pick(ctx.data.speakers), firstTry: !seen.has(s.id) }));
   const savedRate = await db.get("dictRate", null);
   const sess = { level, items, i: 0, rate: savedRate || DEFAULT_RATE[level], scores: [], cats: {} };
   showItem(sess);
@@ -205,12 +92,13 @@ function showItem(sess) {
   const item = sess.items[sess.i];
   item.replays = 0;
   item.unknown = new Set();
+  item.causes = new Set();
   item.result = null;
   const playItem = () => play(sentencePath(item.s, item.speaker), sess.rate);
 
   app.innerHTML = `
     <div class="progress muted small">
-      <span>書き取り（レベル${sess.level}）</span>
+      <span>書き取り（レベル${sess.level}）${item.firstTry ? "・初めての文" : "・前に出た文"}</span>
       <span>${sess.i + 1} / ${sess.items.length}</span>
     </div>
     <div class="meter" aria-hidden="true"><span style="width:${((sess.i / sess.items.length) * 100).toFixed(1)}%"></span></div>
@@ -257,6 +145,7 @@ function showItem(sess) {
   document.getElementById("check").onclick = () => {
     item.typed = document.getElementById("answer").value;
     document.getElementById("answer").readOnly = true;
+    item.result = analyze(item.s, item.typed, pairIndex);
     renderResult(sess, item);
   };
   document.getElementById("quit").onclick = async () => {
@@ -265,17 +154,18 @@ function showItem(sess) {
   };
 }
 
+function estimateTag(err) {
+  if (!err) return "";
+  const label = err.cat === "change" ? FEATURE_NAMES[err.feature].split("（")[0]
+    : err.cat === "confusion" ? `似た音 ${ctx.manifests[err.contrast] ? ctx.manifests[err.contrast].title : ""}`
+      : CATEGORIES[err.cat].name;
+  return `<span class="tag tag-${err.cat}">推定：${esc(label)}</span>`;
+}
+
 function renderResult(sess, item) {
-  const r = analyze(item.s, item.typed, item.unknown);
-  item.result = r;
-  const tag = (err) => {
-    if (!err) return "";
-    const label = err.cat === "change" ? FEATURE_NAMES[err.feature].split("（")[0]
-      : err.cat === "confusion" ? `音の混同 ${ctx.manifests[err.contrast] ? ctx.manifests[err.contrast].title : ""}`
-        : CATEGORIES[err.cat].name;
-    return `<span class="tag tag-${err.cat}">${esc(label)}</span>`;
-  };
+  const r = item.result;
   const errorFeatures = new Set(r.states.filter((s) => s.err && s.err.cat === "change").map((s) => s.err.feature));
+  const missed = !r.states.every((s) => s.ok);
 
   document.getElementById("result").innerHTML = `
     <section class="card">
@@ -283,10 +173,12 @@ function renderResult(sess, item) {
       <p class="muted small">単語の正解率（${r.matched} / ${r.total}）</p>
       <p class="dict-words">${r.words.map((w, wi) => {
         const st = r.states[wi];
+        const self = item.unknown.has(wi) ? `<span class="tag">自己申告：知らない単語</span>` : "";
         if (st.ok) return `<span class="w-ok">${esc(w)}</span>`;
-        return `<span class="w-ng">${esc(w)}<span class="w-typed">${st.typed.length ? esc(st.typed.join(" ")) : "（聞き取れず）"}</span>${tag(st.err)}</span>`;
+        return `<span class="w-ng">${esc(w)}<span class="w-typed">${st.typed.length ? esc(st.typed.join(" ")) : "（聞き取れず）"}</span>${estimateTag(st.err)}${self}</span>`;
       }).join(" ")}</p>
       ${r.extras.length ? `<p class="muted small">余分に入力した語：${esc(r.extras.join(" "))}</p>` : ""}
+      ${missed ? `<p class="muted small">「推定」は入力した文字だけから機械的に推測した原因の候補で、本当の原因とは限りません。</p>` : ""}
       <p class="small">訳：${esc(item.s.ja)}</p>
     </section>
 
@@ -298,13 +190,26 @@ function renderResult(sess, item) {
       <p class="muted small">音声合成のため、実際の会話ほど音の変化がはっきり出ていないことがあります。</p>
     </section>
 
+    ${missed ? `
     <section class="card">
-      <h2>知らなかった単語はありますか？</h2>
-      <p class="muted small">選ぶと「知らない単語」として分析します。</p>
-      <div class="chips">${r.words.map((w, wi) => `<button class="chip ${item.unknown.has(wi) ? "on" : ""}" type="button" data-unknown="${wi}">${esc(w.replace(/[.,!?]/g, ""))}</button>`).join("")}</div>
-    </section>
+      <h2>聞き取れなかった理由（自分で選ぶ）</h2>
+      <p class="muted small">当てはまるものをすべて選んでください。機械の推定とは別に記録します。</p>
+      <div class="chips">${Object.entries(SELF_CAUSES).map(([k, v]) => `<button class="chip ${item.causes.has(k) ? "on" : ""}" type="button" data-cause="${k}">${v}</button>`).join("")}</div>
+      ${item.causes.has("vocab") ? `
+        <p class="small" style="margin-top:8px">知らなかった単語を選んでください：</p>
+        <div class="chips">${r.words.map((w, wi) => `<button class="chip ${item.unknown.has(wi) ? "on" : ""}" type="button" data-unknown="${wi}">${esc(w.replace(/[.,!?"]/g, ""))}</button>`).join("")}</div>` : ""}
+    </section>` : ""}
   `;
 
+  document.querySelectorAll("[data-cause]").forEach((btn) => {
+    btn.onclick = () => {
+      const k = btn.dataset.cause;
+      if (item.causes.has(k)) item.causes.delete(k);
+      else item.causes.add(k);
+      if (!item.causes.has("vocab")) item.unknown.clear();
+      renderResult(sess, item);
+    };
+  });
   document.querySelectorAll("[data-unknown]").forEach((btn) => {
     btn.onclick = () => {
       const wi = Number(btn.dataset.unknown);
@@ -321,12 +226,8 @@ function renderResult(sess, item) {
   document.getElementById("next").onclick = async () => {
     await saveItem(sess, item);
     sess.i++;
-    if (sess.i < sess.items.length) {
-      showItem(sess);
-      window.scrollTo(0, 0);
-    } else {
-      renderSessionDone(sess);
-    }
+    if (sess.i < sess.items.length) showItem(sess);
+    else renderSessionDone(sess);
   };
 }
 
@@ -341,23 +242,26 @@ async function saveItem(sess, item) {
   sess.scores.push(pct(r.matched, r.total));
   await db.addTrial({
     mode: "dictation",
+    scoringVersion: SCORING_VERSION,
     date: new Date().toISOString(),
     id: item.s.id,
     level: sess.level,
+    firstTry: item.firstTry,
     speaker: item.speaker,
     rate: sess.rate,
     replays: item.replays,
     typed: item.typed,
     matched: r.matched,
     total: r.total,
-    errors,
-    unknown: [...item.unknown].map((wi) => r.words[wi].replace(/[.,!?]/g, "")),
+    errors,                                  // estimated causes (automatic)
+    selfCauses: [...item.causes],            // learner's own report
+    unknown: [...item.unknown].map((wi) => r.words[wi].replace(/[.,!?"]/g, "")),
   });
 }
 
 function renderSessionDone(sess) {
   const avg = sess.scores.length ? Math.round(sess.scores.reduce((a, b) => a + b, 0) / sess.scores.length) : 0;
-  const cats = Object.entries(sess.cats).sort((a, b) => b[1] - a[1]);
+  const cats = Object.entries(sess.cats).filter(([k]) => CATEGORIES[k]).sort((a, b) => b[1] - a[1]);
   app.innerHTML = `
     <h1>書き取りおつかれさまでした</h1>
     <section class="card">
@@ -365,8 +269,9 @@ function renderSessionDone(sess) {
       <div class="stat">${avg}%</div>
     </section>
     <section class="card">
-      <h2>今回の聞き取りミスの内訳</h2>
-      ${cats.length ? `<ul>${cats.map(([k, v]) => `<li>${esc(CATEGORIES[k].name)}：${v}語</li>`).join("")}</ul>` : `<p>ミスはありませんでした。レベルを上げてみましょう。</p>`}
+      <h2>今回の誤りの推定原因</h2>
+      ${cats.length ? `<ul>${cats.map(([k, v]) => `<li>${esc(CATEGORIES[k].name)}：${v}語</li>`).join("")}</ul>
+        <p class="muted small">入力した文字から機械的に推定したもので、本当の原因とは限りません。</p>` : `<p>誤りはありませんでした。レベルを上げてみましょう。</p>`}
     </section>
     <button class="btn primary" type="button" id="weak">弱点のまとめを見る</button>
     <button class="btn" type="button" id="again">もう一度（10文）</button>
@@ -382,54 +287,71 @@ export async function renderWeakness() {
   const counts = {};
   const features = {};
   const contrasts = {};
+  const selfCounts = {};
   const unknownWords = new Set();
+  let reported = 0;
   for (const t of recent) {
     for (const e of t.errors) {
+      // records before scoringVersion 2 stored "unknown" in place of the estimate
+      if (e.cat === "unknown") continue;
       counts[e.cat] = (counts[e.cat] || 0) + 1;
       if (e.cat === "change") features[e.feature] = (features[e.feature] || 0) + 1;
       if (e.cat === "confusion") contrasts[e.contrast] = (contrasts[e.contrast] || 0) + 1;
     }
+    const causes = new Set(t.selfCauses || []);
+    if ((t.unknown || []).length) causes.add("vocab");
+    if (causes.size) reported++;
+    for (const c of causes) selfCounts[c] = (selfCounts[c] || 0) + 1;
     for (const w of t.unknown || []) unknownWords.add(w);
   }
   const totalErr = Object.values(counts).reduce((a, b) => a + b, 0);
   const avg = recent.length ? Math.round(recent.reduce((a, t) => a + pct(t.matched, t.total), 0) / recent.length) : 0;
   const order = Object.keys(CATEGORIES).filter((k) => counts[k]).sort((a, b) => counts[b] - counts[a]);
   const topContrast = Object.entries(contrasts).sort((a, b) => b[1] - a[1])[0];
-
   const topFeature = Object.entries(features).sort((a, b) => b[1] - a[1])[0];
+
   const advice = {
-    change: `<p class="small">音がつながる・消える部分を聞き落としています。「音の変化の学習」でルールを確認し、聞き比べで耳を慣らしましょう。</p>
+    change: `<p class="small">音がつながる・消える部分で誤りが多い可能性があります。「音の変化の学習」でルールを確認し、聞き比べで耳を慣らしてみましょう。</p>
       ${Object.keys(features).length ? `<ul class="small">${Object.entries(features).sort((a, b) => b[1] - a[1]).map(([f, v]) => `<li>${esc(FEATURE_NAMES[f])}：${v}語</li>`).join("")}</ul>` : ""}
       ${topFeature ? `<button class="btn" type="button" id="go-lesson">「${esc(FEATURE_NAMES[topFeature[0]].split("（")[0])}」を学ぶ</button>` : ""}`,
     weak: `<p class="small">a, the, to, can などは文の中で弱く短く発音されるため、聞き落としやすい語です。音だけで聞き取れなくても、文法や意味から補えるように、答え合わせのあとに文全体をもう一度聞いてみましょう。</p>`,
-    confusion: topContrast ? `<p class="small">似た音の聞き違いがあります。最も多いのは <strong>${esc(ctx.manifests[topContrast[0]] ? ctx.manifests[topContrast[0]].title : topContrast[0])}</strong> です。</p>
+    confusion: topContrast ? `<p class="small">似た音の取り違えの可能性があります。最も多いのは <strong>${esc(ctx.manifests[topContrast[0]] ? ctx.manifests[topContrast[0]].title : topContrast[0])}</strong> です。</p>
       <button class="btn" type="button" id="go-contrast">${esc(ctx.manifests[topContrast[0]] ? ctx.manifests[topContrast[0]].title : "")} の聞き分け訓練へ</button>` : "",
-    unknown: `<p class="small">知らない単語は、音だけでは聞き取れません。意味と音を一緒に覚えましょう。</p>
-      ${unknownWords.size ? `<p class="small">最近選んだ単語：${esc([...unknownWords].join(", "))}</p>` : ""}`,
-    other: `<p class="small">上のどれにも当てはまらないミスです。再生速度を下げて、どこで聞き取れなくなるかを確かめてみましょう。</p>`,
+    other: `<p class="small">上のどれにも当てはまらない誤りです（タイプミスも含まれます）。再生速度を下げて、どこで聞き取れなくなるかを確かめてみましょう。</p>`,
   };
 
   app.innerHTML = `
     <h1>弱点のまとめ</h1>
     ${recent.length ? `
       <section class="card">
-        <p class="small">直近${recent.length}文の書き取りから分析しました（平均の単語正解率 ${avg}%）。</p>
+        <h2>機械による推定（入力した文字から）</h2>
+        <p class="small">直近${recent.length}文（平均の単語正解率 ${avg}%）の誤りを、原因の候補ごとに数えました。</p>
         ${totalErr ? order.map((k) => `
           <div class="bar-row">
             <span>${esc(CATEGORIES[k].name)}</span>
             <span class="muted small">${counts[k]}語（${pct(counts[k], totalErr)}%）</span>
           </div>
-          <div class="meter" aria-hidden="true"><span style="width:${pct(counts[k], totalErr)}%"></span></div>`).join("") : `<p>ミスはありませんでした。</p>`}
+          <div class="meter" aria-hidden="true"><span style="width:${pct(counts[k], totalErr)}%"></span></div>`).join("") : `<p>誤りはありませんでした。</p>`}
+        <p class="muted small" style="margin-top:8px">入力した文字だけから推測した候補で、本当の原因とは限りません。下の「自分で選んだ理由」とあわせて見てください。</p>
       </section>
+
+      <section class="card">
+        <h2>自分で選んだ理由</h2>
+        ${reported ? `<p class="small">理由を選んだ ${reported}文のうち：</p>
+          <ul class="small">${Object.entries(selfCounts).sort((a, b) => b[1] - a[1]).map(([k, v]) => `<li>${esc(SELF_CAUSES[k] || k)}：${v}文</li>`).join("")}</ul>
+          ${unknownWords.size ? `<p class="small">知らなかった単語：${esc([...unknownWords].join(", "))}</p>` : ""}`
+          : `<p class="muted small">まだ記録がありません。答え合わせのあとに、聞き取れなかった理由を選べます。</p>`}
+      </section>
+
       ${order.map((k) => `
         <section class="card">
-          <h2>${esc(CATEGORIES[k].name)}</h2>
+          <h2>${esc(CATEGORIES[k].name)}（推定）</h2>
           <p class="muted small">${esc(CATEGORIES[k].desc)}</p>
           ${advice[k]}
         </section>`).join("")}
     ` : `<section class="card"><p>まだ書き取りの記録がありません。まずは書き取りをしてみましょう。</p></section>`}
     <section class="card">
-      <p class="muted small">分類は自動判定のため、目安としてご覧ください。書き取りそのものの学習効果を示す研究上の根拠は限られているため、ここでは「弱点を見つける」ために使っています。</p>
+      <p class="muted small">書き取りそのものの学習効果を示す研究上の根拠は限られているため、ここでは「弱点の候補を見つける」ために使っています。</p>
     </section>
     <button class="btn primary" type="button" id="go-dict">書き取りをする</button>
     <button class="btn" type="button" data-nav="home">ホームへ</button>

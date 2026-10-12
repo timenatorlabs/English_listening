@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>音声の確認</title>
+  <link rel="stylesheet" href="../app/fonts/noto-sans-jp.css">
+  <style>
+    :root { --bg: #f6f7f7; --surface: #fff; --text: #1c2526; --muted: #5b6b6c; --line: #d9e0e0; --brand: #0d6e6e; }
+    body { margin: 0; background: var(--bg); color: var(--text); font-family: "Noto Sans JP", sans-serif; line-height: 1.6; }
+    main { max-width: 560px; margin: 0 auto; padding: 16px; }
+    .card { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; padding: 16px; margin-bottom: 14px; }
+    button { font: inherit; min-height: 48px; padding: 8px 14px; border-radius: 12px; border: 1px solid var(--line); background: var(--surface); cursor: pointer; }
+    button.primary { background: var(--brand); border-color: var(--brand); color: #fff; }
+    .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-top: 10px; }
+    .muted { color: var(--muted); font-size: 0.85rem; }
+    .play { width: 100%; font-size: 1.4rem; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>音声の確認（作業用）</h1>
+  <div class="card">
+    <p>音声を聞いて、<strong>明らかな不具合</strong>があるかだけを選んでください。英語の正しさは判断しなくて大丈夫です。</p>
+    <ul class="muted">
+      <li>雑音・ブツッという音・途中で切れている → 「雑音・途切れ」</li>
+      <li>声がこもる、ゆがむ、人の声に聞こえない → 「声がおかしい」</li>
+      <li>迷ったら「よく分からない」</li>
+    </ul>
+    <p class="muted">結果はこのブラウザに保存されます。最後に「結果を保存」を押し、できたファイルを作業フォルダの <code>qa/human_review.json</code> として置いてください。</p>
+  </div>
+  <div class="card" id="item"></div>
+  <div class="card">
+    <p id="progress" class="muted"></p>
+    <button type="button" id="save" class="primary">結果を保存（human_review.json）</button>
+  </div>
+</main>
+<script type="module">
+  const KEY = "eigo-mimi-human-review";
+  const load = () => { try { return JSON.parse(localStorage.getItem(KEY)) || {}; } catch { return {}; } };
+  const store = (v) => { try { localStorage.setItem(KEY, JSON.stringify(v)); } catch {} };
+  const queue = (await (await fetch("review_queue.json")).json()).items;
+  const results = load();
+  const audio = new Audio();
+  let i = queue.findIndex((q) => !results[q.path]);
+  if (i < 0) i = 0;
+  const CHOICES = [["ok", "問題なし"], ["noise", "雑音・途切れ"], ["voice", "声がおかしい"], ["unsure", "よく分からない"]];
+
+  function show() {
+    const q = queue[i];
+    const done = queue.filter((x) => results[x.path]).length;
+    document.getElementById("progress").textContent = `${done} / ${queue.length} 件 確認済み`;
+    document.getElementById("item").innerHTML = `
+      <p class="muted">${i + 1} 件目（${q.reason}）</p>
+      <button type="button" class="play" id="play">▶ 再生</button>
+      <div class="choices">${CHOICES.map(([k, v]) => `<button type="button" data-r="${k}" ${results[q.path] && results[q.path].result === k ? 'class="primary"' : ""}>${v}</button>`).join("")}</div>
+      <div class="choices"><button type="button" id="prev">← 前へ</button><button type="button" id="next">次へ →</button></div>`;
+    const playIt = () => { audio.src = `../app/${q.path}`; audio.play().catch(() => {}); };
+    document.getElementById("play").onclick = playIt;
+    playIt();
+    document.querySelectorAll("[data-r]").forEach((b) => b.onclick = () => {
+      results[q.path] = { result: b.dataset.r, date: new Date().toISOString() };
+      store(results);
+      if (i < queue.length - 1) i++;
+      show();
+    });
+    document.getElementById("prev").onclick = () => { if (i > 0) i--; show(); };
+    document.getElementById("next").onclick = () => { if (i < queue.length - 1) i++; show(); };
+  }
+  document.getElementById("save").onclick = () => {
+    const items = {};
+    for (const [path, r] of Object.entries(results)) items[path] = r;
+    const blob = new Blob([JSON.stringify({ items }, null, 1)], { type: "application/json" });
+    const a = document.createElement("a");
+    a.href = URL.createObjectURL(blob);
+    a.download = "human_review.json";
+    a.click();
+  };
+  show();
+</script>
+</body>
+</html>

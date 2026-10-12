@@ -10,6 +10,7 @@ import * as progress from "./progress.js";
 import * as stress from "./stress.js";
 import * as reading from "./reading.js";
 import * as vocab from "./vocab.js";
+import { normalizeTest, testKind, lastTrainingDate } from "./metrics.js";
 
 const TRAIN_TRIALS = 50;
 const TEST_TRIALS_PER_GROUP = 20;   // new words + trained words, both with unseen talkers
@@ -51,14 +52,6 @@ const trainingMs = {};         // id -> ms
 const totalMs = () => Object.values(trainingMs).reduce((a, b) => a + b, 0);
 
 // Records made before multiple contrasts existed used r/l field names.
-function normalizeTest(t) {
-  return {
-    ...t,
-    contrast: t.contrast === "r-l" ? "rl" : t.contrast,
-    aTarget: t.aTarget || t.rTarget,
-    bTarget: t.bTarget || t.lTarget,
-  };
-}
 
 async function testsFor(id) {
   return (await db.allTests()).map(normalizeTest).filter((t) => t.contrast === id);
@@ -157,7 +150,7 @@ async function renderHome() {
       <p class="muted small">累計の訓練時間（全ての音）：${fmtDuration(totalMs())}</p>
     </section>
 
-    <button class="btn" type="button" data-nav="progress">伸びのグラフ</button>
+    <button class="btn primary" type="button" data-nav="progress">聞き取り力のカルテ（成績と変化）</button>
     <div class="row">
       <button class="btn" type="button" data-nav="records">記録とデータ</button>
       <button class="btn" type="button" data-nav="about">このアプリについて</button>
@@ -197,6 +190,7 @@ async function renderContrast(id) {
     <section class="card">
       <p class="small"><strong>根拠 ${esc(manifest.evidence)}</strong>：${esc(EVIDENCE[manifest.evidence] || "")}</p>
       <p class="muted small">${esc(manifest.note)}</p>
+      ${manifest.qaNote ? `<p class="small qa-note">${esc(manifest.qaNote)}</p>` : ""}
     </section>
 
     <section class="card">
@@ -456,7 +450,8 @@ async function startTest() {
     ...buildGroup(trainPairs, TEST_TRIALS_PER_GROUP, "trained"),
   ]);
   const previous = await testsFor(manifest.id);
-  const s = { mode: "test", items, i: 0, kind: previous.length ? "事後" : "事前" };
+  const lastTraining = lastTrainingDate(await db.allTrials(), "train", manifest.id);
+  const s = { mode: "test", items, i: 0, kind: testKind(previous.map((t) => t.date), lastTraining), lastTraining };
 
   s.onAnswer = async (trial) => {
     await db.addTrial({ ...trialRecord("test", trial), group: trial.group });
@@ -505,9 +500,12 @@ async function finishTest(s) {
     aTarget: score((t) => t.side === "a"),
     bTarget: score((t) => t.side === "b"),
     trainingMsAtTest: trainingMs[manifest.id] || 0,
+    lastTrainingAtTest: s.lastTraining,
+    audioVersion: manifest.audioVersion || 1,
   };
   await db.addTest(result);
-  const tests = await testsFor(manifest.id);
+  // compare only with tests that used the same audio
+  const tests = (await testsFor(manifest.id)).filter((t) => (t.audioVersion || 1) === result.audioVersion);
   const first = tests[0];
   const { labels } = manifest;
 
@@ -523,13 +521,13 @@ async function finishTest(s) {
       <table>
         <thead><tr><th></th><th class="num">今回</th><th class="num">初回</th></tr></thead>
         <tbody>
-          ${line("初めての単語", result.newWords, first.newWords)}
-          ${line("訓練した単語", result.trainedWords, first.trainedWords)}
+          ${line("初めての単語（初めての声）", result.newWords, first.newWords)}
+          ${line("訓練した単語（初めての声）", result.trainedWords, first.trainedWords)}
           ${line(`${esc(labels.a)} が正解の問題`, result.aTarget, first.aTarget)}
           ${line(`${esc(labels.b)} が正解の問題`, result.bTarget, first.bTarget)}
         </tbody>
       </table>
-      <p class="muted small" style="margin-top:8px">2択なので、当てずっぽうでも約50%になります。</p>
+      <p class="muted small" style="margin-top:8px">テストはすべて訓練で使わない声です。2択なので、当てずっぽうでも約50%になります。問題数が少ないため、数問の違いで数%〜十数%動きます。変化の見方は「聞き取り力のカルテ」で確認できます。</p>
     </section>
     <button class="btn primary" type="button" id="back">${esc(manifest.title)} のメニューへ</button>
     <button class="btn" type="button" data-nav="home">ホームへ</button>
@@ -736,7 +734,7 @@ async function boot() {
     stress.init(stData, rhData, chData);
     reading.init(storyData);
     extensive.init(elData, { openInternal: (id) => (id === "story" ? reading.renderList() : shadowing.renderList()) });
-    progress.init({ contrasts, normalizeTest });
+    progress.init({ contrasts, manifests });
     dictation.init({ data: dictData, manifests, openContrast: renderContrast, openLesson: connected.renderLesson, levels: LEVELS });
     connected.init(csData);
     shadowing.init(shData);

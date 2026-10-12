@@ -3,7 +3,7 @@
 import * as db from "./db.js";
 import { esc, pct, pick, shuffle } from "./util.js";
 import { play } from "./audio.js";
-import { tokenize, eq } from "./dictation.js";
+import { tokenize, eq } from "./scoring.js";
 
 const app = document.getElementById("app");
 let data = null;

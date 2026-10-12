@@ -1,0 +1,799 @@
+{
+ "items": [
+  {
+   "path": "audio/rl/v2/light_44.mp3",
+   "text": "light",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/lice_44.mp3",
+   "text": "lice",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/loom_323.mp3",
+   "text": "loom",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/list_51.mp3",
+   "text": "list",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/lush_44.mp3",
+   "text": "lush",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/ride_1.mp3",
+   "text": "ride",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/lied_671.mp3",
+   "text": "lied",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/grass_671.mp3",
+   "text": "grass",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/grow_1.mp3",
+   "text": "grow",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/glow_8.mp3",
+   "text": "glow",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/bloom_1.mp3",
+   "text": "bloom",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/breed_51.mp3",
+   "text": "breed",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/bleed_1.mp3",
+   "text": "bleed",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/crack_44.mp3",
+   "text": "crack",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/clack_447.mp3",
+   "text": "clack",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/lag_671.mp3",
+   "text": "lag",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/lid_621.mp3",
+   "text": "lid",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/lust_44.mp3",
+   "text": "lust",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/lent_44.mp3",
+   "text": "lent",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/lot_671.mp3",
+   "text": "lot",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/bland_8.mp3",
+   "text": "bland",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/clash_621.mp3",
+   "text": "clash",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/rl/v2/elect_51.mp3",
+   "text": "elect",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/berry_671.mp3",
+   "text": "berry",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/very_1.mp3",
+   "text": "very",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/best_1.mp3",
+   "text": "best",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/vest_1.mp3",
+   "text": "vest",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/boat_51.mp3",
+   "text": "boat",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/vote_1.mp3",
+   "text": "vote",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/ban_621.mp3",
+   "text": "ban",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/van_1.mp3",
+   "text": "van",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/bet_1.mp3",
+   "text": "bet",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/vet_1.mp3",
+   "text": "vet",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/vase_1.mp3",
+   "text": "vase",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/bent_1.mp3",
+   "text": "bent",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/vent_1.mp3",
+   "text": "vent",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/bolt_44.mp3",
+   "text": "bolt",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/volt_1.mp3",
+   "text": "volt",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/bale_1.mp3",
+   "text": "bale",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/veil_1.mp3",
+   "text": "veil",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/marble_1.mp3",
+   "text": "marble",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/saber_51.mp3",
+   "text": "saber",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/curb_1.mp3",
+   "text": "curb",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/bat_51.mp3",
+   "text": "bat",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/vat_1.mp3",
+   "text": "vat",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/bile_1.mp3",
+   "text": "bile",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/bane_1.mp3",
+   "text": "bane",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/vane_8.mp3",
+   "text": "vane",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/bv/v2/vowel_1.mp3",
+   "text": "vowel",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/sth/v2/thick_1.mp3",
+   "text": "thick",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/sth/v2/thank_76.mp3",
+   "text": "thank",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/sth/v2/thought_8.mp3",
+   "text": "thought",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/sth/v2/path_1.mp3",
+   "text": "path",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/sth/v2/face_44.mp3",
+   "text": "face",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/sth/v2/forth_1.mp3",
+   "text": "forth",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/sth/v2/thaw_1.mp3",
+   "text": "thaw",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/sth/v2/tense_1.mp3",
+   "text": "tense",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/sth/v2/myth_1.mp3",
+   "text": "myth",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/cap_8.mp3",
+   "text": "cap",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/cat_8.mp3",
+   "text": "cat",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/cut_559.mp3",
+   "text": "cut",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/bag_1.mp3",
+   "text": "bag",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/hat_1.mp3",
+   "text": "hat",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/hut_671.mp3",
+   "text": "hut",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/much_51.mp3",
+   "text": "much",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/bad_44.mp3",
+   "text": "bad",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/lack_1.mp3",
+   "text": "lack",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/luck_559.mp3",
+   "text": "luck",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/ankle_51.mp3",
+   "text": "ankle",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/cab_8.mp3",
+   "text": "cab",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/cub_671.mp3",
+   "text": "cub",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/drunk_1.mp3",
+   "text": "drunk",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/aeuh/v2/staff_8.mp3",
+   "text": "staff",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/iih/v2/feel_559.mp3",
+   "text": "feel",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/iih/v2/fill_447.mp3",
+   "text": "fill",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/iih/v2/bit_44.mp3",
+   "text": "bit",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/iih/v2/it_8.mp3",
+   "text": "it",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/iih/v2/slip_1.mp3",
+   "text": "slip",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/iih/v2/cheap_559.mp3",
+   "text": "cheap",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/iih/v2/peel_559.mp3",
+   "text": "peel",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/iih/v2/pill_1.mp3",
+   "text": "pill",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/iih/v2/will_1.mp3",
+   "text": "will",
+   "reason": "音声認識で別の語と判定された単語"
+  },
+  {
+   "path": "audio/dict/2-03_575.mp3",
+   "text": "She has a lot of friends.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/dict/2-04_575.mp3",
+   "text": "We need to leave at eight.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/dict/3-02_227.mp3",
+   "text": "What do you want to eat for dinner?",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/dict/3-06_575.mp3",
+   "text": "She told me that she was tired.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/dict/4-01_575.mp3",
+   "text": "If I had known about it, I would have told you.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/dict/4-02_227.mp3",
+   "text": "You'd better leave now, or you'll miss the train.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/dict/5-01_575.mp3",
+   "text": "I'd have gone with you if you'd asked me.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/dict/5-07_227.mp3",
+   "text": "Would you mind if I opened the window a little?",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/cs/linking-ex1-natural.mp3",
+   "text": "check in",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/cs/linking-ex2-words.mp3",
+   "text": "an apple",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/cs/linking-ex4-words.mp3",
+   "text": "for an hour",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/cs/linking-q3_227.mp3",
+   "text": "Let's eat out tonight.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/cs/reduction-ex3-words.mp3",
+   "text": "kind of tired",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/cs/reduction-q4_227.mp3",
+   "text": "I ran out of time.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/cs/elision-ex2-words.mp3",
+   "text": "bus stop",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/cs/elision-ex2-natural.mp3",
+   "text": "bus stop",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/cs/elision-q1_575.mp3",
+   "text": "She left the room.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/cs/assimilation-ex1-words.mp3",
+   "text": "would you",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/cs/flap-q3_227.mp3",
+   "text": "It's a little hot.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/sh/1-a-3_575.mp3",
+   "text": "Then I walk to the station.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/sh/1-b-4_227.mp3",
+   "text": "We walk him every evening.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/sh/2-a-3_575.mp3",
+   "text": "Do you want to come with us?",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/sh/2-b-3_227.mp3",
+   "text": "For here or to go?",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/sh/2-b-4_575.mp3",
+   "text": "To go, please.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/sh/3-a-0_227.mp3",
+   "text": "It started raining when I left the office.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/sh/3-b-0_575.mp3",
+   "text": "I've been studying English for about a year.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/sh/3-b-1_575.mp3",
+   "text": "At first, it was hard to understand native speakers.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/sh/4-a-1_227.mp3",
+   "text": "It saves time because you don't have to commute.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/sh/4-b-3_227.mp3",
+   "text": "We also tried some traditional sweets.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/sh/5-b-2_227.mp3",
+   "text": "But saying yes to everything can leave you exhausted.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s1-0_227.mp3",
+   "text": "It was a rainy morning.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s1-1_902.mp3",
+   "text": "Ken took his blue umbrella and went to school.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s1-3_227.mp3",
+   "text": "Ken played soccer with his friends.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s1-5_227.mp3",
+   "text": "At home, his mother asked, \"Where is your umbrella?\"",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s1-6_227.mp3",
+   "text": "Ken looked at his hands.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s1-9_227.mp3",
+   "text": "Ken ran to school without an umbrella.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s1-11_575.mp3",
+   "text": "She smiled and gave him his blue umbrella.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s1-13_227.mp3",
+   "text": "Ken laughed. \"Thank you! You are a good friend.\"",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s2-2_575.mp3",
+   "text": "She doesn't use a phone very much, so she writes letters by hand.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s2-4_227.mp3",
+   "text": "Mia always reads them twice.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s2-5_227.mp3",
+   "text": "One day, Mia decided to write back.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s2-6_902.mp3",
+   "text": "She wasn't sure what to say at first.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s2-8_575.mp3",
+   "text": "She also drew a picture of her family.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s3-2_575.mp3",
+   "text": "There were hundreds of small shops selling food, clothes, and toys.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s3-5_227.mp3",
+   "text": "\"First time here?\" he asked with a smile.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s3-6_227.mp3",
+   "text": "Tom nodded.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s3-7_902.mp3",
+   "text": "\"Then you should start with my noodles. They're the best in the market.\"",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s4-1_227.mp3",
+   "text": "Its job was simple: it painted cars the same shade of gray, all day long.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s4-5_227.mp3",
+   "text": "The bird's feathers were bright orange, a color the robot had never used before.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s4-6_575.mp3",
+   "text": "For the first time, Unit Seven wondered what it would be like to paint something other than gray.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s4-7_575.mp3",
+   "text": "That night, it mixed a little red and yellow paint and carefully drew a bird on the side of a car.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s4-9_227.mp3",
+   "text": "But when customers saw it, they asked for more.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/story/s4-10_902.mp3",
+   "text": "Before long, Unit Seven was painting birds, flowers, and even sunsets.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/rhythm/r01_227.mp3",
+   "text": "Cats chase mice.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/rhythm/r03_575.mp3",
+   "text": "The cats have been chasing the mice.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/rhythm/r06_575.mp3",
+   "text": "She's going to call you later.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/rhythm/r10_227.mp3",
+   "text": "I think it's going to rain tomorrow.",
+   "reason": "音声認識で原文と違う語があった文"
+  },
+  {
+   "path": "audio/cs/reduction-ex2-words.mp3",
+   "text": "I've got to go",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/bv/v2/saver_403.mp3",
+   "text": "saver",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/stress/energy_323.mp3",
+   "text": "energy",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/story/s4-0_227.mp3",
+   "text": "In a quiet factory at the edge of the city, there was a robot called Unit Seven.",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/sth/v2/sink_573.mp3",
+   "text": "sink",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/rl/v2/rate_902.mp3",
+   "text": "rate",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/rl/v2/lid_684.mp3",
+   "text": "lid",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/aeuh/v2/cup_44.mp3",
+   "text": "cup",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/sth/v2/thaw_44.mp3",
+   "text": "thaw",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/bv/v2/vile_684.mp3",
+   "text": "vile",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/stress/japanese_621.mp3",
+   "text": "Japanese",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/dict/3-07_227.mp3",
+   "text": "Not at all. It's my pleasure.",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/rl/v2/plank_575.mp3",
+   "text": "plank",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/sth/v2/force_70.mp3",
+   "text": "force",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/bv/v2/bent_323.mp3",
+   "text": "bent",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/aeuh/v2/mud_323.mp3",
+   "text": "mud",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/story/s4-4_227.mp3",
+   "text": "Unit Seven stopped working and watched.",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/rl/v2/arrive_323.mp3",
+   "text": "arrive",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/sth/v2/myth_1.mp3",
+   "text": "myth",
+   "reason": "無作為に選んだ抜き取り確認"
+  },
+  {
+   "path": "audio/rl/v2/cloud_447.mp3",
+   "text": "cloud",
+   "reason": "無作為に選んだ抜き取り確認"
+  }
+ ]
+}

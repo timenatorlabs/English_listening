@@ -7,7 +7,13 @@
  },
  "evidence": "◎",
  "note": "日本人学習者で効果・般化・保持が確認されている（Bradlow et al. 1997, 1999 など）",
- "audio": "audio/rl/{word}_{speaker}.mp3",
+ "audio": "audio/rl/v2/{word}_{speaker}.mp3",
+ "audioVersion": 2,
+ "durationMatched": true,
+ "durationJitter": [
+  0.85,
+  1.15
+ ],
  "speakers": {
   "train": [
    1,

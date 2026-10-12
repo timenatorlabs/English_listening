@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Unit tests</title>
+  <style>
+    body { font-family: sans-serif; margin: 16px; background: #fff; color: #111; }
+    .pass { color: #1a7f37; }
+    .fail { color: #b42318; font-weight: bold; }
+  </style>
+</head>
+<body>
+  <h1>英語の耳トレ：ユニットテスト</h1>
+  <pre id="summary">running…</pre>
+  <ol id="results"></ol>
+  <div id="app" hidden></div>
+  <div id="toast" hidden></div>
+  <script type="module">
+    import { run } from "./harness.js";
+    import "./scoring.test.js";
+    import "./metrics.test.js";
+    import "./storage.test.js";
+    import "./smoke.test.js";
+    run();
+  </script>
+</body>
+</html>

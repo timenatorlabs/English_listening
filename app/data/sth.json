@@ -7,7 +7,13 @@
  },
  "evidence": "○",
  "note": "授業内の短期訓練で改善の報告（Ueda & Hashimoto）",
- "audio": "audio/sth/{word}_{speaker}.mp3",
+ "audio": "audio/sth/v2/{word}_{speaker}.mp3",
+ "audioVersion": 2,
+ "durationMatched": true,
+ "durationJitter": [
+  0.85,
+  1.15
+ ],
  "speakers": {
   "train": [
    1,
